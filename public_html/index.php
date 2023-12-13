@@ -17,7 +17,7 @@ while ($s <= 10){
     $s++;
 }
 
-abstract class Greeting implements DoGreeting {
+abstract class Greeting {
     protected string $name;
 
     /**
@@ -75,5 +75,4 @@ trait UsefulFunctions {
 
 interface DoGreeting {
     public function set_greeting($s);
-
 }
