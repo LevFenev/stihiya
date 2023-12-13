@@ -6,6 +6,11 @@ $s = "My";
 
 $s = 1;
 while ($s <= 10){
-    print 'Hello Wild!';
+    print_greeting("Wild");
+    print_greeting(77);
     $s++;
+}
+
+function print_greeting(string $name) {
+    print 'hello '.$name.'!'."<br>";
 }
