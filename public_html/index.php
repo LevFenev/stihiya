@@ -51,7 +51,7 @@ class Wild_Greeting extends Greeting {
 }
 
 class SeventySeven extends Greeting {
-    use UsefulFunctions;
+    //use UsefulFunctions;
 
     /**
      * SeventySeven constructor.
