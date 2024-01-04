@@ -12,4 +12,9 @@ class PoemController extends Controller
         $poems = Poem::all();
         return view('poem.list', ['poems'=>$poems]);
     }
+
+    public function myPage2(string $id) {
+        $poem = Poem::where('id',$id)->get();
+        return view('poem.read',['poem'=>$poem]);
+    }
 }
