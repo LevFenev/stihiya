@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
 <div>
-    <!-- Well begun is half done. - Aristotle -->
+    <p>Hello World!</p>
 </div>
 @endsection
