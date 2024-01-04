@@ -10,6 +10,6 @@ class PoemController extends Controller
 {
     public function myPage() {
         $poems = Poem::all();
-        return view('poem.list.blade.php', ['poems'=>$poems]);
+        return view('poem.list', ['poems'=>$poems]);
     }
 }
