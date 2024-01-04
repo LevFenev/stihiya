@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class LessonController extends Controller
 {
     public function myPage() {
-        return view('lesson', ['poet_name'=>"Лермонтов"]);
+        return view('lesson', ['poet_name'=>"Лермонтов<br/>"]);
     }
 }
