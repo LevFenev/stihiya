@@ -18,11 +18,11 @@ while ($s <= 10){
 }
 
 abstract class Greeting {
-    protected string $name;
+    protected string $name; // уточнения для фреймворков
 
     /**
      * Greeting constructor.
-     * @param string $name
+     * @param string $name //
      */
     public function __construct(string $name)
     {
