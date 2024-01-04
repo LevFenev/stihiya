@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('lesson', [\App\Http\Controllers\LessonController::class, 'myPage']);
+Route::get('lesson', [\App\Http\Controllers\PoemController::class, 'myPage']);
