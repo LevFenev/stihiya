@@ -9,6 +9,6 @@ class CollectionController extends Controller
 {
     public function myPage() {
         $collections = Poem::all();
-        return view('collection.list', ['collection'=>$collections]);
+        return view('collection.list.blade.php', ['collection'=>$collections]);
     }
 }
