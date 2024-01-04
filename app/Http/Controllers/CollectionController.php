@@ -10,6 +10,6 @@ class CollectionController extends Controller
 {
     public function myPage() {
         $collections = Collection::all();
-        return view('collection.list', ['collection'=>$collections]);
+        return view('collection.list', ['collections'=>$collections]);
     }
 }
