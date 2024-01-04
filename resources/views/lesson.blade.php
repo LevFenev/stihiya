@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
 <div>
-    <p>Hello World!</p>
+    <p>Hello {{$poet_name}}</p>
 </div>
 @endsection
