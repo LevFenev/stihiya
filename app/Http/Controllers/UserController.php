@@ -9,6 +9,6 @@ class UserController extends Controller
 {
     public function myPage() {
         $users = User::all();
-        return view('poem.list', ['users'=>$users]);
+        return view('users.list', ['users'=>$users]);
     }
 }

@@ -9,14 +9,5 @@
         @endforeach
     </ol>
     </p>
-
-    <p>Юзеры:
-    <ol>
-    @foreach($users as $user)
-        <li>{{$users->name}}</li>
-
-        @endforeach
-    </ol>
-    </p>
 </div>
 @endsection
