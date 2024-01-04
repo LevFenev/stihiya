@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class LessonController extends Controller
 {
     public function myPage() {
-        $users = Poem::all()->get();
+        $users = Poem::all();
         return view('lesson', ['poets'=>$users]);
     }
 }
+
