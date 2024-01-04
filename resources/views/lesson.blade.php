@@ -3,8 +3,8 @@
 <div>
     <p>Hello
     <ol>
-    @foreach($poets as $poet)
-        <li>{{$poet->username}}</li>
+    @foreach($poems as $poem)
+        <li>{{$poem->title}}</li>
 
         @endforeach
     </ol>
