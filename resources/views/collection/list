@@ -1,10 +1,10 @@
 @extends('layout')
 @section('content')
     <div>
-        <p>Юзеры:
+        <p>Сборники:
         <ol>
-            @foreach($users as $user)
-                <li>{{$users->username}}</li>
+            @foreach($collections as $collection)
+                <li>{{$collection->title}}</li>
 
             @endforeach
         </ol>

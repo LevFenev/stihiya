@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('lesson', [\App\Http\Controllers\PoemController::class, 'myPage']);
 
 Route::get('lesson', [\App\Http\Controllers\UserController::class, 'myPage']);
+
+Route::get('lesson', [\App\Http\Controllers\CollectionController::class, 'myPage']);
