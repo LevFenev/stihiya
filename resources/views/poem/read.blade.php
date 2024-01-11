@@ -1,8 +1,12 @@
 @extends('layout')
 @section('content')
-    <div>
-        @foreach($poems as $poem)
-        <p>{{$poem->title}}</p>
+<div>
+    <p>Стихи:
+    <ol>
+    @foreach($poems as $poem)
+        <li><a href="poems/{id}">{{$poem->title}}</a></li>
         @endforeach
-    </div>
+    </ol>
+    </p>
+</div>
 @endsection
