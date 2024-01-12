@@ -14,7 +14,7 @@ class PoemController extends Controller
     }
 
     public function myPage2(string $id) {
-        $poem = Poem::where('id',$id)->get();
-        return view('poem.read',['poem'=>$poem]);
+        $poems = Poem::where('id',$id)->get();
+        return view('poem.read',['poem'=>$poems]);
     }
 }
