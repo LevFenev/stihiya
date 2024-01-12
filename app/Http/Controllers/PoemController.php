@@ -14,7 +14,7 @@ class PoemController extends Controller
     }
 
     public function myPage2(string $id) {
-        $poems = Poem::where('id',$id)->get(); // данные записываются в переменную
+        $poems = Poem::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
         return view('poem.read',['poems'=>$poems]); // переменная - poem
     }
 }
