@@ -1,15 +1,13 @@
 @extends('layout')
 @section('content')
 <div>
-    <p>Стихи:
-    <ol>
+    <p>Стихи:</p>
     @foreach($poems as $poem)
-        {{($poem->title)}}
-            {{($poem->author_id)}}
-        {{($poem->content)}}
-        {{($poem->release_year)}}
+        <h1>{{($poem->title)}}</h1>
+            <i>{{($poem->author_id)}}</i>
+    <p>{{($poem->content)}}</p>
+
+    <i>{($poem->release_year)}}</i>
         @endforeach
-    </ol>
-    </p>
 </div>
 @endsection
