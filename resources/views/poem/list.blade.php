@@ -4,7 +4,7 @@
     <p>Стихи:
     <ol>
     @foreach($poems as $poem)
-            <li>{{print_r($poem->title)}}</li>
+            <li>{{($poem->title)}}</li>
         @endforeach
     </ol>
     </p>
