@@ -5,7 +5,7 @@
     <ol>
     @foreach($poems as $poem)
         {{($poem->title)}}
-            {{($poem->author)}}
+            {{($poem->author_id)}}
         {{($poem->content)}}
         {{($poem->year)}}
         @endforeach
