@@ -7,7 +7,7 @@
             <i>{{($poem->author_id)}}</i>
     <p>{{($poem->content)}}</p>
 
-    <i>{($poem->release_year)}}</i>
+    <i>{{($poem->release_year)}}</i>
         @endforeach
 </div>
 @endsection
