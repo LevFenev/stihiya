@@ -4,7 +4,10 @@
     <p>Стихи:
     <ol>
     @foreach($poems as $poem)
-        <li><a href="poems/{id}">{{$poems->title}}</a></li>
+        {{($poem->title)}}
+            {{($poem->author)}}
+        {{($poem->content)}}
+        {{($poem->year)}}
         @endforeach
     </ol>
     </p>
