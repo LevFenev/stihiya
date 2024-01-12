@@ -7,7 +7,7 @@
         {{($poem->title)}}
             {{($poem->author_id)}}
         {{($poem->content)}}
-        {{($poem->year)}}
+        {{($poem->release_year)}}
         @endforeach
     </ol>
     </p>
