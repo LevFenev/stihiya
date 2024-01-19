@@ -25,4 +25,4 @@ Route::get('users', [\App\Http\Controllers\UserController::class, 'myPage']);
 
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'myPage2']);
 
-Route::get('collections/{id}', [\App\Http\Controllers\PoemController::class, 'myPage3']);
+Route::get('collections/{id}', [\App\Http\Controllers\PoemController::class, 'myPage2']);
