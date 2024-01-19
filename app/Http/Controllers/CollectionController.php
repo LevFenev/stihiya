@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class CollectionController extends Controller
 {
-    public function myPage() {
+    public function showCollections() {
         $collections = Collection::all();
         return view('collection.list', ['collections'=>$collections]);
     }
 
-    public function myPage2(string $id) {
+    public function readCollection(string $id) {
         $collections = Collection::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
-        return view('collection.show',['collections'=>$collections]); // переменная - poem
+        return view('collection.read',['collections'=>$collections]); // переменная - poem
     }
 }
