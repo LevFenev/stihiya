@@ -4,7 +4,8 @@
         <p>Сборники:
         <ol>
             @foreach($collections as $collection)
-                <li><a href="collections/{{($collection->id)}}">{{($collection->title)}}</a></li>
+                <h2>{{$collection->title}}</h2>
+                <li>{{$collection->id}}</li>
             @endforeach
         </ol>
         </p>
