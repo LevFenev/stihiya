@@ -19,7 +19,7 @@ class PoemController extends Controller
 
         $comments = [];
 
-        $comments = Comment::where('poem_id',$id);
+        $comments = Comment::where('poem_id',$id)->get();
 
         return view('poem.read',['poems'=>$poems],['comments'=>$comments]); // переменная - poem
     }
