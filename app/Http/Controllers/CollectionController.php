@@ -13,7 +13,7 @@ class CollectionController extends Controller
         return view('collection.list', ['collections'=>$collections]);
     }
 
-    public function myPage2(string $id) {
+    public function myPage3(string $id) {
         $collections = Collection::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
         return view('collection.show',['collections'=>$collections]); // переменная - poem
     }
