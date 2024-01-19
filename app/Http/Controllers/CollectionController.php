@@ -15,6 +15,11 @@ class CollectionController extends Controller
 
     public function readCollection(string $id) {
         $collections = Collection::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
+
+        foreach ($collections as $collection) {
+            print $collection->id;
+        }
+
         return view('collection.read',['collections'=>$collections]); // переменная - poem
     }
 }

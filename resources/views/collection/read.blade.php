@@ -1,7 +1,6 @@
 @extends('layout')
 @section('content')
     <div>
-        <p>Сборники:
         <ol>
             @foreach($collections as $collection)
                 <h2>{{$collection->title}}</h2>

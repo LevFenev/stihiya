@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class PoemCollectionLink extends Model
 {
     use HasFactory;
+
+
 }
