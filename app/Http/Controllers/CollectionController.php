@@ -25,7 +25,7 @@ class CollectionController extends Controller
 
             foreach ($collection_content as $collection_item) {
                 print $collection_item->poem_id;
-                $poems[] = Poem::where('id',$collection_item->poem_id);
+                $poems[] = Poem::where('id',$collection_item->poem_id)->get();
             }
         }
 
