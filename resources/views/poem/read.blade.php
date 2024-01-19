@@ -10,9 +10,5 @@
 <br>
     <i>{{($poem->release_year)}}</i>
         @endforeach
-
-    @foreach($comments as $comment)
-
-        @endforeach
 </div>
 @endsection
