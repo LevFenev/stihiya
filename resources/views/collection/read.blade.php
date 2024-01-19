@@ -4,7 +4,9 @@
         <ol>
             @foreach($collections as $collection)
                 <h2>{{$collection->title}}</h2>
-                <li>{{$collection->id}}</li>
+                @foreach($poems)
+                    <p>({{$poems->title}}<br>)</p>
+                    @endforeach
             @endforeach
         </ol>
         </p>
