@@ -113,3 +113,75 @@ git add resources/views/header.blade.php
 git push
 git commit -m "header added"
 git push
+git pull
+git pull
+rm resources/views/layout.blade.php 
+git pull
+git pull
+git pull
+git pull
+git pull
+php artisan make:model
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:model
+git add .
+git commit -m "poem model created"
+git push
+git pull
+git pull
+git pull
+git pull
+php artisan make:controller
+php artisan make:controller
+git add .
+pit push
+git push
+git pull
+git commit -m "2 new controllers added to the project"
+git push
+git pull
+git pull
+git pull
+git pull
+git pull
+php artisan make:model
+git add .
+git commit -m "collection model created"
+git push
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
