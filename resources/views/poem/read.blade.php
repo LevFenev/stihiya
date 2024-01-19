@@ -12,5 +12,6 @@
     @foreach($comments as $comment)
         <p>{{$comment->content}}</p>
         @endforeach
+        @endforeach
 </div>
 @endsection
