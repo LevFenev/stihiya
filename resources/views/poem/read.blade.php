@@ -12,7 +12,7 @@
     @foreach($comments as $comment)
             <h3>{{$comment->username}}</h3>
             <p>{{$comment->content}}</p>
-            <p>{{$comment->like_count}}</p>
+            <p>Лайки: {{$comment->like_count}}</p>
         @endforeach
         @endforeach
 </div>
