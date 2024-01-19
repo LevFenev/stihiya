@@ -9,7 +9,8 @@
     <p>{!!str_replace("\n",'<br>',($poem->content))!!}</p>
 <br>
     <i>{{($poem->release_year)}}</i>
-        <p>{{$comments->content}}</p>
+    @foreach($comments as $comment)
+        <p>{{$comment->content}}</p>
         @endforeach
 </div>
 @endsection
