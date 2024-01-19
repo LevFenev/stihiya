@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('poems', [\App\Http\Controllers\PoemController::class, 'myPage']);
+Route::get('poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
-Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'myPage2']); // по идее должно работать
+Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // по идее должно работать
 
 Route::get('users', [\App\Http\Controllers\UserController::class, 'myPage']);
 
