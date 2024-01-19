@@ -19,8 +19,10 @@ Route::get('/', function () {
 
 Route::get('poems', [\App\Http\Controllers\PoemController::class, 'myPage']);
 
+Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'myPage2']); // по идее должно работать
+
 Route::get('users', [\App\Http\Controllers\UserController::class, 'myPage']);
 
-Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'myPage']);
+Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'myPage2']);
 
-Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'myPage2']); // по идее должно работать
+Route::get('collections/{id}', [\App\Http\Controllers\PoemController::class, 'myPage2']);
