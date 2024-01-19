@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Collection;
 use App\Models\Poem;
+use App\Models\PoemCollectionLink;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -17,7 +18,12 @@ class CollectionController extends Controller
         $collections = Collection::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
 
         foreach ($collections as $collection) {
-            print $collection->id;
+            // print $collection->poem_id;
+            $collection_content = PoemCollectionLink::where('collection_id',$collection->id)->get();
+
+            foreach ($collection_content as $collection_item) {
+                print $collection_item->poem_id;
+            }
         }
 
         return view('collection.read',['collections'=>$collections]); // переменная - poem
