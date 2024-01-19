@@ -10,7 +10,9 @@
 <br>
     <i>{{($poem->release_year)}}</i>
     @foreach($comments as $comment)
-        <p>{{$comment->content}}</p>
+            <h3>{{$comment->username}}</h3>
+            <p>{{$comment->content}}</p>
+            <p>{{$comment->like_count}}</p>
         @endforeach
         @endforeach
 </div>
