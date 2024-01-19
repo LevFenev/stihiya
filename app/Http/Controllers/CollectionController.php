@@ -30,9 +30,9 @@ class CollectionController extends Controller
             }
         }
 
-        print_r($poem_ids);
 
         $poems = Poem::whereIn('id',$poem_ids); // теперь для всех строчек один запрос / 19.01.24
+        print_r($poems);
 
         return view('collection.read',['collections'=>$collections, 'poems'=>$poems]); // переменная - poem
     }
