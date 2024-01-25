@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function showUsers() {
         $users = User::all();
-        return view('users.list', ['users'=>$users], ['poems'=>$poems]);
+        return view('users.list', ['users'=>$users]);
     }
 
     public function showUserComments(string $id) {
