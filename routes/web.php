@@ -23,6 +23,8 @@ Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem
 
 Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
+// Route::get('users', [\App\Http\Controllers\PoemController::class, 'showUsersPoems']);
+
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
 
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
