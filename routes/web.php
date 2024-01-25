@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Route::get('poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
-Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // по идее должно работать
+Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
 
 Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
-// Route::get('users', [\App\Http\Controllers\PoemController::class, 'showUsersPoems']);
+Route::get('users/{id}', [\App\Http\Controllers\PoemController::class, 'showUserComments']);
 
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
 
