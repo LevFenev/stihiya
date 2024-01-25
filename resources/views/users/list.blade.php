@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout') <!-- откуда он получает базу данных? -->
 @section('content')
     <div>
         <p>Пользователи и их стихи:</p>
