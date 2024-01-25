@@ -1,13 +1,12 @@
 @extends('layout')
 @section('content')
     <div>
-        <p>Юзеры:
+        <p>Юзеры:</p>
         <ol>
             @foreach($users as $user)
-                <li>{{$users->username}}</li>
+                <li>{{$user->username}}</li>
 
             @endforeach
         </ol>
-        </p>
     </div>
 @endsection
