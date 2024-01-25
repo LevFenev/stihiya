@@ -2,7 +2,7 @@
 @section('content')
     <div>
         @foreach($users as $user)
-        <p>Пользователь:{{$user->name}}</p>
+        <p>Пользователь: {{$user->name}}</p>
                 @foreach($poems as $poem)
                 @foreach($comments as $comment)
                 {{$comment->content}}
