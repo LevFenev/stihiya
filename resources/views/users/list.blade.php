@@ -4,7 +4,7 @@
         <p>Пользователи</p>
         <ol>
             @foreach($users as $user)
-                <h2>{{$user->username}}</h2>
+                <h2><a href="users/{id}">{{$user->username}}</a></h2>
             @endforeach
         </ol>
     </div>
