@@ -1,11 +1,13 @@
 @extends('layout')
 @section('content')
     <div>
-        <p>Юзеры:</p>
+        <p>Пользователи и их стихи:</p>
         <ol>
             @foreach($users as $user)
-                <li>{{$user->username}}</li>
-
+                <h2>{{$user->username}}</h2>
+                @foreach($poems as $poem)
+                    <li>{{$poem->title}}</li>
+                @endforeach
             @endforeach
         </ol>
     </div>
