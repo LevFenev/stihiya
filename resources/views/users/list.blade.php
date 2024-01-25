@@ -6,7 +6,7 @@
             @foreach($users as $user)
                 <h2>{{$user->username}}</h2>
                 @foreach($poems as $poem)
-                    <li>{{$poem->title}}</li>
+                    <li>{{$poem->title}}</li> <a href="poems/{{($poem->id)}}"></a>
                 @endforeach
             @endforeach
         </ol>
