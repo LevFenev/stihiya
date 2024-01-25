@@ -21,6 +21,6 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
 
         $comments = Comment::where('poem_id',$id)->get();
 
-        return view('poem.read',['poems'=>$poems],['comments'=>$comments]); // переменная - poem // вот как тут несколько баз данных
+        return view('poem.read',['poems'=>$poems,'comments'=>$comments]); // переменная - poem // вот как тут несколько баз данных
     }
 }

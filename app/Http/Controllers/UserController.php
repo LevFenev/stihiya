@@ -18,7 +18,7 @@ class UserController extends Controller
         $users = User::where('id',$id)->get();
         $comments = Comment::where('user_id',$id)->get();
         $poems = Poem::where('author_id',$id)->get();
-        return view('users.personal', ['users'=>$users], ['comments'=>$comments], ['poems'=>$poems]);
+        return view('users.personal', ['users'=>$users,'comments'=>$comments,'poems'=>$poems]);
     }
 
     /*
