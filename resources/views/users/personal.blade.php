@@ -8,7 +8,7 @@
                 {{$comment->id}}
                 @endforeach
             @foreach($poems as $poem)
-            <a href="poems/{{($poem->id)}}/">{{$poem->title}}</a>
+            <a href="/poems/{{($poem->id)}}">{{$poem->title}}</a>
                 @endforeach
             @endforeach
     </div>
