@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function showUsers() {
+    public function showUsers() { // вот здесь вот базы данных подключаются?
         $users = User::all();
         return view('users.list', ['users'=>$users]);
     }
