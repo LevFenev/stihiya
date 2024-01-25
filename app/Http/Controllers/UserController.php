@@ -16,8 +16,8 @@ class UserController extends Controller
 
     public function showUserComments(string $id) {
         $users = User::where('id',$id)->get();
-        $comments = Comment::where('id',$id)->get();
-        $poems = Poem::where('id',$id)->get();
+        $comments = Comment::where('user_id',$id)->get();
+        $poems = Poem::all()->get();
         return view('users.personal', ['users'=>$users], ['comments'=>$comments], ['poems'=>$poems]);
     }
 

@@ -7,7 +7,7 @@
                 @foreach($poems as $poem)
                 @foreach($comments as $comment)
                 <li>{{$comment->content}}</li>
-                <li>{{$poem->title}}</li> <a href="poems/{{($poem->id)}}"></a>
+                <li><a href="poems/{{($poem->id)}}">{{$poem->title}}</a></li>
                 @endforeach
                 @endforeach
             @endforeach
