@@ -43,5 +43,5 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected $table = 'users';
+    protected $table = "users";
 }

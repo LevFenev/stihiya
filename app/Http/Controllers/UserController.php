@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function myPage() {
+    public function showUsers() {
         $users = User::all();
         return view('users.list', ['users'=>$users]);
     }

@@ -21,7 +21,7 @@ Route::get('poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
 Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // по идее должно работать
 
-Route::get('users', [\App\Http\Controllers\UserController::class, 'myPage']);
+Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
 
