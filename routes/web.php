@@ -21,11 +21,11 @@ Route::get('poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
 Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
 
-Route::get('comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
+Route::get('comment/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
-Route::get('comments/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
+Route::get('comment/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
 
-Route::get('comments/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
+Route::get('comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
 Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 

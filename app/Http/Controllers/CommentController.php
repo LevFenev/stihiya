@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class CommentController extends Controller
 {
@@ -11,17 +12,18 @@ class CommentController extends Controller
     // по идее должно располагаться в comment controller
     public function deleteComment(string $id) {
         $comments = Comment::where('id',$id)->delete();
-        return view('comments.delete', ['comments'=>$comments]);
+        return view('comment.delete', ['comment'=>$comments]);
     }
 
     public function showTrashedComments() {
         $comments = Comment::onlyTrashed()->get();
-        return view('comments.trashed', ['comments'=>$comments]);
+        return view('comment.trashed', ['comment'=>$comments]);
     }
 
     public function restoreComment(string $id) {
-        $poem_id = Comment::where('id',$id)->get();
+        $toBeRestoredComment = Comment::withTrashed()->where('id',$id)->get(); //он даёт удалённые комментарии в виде массива
+        $poem_id = $toBeRestoredComment[0]->poem_id; // 0 потому что массив
         $comments = Comment::where('id',$id)->restore(); // restore даёт кол-во id
-        return view('poems.read');
+        return redirect()->route('poems', ['id'=>$poem_id]); // вернет на стих с которого удалили коммент
     }
 }
