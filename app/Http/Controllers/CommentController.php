@@ -11,7 +11,7 @@ class CommentController extends Controller
     // по идее должно располагаться в comment controller
     public function deleteComment(string $id) {
         $comments = Comment::where('comment_id',$id)->delete();
-        return view('comment.delete', ['comments'=>$comments]);
+        return view('comment.comment_delete', ['comments'=>$comments]);
     }
 
     public function restoreComment(string $id) {
