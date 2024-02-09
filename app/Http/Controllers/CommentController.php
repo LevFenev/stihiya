@@ -15,12 +15,13 @@ class CommentController extends Controller
     }
 
     public function showTrashedComments() {
-        $comments = Comment::withTrashed()->get();
+        $comments = Comment::all();
         return view('comments.trashed', ['comments'=>$comments]);
     }
 
     public function restoreComment(string $id) {
-        $comments = Comment::where('id',$id)->restore();
-        return view('comments.restore', ['comments'=>$comments]);
+        $poem_id = Comment::where('id',$id)->get();
+        $comments = Comment::where('id',$id)->restore(); // restore даёт кол-во id
+        return view('poems.read');
     }
 }
