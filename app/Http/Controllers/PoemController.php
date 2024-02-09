@@ -28,9 +28,4 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
 
 }
 */
-    // по идее должно располагаться в comment controller
-    public function deleteComment(string $id) {
-        $comments = Comment::where('comment_id',$id)->delete();
-        return view('comment.delete', ['comments'=>$comments]);
-    }
 }
