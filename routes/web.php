@@ -34,3 +34,23 @@ Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUser
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
 
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
+
+// админские роуты
+
+/*Route::get('poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
+
+Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
+
+Route::get('comment/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
+
+Route::get('comment/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
+
+Route::get('comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
+
+Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
+
+Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)
+
+Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
+
+Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);*/
