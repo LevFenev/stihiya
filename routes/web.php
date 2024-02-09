@@ -21,7 +21,7 @@ Route::get('poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
 Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
 
-Route::get('comments/delete', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
+Route::get('comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
 Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
