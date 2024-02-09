@@ -185,3 +185,78 @@ git pull
 git pull
 git pull
 git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+php artisan make::model
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make::model
+php artisan make:model
+git add .
+git push
+git pull
+git commit -m 
+git commit -m "poem collection link model created"
+git pull
+git add .
+git pull
+git status
+git commit
+git push
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+php artisan make:model
+git commit 
+git commit -m "comments model created"
+git add .
+git commit -m "comments model created"
+git push
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+php artisan new:Model
