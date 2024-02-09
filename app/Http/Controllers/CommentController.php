@@ -20,7 +20,7 @@ class CommentController extends Controller
     }
 
     public function showTrashedComments() {
-        $comments = Comment::trashed();
+        $comments = Comment::withTrashed()->get();
         return view('comment.trashed', ['comments'=>$comments]);
     }
 }
