@@ -23,6 +23,11 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
 
         return view('poem.read',['poems'=>$poems,'comments'=>$comments]); // переменная - poem // вот как тут несколько баз данных
     }
+
+    public function deletePoem(string $id) {
+        $poems = Poem::where('poem_id',$id)->delete();
+        return view('poem.delete', ['poems'=>$poems]);
+    }
 /*
     function elgerhg($a,$b=null,$c=null){
 

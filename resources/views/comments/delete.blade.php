@@ -4,6 +4,6 @@
     @foreach($comments as $comment)
     <p>{{$comment->content}}</p>
     @endforeach
-    <a href="/delete">Да</a>
+    <a href="/delete">Да</a> <!-- delete_comment? -->
     <a href="poems/">Нет</a>
 @endsection
