@@ -14,13 +14,13 @@ class CommentController extends Controller
         return view('comments.delete', ['comments'=>$comments]);
     }
 
-    public function restoreComment(string $id) {
-        $comments = Comment::where('id',$id)->restore();
-        return view('comments.restore', ['comments'=>$comments]);
-    }
-
     public function showTrashedComments() {
         $comments = Comment::withTrashed()->get();
         return view('comments.trashed', ['comments'=>$comments]);
+    }
+
+    public function restoreComment(string $id) {
+        $comments = Comment::where('id',$id)->restore();
+        return view('comments.restore', ['comments'=>$comments]);
     }
 }
