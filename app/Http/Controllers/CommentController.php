@@ -19,8 +19,8 @@ class CommentController extends Controller
         return view('comment.restore', ['comments'=>$comments]);
     }
 
-    public function showTrashedComments(string $id) {
-        $comments = Comment::where('id',$id)->trashed();
+    public function showTrashedComments() {
+        $comments = Comment::trashed();
         return view('comment.trashed', ['comments'=>$comments]);
     }
 }
