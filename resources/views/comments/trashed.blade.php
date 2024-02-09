@@ -4,7 +4,7 @@
     @foreach($comments as $comment)
         <p>{{$comment->user_id}}</p>
         <p>{{$comment->content}}</p>
-        <a href="comments/restore/{{$comment->id}}">Восстановить</a>
+        <a href="restore/{{$comment->id}}">Восстановить</a>
         <br>
     @endforeach
 @endsection
