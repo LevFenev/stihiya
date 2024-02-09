@@ -23,6 +23,10 @@ Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem
 
 Route::get('comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
+Route::get('comments/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
+
+Route::get('comments/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
+
 Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
 Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)
