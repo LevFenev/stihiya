@@ -8,11 +8,12 @@ use Illuminate\Routing\Redirector;
 
 class CommentController extends Controller
 {
-
-    // по идее должно располагаться в comment controller
     public function deleteComment(string $id) {
+        // $comments = Comment::where('id',$id)->delete(); // кол-во удалённых комментариев // ОСТАНОВИЛСЯ ТУТ - ПОМЕНЯТЬ ТО ЧТО НАДО ПОМЕНЯТЬ
+        $deletedComments = Comment::onlyTrashed()->where('id',$id)->get();
+        $poem_id = $deletedComments[0]->poem_id;
         $comments = Comment::where('id',$id)->delete();
-        return view('comment.delete', ['comment'=>$comments]);
+        return redirect()->route('poems', ['id'=>$poem_id]);
     }
 
     public function showTrashedComments() {
