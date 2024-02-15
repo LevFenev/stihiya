@@ -30,6 +30,6 @@ class CommentController extends Controller
 
     public function postComment(string $poem_id) {
         // как-то нужно написать что здесь остаётся коммент
-        return redirect()->route('/poems'); // вернет на стих с которого удалили коммент
+        return redirect('/poems'); // вернет на стих с которого удалили коммент
     }
 }
