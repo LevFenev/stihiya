@@ -34,6 +34,6 @@ class CommentController extends Controller
 
     public function postComment(string $poem_id) {
         // как-то нужно написать что здесь остаётся коммент
-        return view('poems'); // вернет на стих с которого удалили коммент
+        return view('comment.added'); // вернет на стих с которого удалили коммент
     }
 }
