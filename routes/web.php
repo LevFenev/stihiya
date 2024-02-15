@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
+Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
-Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
+Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
 
 Route::get('comment/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
