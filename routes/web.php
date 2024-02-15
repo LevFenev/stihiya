@@ -23,7 +23,9 @@ Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoe
 
 Route::get('comment/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
-Route::get('comment/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'postComment']);
+Route::get('comment/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'getComment']); // отвечает за форму
+
+Route::post('comment/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'postComment']); // отвечает за публикацию и т.д.
 
 Route::get('comment/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
 
