@@ -23,6 +23,8 @@ Route::get('poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem
 
 Route::get('comment/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
+Route::get('comment/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'postComment']);
+
 Route::get('comment/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
 
 Route::get('comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
