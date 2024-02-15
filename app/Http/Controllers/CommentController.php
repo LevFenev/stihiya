@@ -18,7 +18,7 @@ class CommentController extends Controller
 
     public function showTrashedComments() {
         $comments = Comment::onlyTrashed()->get();
-        return view('comment.trashed', ['comment'=>$comments]);
+        return view('comment.trashed', ['comments'=>$comments]);
     }
 
     public function restoreComment(string $id) {
