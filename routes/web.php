@@ -25,7 +25,7 @@ Route::get('comment/delete/{id}', [\App\Http\Controllers\CommentController::clas
 
 Route::get('comment/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'getComment']); // отвечает за форму
 
-Route::post('comment/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'postComment']); // отвечает за публикацию и т.д.
+Route::post('comment/post', [\App\Http\Controllers\CommentController::class, 'postComment']); // отвечает за публикацию и т.д.
 
 Route::get('comment/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
 

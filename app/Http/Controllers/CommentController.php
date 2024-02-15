@@ -29,11 +29,20 @@ class CommentController extends Controller
     }
 
     public function getComment(string $poem_id) {
-        return view('comment.form'); // вернет на стих с которого удалили коммент
+        return view('comment.form', ['poem_id'=>$poem_id]); // вернет на стих с которого удалили коммент
     }
 
-    public function postComment(string $poem_id) {
-        // как-то нужно написать что здесь остаётся коммент
-        return view('comment.added'); // вернет на стих с которого удалили коммент
+    public function postComment(Request $request) {
+        $validated = $request->validate([
+            'comment_body'=>['required', 'max:50', 'min:5'],
+            'poem_id'=>['numeric', 'exists:poem,id']
+        ]);
+        $validated = $request->all();
+        $comment = new Comment();
+        $comment->content=$validated['comment_body'];
+        $comment->user_id=2;
+        $comment->poem_id=$validated['poem_id'];
+        $comment->save();
+        return view('comment.added', ['request'=>$request]); // вернет на стих с которого удалили коммент
     }
 }
