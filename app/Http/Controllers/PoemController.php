@@ -40,8 +40,8 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
     }
 
     public function deletePoem(string $id) {
-        $poems = Poem::where('poem_id',$id)->delete();
-        return view('poem.admin_list', ['poems'=>$poems]); //как-то сюда редиректить на страницу со списком стихов
+        $poems = Poem::where('id',$id)->delete();
+        return view('poem.admin_list'); //как-то сюда редиректить на страницу со списком стихов
     }
 
 

@@ -29,6 +29,10 @@ Route::get('/poems/post/{new_id}', [\App\Http\Controllers\PoemController::class,
 
 Route::post('/poems/post', [\App\Http\Controllers\PoemController::class, 'postPoem']);
 
+Route::get('admin/poems/trashed', [\App\Http\Controllers\PoemController::class, 'showTrashedPoems']);
+
+Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::class, 'restorePoem']);
+
 // СБОРНИКИ
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
 
@@ -66,7 +70,7 @@ Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_s
 
 /*Route::get('admin/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id*/
 
-Route::get('admin/poems/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deletePoem']);
+Route::get('admin/poems/delete/{id}', [\App\Http\Controllers\PoemController::class, 'deletePoem']);
 
 // сборники
 /*
