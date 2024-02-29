@@ -66,7 +66,7 @@ Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUser
 // АДМИНСКАЯ
 
 // стихи
-Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems']);
+Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems'])->name('poems');
 
 /*Route::get('admin/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id*/
 

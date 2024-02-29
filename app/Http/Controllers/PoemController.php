@@ -40,8 +40,10 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
     }
 
     public function deletePoem(string $id) {
+        $toBeDeleted = Poem::all()->where('id',$id)->get();
+        $poem_id = $toBeDeleted[0]->id;
         $poems = Poem::where('id',$id)->delete();
-        return view('poem.admin_list'); //как-то сюда редиректить на страницу со списком стихов
+        return redirect()->route('poems'); //как-то сюда редиректить на страницу со списком стихов
     }
 
 
@@ -54,7 +56,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         //$toBeRestoredPoem = Poem::withTrashed()->where('id',$id)->get(); //он даёт удалённые стихи в виде массива
         $validated = Poem::withTrashed()->where('id',$id)->get();
         //$poem_id = $toBeRestoredPoem[0]->poem_id; // 0 потому что массив
-        $poem_id = $validated[0]->poem_id;
+        $poem_id = $validated[0]->id;
         $poems = Poem::where('id',$id)->restore(); // restore даёт кол-во id
         return redirect()->route('poems',['id'=>$validated['poem_id']]); // вернет на стих с которого удалили стих (на страницу стихов)
     }
