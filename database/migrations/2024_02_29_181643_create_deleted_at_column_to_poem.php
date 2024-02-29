@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('poem', function(Blueprint $table){
-            $table->dateTime('deleted_at');
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 
