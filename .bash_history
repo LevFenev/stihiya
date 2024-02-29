@@ -304,3 +304,21 @@ rm resources/views/poem/restore.blade.php
 rm  resources/views/poem/trashed.blade.php
 git pull
 git pull
+php artisan new::model
+Resources res = getResources(); 
+String text = String.format(res.getString(R.string.string_id_inside_xml_file));export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan new::model
+php artisan new:model
+php artisan create:model
+php artisan create::model
+php artisan make:model
+php artisan make:controller
+php artisan make:controller
+git add .
+git pull
+git push
+git commit -m "created album controller and model named album"
+git pull
+git push
+git pull
