@@ -18,9 +18,12 @@ Route::get('/', function () {
 });
 
 // СТИХИ
+
 Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
-Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
+//Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
+
+Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem'])->name('poems'); // отсюда получает id
 
 Route::get('/poems/post/{new_id}', [\App\Http\Controllers\PoemController::class, 'getPoem']);
 
@@ -33,11 +36,11 @@ Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::clas
 
 
 // КОММЕНТАРИИ
-Route::get('comment/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
+//Route::get('comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
-Route::get('comment/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'getComment']); // отвечает за форму
+Route::get('comments/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'getComment']); // отвечает за форму
 
-Route::post('comment/post', [\App\Http\Controllers\CommentController::class, 'postComment']); // отвечает за публикацию и т.д.
+Route::post('comments/post', [\App\Http\Controllers\CommentController::class, 'postComment']); // отвечает за публикацию и т.д.
 
 //Route::get('comment/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
 
@@ -64,11 +67,11 @@ Route::get('admin/collections', [\App\Http\Controllers\CollectionController::cla
 Route::get('admin/collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);*/
 
 // комментарии
-Route::get('admin/comment/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
+Route::get('admin/comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
-Route::get('admin/comment/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
+Route::get('admin/comments/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
 
-Route::get('admin/comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
+Route::get('admin/comments/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
 // пользователи
 Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'showUsers']);
