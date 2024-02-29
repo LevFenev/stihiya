@@ -58,7 +58,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         //$poem_id = $toBeRestoredPoem[0]->poem_id; // 0 потому что массив
         $poem_id = $validated[0]->id;
         $poems = Poem::where('id',$id)->restore(); // restore даёт кол-во id
-        return redirect()->route('poems',['id'=>$validated['poem_id']]); // вернет на стих с которого удалили стих (на страницу стихов)
+        return redirect()->route('poems'); // вернет на стих с которого удалили стих (на страницу стихов)
     }
 
     /*
