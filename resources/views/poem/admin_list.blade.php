@@ -8,5 +8,7 @@
             @endforeach
         </ol>
         </p>
+
+        <button>[<a href="/">Назад</a>]</button>
     </div>
 @endsection

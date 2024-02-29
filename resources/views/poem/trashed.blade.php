@@ -8,5 +8,6 @@
         <p>{{$poem->storyline}}</p>
         <a href="restore/{{$poem->id}}">Восстановить</a>
         <br>
+        <button>[<a href="/">Назад</a>]</button>
     @endforeach
 @endsection
