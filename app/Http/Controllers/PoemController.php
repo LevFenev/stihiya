@@ -40,8 +40,6 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
     }
 
     public function deletePoem(string $id) {
-        $toBeDeleted = Poem::all()->where('id',$id)->get();
-        $poem_id = $toBeDeleted[0]->id;
         $poems = Poem::where('id',$id)->delete();
         return redirect()->route('poems'); //как-то сюда редиректить на страницу со списком стихов
     }
