@@ -9,6 +9,6 @@
         </ol>
         </p>
 
-        <button>[<a href="/">Назад</a>]</button>
+        <button>[<a href="/admin/poems/trashed">Восстановить стихи</a>]</button>
     </div>
 @endsection
