@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('deleted_at_column_to_poem', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('poem', function(Blueprint $table){
+            $table->dateTime('deleted_at');
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('deleted_at_column_to_poem');
+        Schema::table('poem', function(Blueprint $table){
+            $table->dropColumn('deleted_at'); // dropColumn - убрать колонку из бд
+        });
     }
 };
