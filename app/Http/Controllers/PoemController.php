@@ -55,8 +55,13 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         $validated = Poem::withTrashed()->where('id',$id)->get();
         //$poem_id = $toBeRestoredPoem[0]->poem_id; // 0 потому что массив
         $poem_id = $validated[0]->id;
-        $poems = Poem::where('id',$id)->restore(); // restore даёт кол-во id
-        return redirect()->route('poems'); // вернет на стих с которого удалили стих (на страницу стихов)
+        $poems = Poem::where('id',$id)->restore();// restore даёт кол-во id
+        $deletedPoems = Poem::onlyTrashed()->count();
+        if ($deletedPoems==0){
+            return redirect()->route('poems');
+        } else {
+            return redirect()->route('trashedPoems');
+        }
     }
 
     /*

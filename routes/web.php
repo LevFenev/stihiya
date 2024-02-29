@@ -29,7 +29,7 @@ Route::get('/poems/post/{new_id}', [\App\Http\Controllers\PoemController::class,
 
 Route::post('/poems/post', [\App\Http\Controllers\PoemController::class, 'postPoem']);
 
-Route::get('admin/poems/trashed', [\App\Http\Controllers\PoemController::class, 'showTrashedPoems']);
+Route::get('admin/poems/trashed', [\App\Http\Controllers\PoemController::class, 'showTrashedPoems'])->name('trashedPoems');
 
 Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::class, 'restorePoem']);
 
