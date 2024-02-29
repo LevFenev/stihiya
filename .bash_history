@@ -260,3 +260,47 @@ git pull
 git pull
 git pull
 php artisan new:Model
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pu;;
+git pull
+git pull
+git checkout --
+git pull
+git reset --hard
+git pull
+git pull --force
+rm 
+rm resources/views/comment/added.blade.php
+rm resources/views/comment/added.blade.php
+rm resources/views/poem/form.blade.php
+git pull
+git pull
+git pull
+rs app/Http/Controllers/PoemController.php
+rm app/Http/Controllers/PoemController.php
+rm resources/views/poem/list.blade.php
+rm routes/web.php
+git pull
+rm resources/views/poem/admin_list.blade.php
+git pull
+git pull
+rm app/Http/Controllers/PoemController.php
+rm resources/views/poem/admin_list.blade.php
+routes/web.php
+rm routes/web.php
+git pull
+rm resources/views/poem/restore.blade.php
+rm  resources/views/poem/trashed.blade.php
+git pull
+git pull
