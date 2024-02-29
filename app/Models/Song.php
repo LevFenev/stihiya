@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Song extends Model
 {
-    use HasFactory;
+    use HasFactory; // что это?
+
+    protected $table = 'song';
 }

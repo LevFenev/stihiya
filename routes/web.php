@@ -34,6 +34,14 @@ Route::get('collections', [\App\Http\Controllers\CollectionController::class, 's
 
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
 
+// АЛЬБОМЫ
+Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
+
+Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
+
+Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']);
+
+Route::get('admin/albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'admin_readAlbum']);
 
 // КОММЕНТАРИИ
 //Route::get('comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
