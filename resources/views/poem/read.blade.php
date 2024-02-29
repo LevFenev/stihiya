@@ -15,7 +15,7 @@
             <p>{{$comment->created_at}}</p>
             <p>{{$comment->content}}</p>
             <p>Лайки: {{$comment->like_count}}</p>
-            <p><a href="/comment/delete/{{$comment->id}}">Удалить</a></p>
+            {{-- <p><a href="/comment/delete/{{$comment->id}}">Удалить</a></p> это админская вещь --}}
         @endforeach
         @endforeach
 </div>

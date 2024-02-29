@@ -10,16 +10,26 @@ use Illuminate\Http\Request;
 class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦЫ
 {
     public function showPoems() { //action контроллера
-        $poems = Poem::all();
+        $poems = Poem::all(); // all() уже показывает только не удаленные сущности
         return view('poem.list', ['poems'=>$poems]);
     }
 
     public function admin_showPoems() { //action контроллера
-        $poems = Poem::all();
+        $poems = Poem::all(); // all() уже показывает только не удаленные сущности
         return view('poem.admin_list', ['poems'=>$poems]);
     }
 
     public function readPoem(string $id) {
+        $poems = Poem::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
+
+        $comments = [];
+
+        $comments = Comment::where('poem_id',$id)->get();
+
+        return view('poem.admin_read',['poems'=>$poems,'comments'=>$comments]); // переменная - poem // вот как тут несколько баз данных
+    }
+
+    public function admin_readPoem(string $id) {
         $poems = Poem::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
 
         $comments = [];
