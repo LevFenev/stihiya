@@ -9,7 +9,7 @@
     <p>{!!str_replace("\n",'<br>',($poem->content))!!}</p>
 <br>
     <i>{{($poem->release_year)}}</i>
-    <a href="/comment/post/{{$poem->id}}">Добавить комментарий</a>
+    <a href="/comments/post/{{$poem->id}}">Добавить комментарий</a>
     @foreach($comments as $comment)
             <h3>{{$comment->username}}</h3>
             <p>{{$comment->created_at}}</p>
