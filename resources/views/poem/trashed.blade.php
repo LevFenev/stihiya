@@ -6,7 +6,7 @@
         <h3>Автор:{{$poem->author_id}}</h3>
         <p>{{$poem->content}}</p>
         <p>История написания: {{$poem->storyline}}</p>
-        <p>Дата удаления:{{$poem->deleted_at}}</p>
+        <p>Дата удаления: {{$poem->deleted_at}}</p>
         <a href="restore/{{$poem->id}}">[Восстановить]</a>
         <br>
     @endforeach

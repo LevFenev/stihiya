@@ -48,6 +48,9 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
 
     public function showTrashedPoems() {
         $poems = Poem::onlyTrashed()->get();
+        if ($poems->storyline == null){ // так нужно автоматически сделать для всех элементов выводящихся на страницу
+            $poems->storyline = "(отсутствует)";
+        }
         return view('poem.trashed', ['poems'=>$poems]);
     }
 
