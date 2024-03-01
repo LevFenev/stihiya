@@ -31,7 +31,8 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         $poems = Poem::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
         $comments = [];
         $comments = Comment::where('poem_id',$id)->get();
-        return view('poem.admin_read',['poems'=>$poems,'comments'=>$comments]); // переменная - poem // вот как тут несколько баз данных
+        $deletedComments = Comment::onlyTrashed()->count();
+        return view('poem.admin_read',['poems'=>$poems,'comments'=>$comments,'deletedComments'=>$deletedComments]); // переменная - poem // вот как тут несколько баз данных
     }
 
     public function deletePoem(string $id) {

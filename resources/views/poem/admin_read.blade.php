@@ -16,6 +16,7 @@
                 <p>{{$comment->content}}</p>
                 <p>Лайки: {{$comment->like_count}}</p>
                 <p><a href="/admin/comments/delete/{{$comment->id}}">Удалить</a></p>
+                <button><a href="/admin/comments/trashed">Восстановить комментарии({{$deletedComments}})</a></button>
             @endforeach
         @endforeach
     </div>
