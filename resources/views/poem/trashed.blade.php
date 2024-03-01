@@ -2,11 +2,12 @@
 @section('content')
     <p>Удалённые стихи</p>
     @foreach($poems as $poem)
-        <p>{{$poem->author_id}}</p>
-        <p>{{$poem->title}}</p>
+        <h2>{{$poem->title}}</h2>
+        <h3>Автор:{{$poem->author_id}}</h3>
         <p>{{$poem->content}}</p>
-        <p>{{$poem->storyline}}</p>
-        <a href="restore/{{$poem->id}}">Восстановить</a>
+        <p>История написания: {{$poem->storyline}}</p>
+        <p>Дата удаления:{{$poem->deleted_at}}</p>
+        <a href="restore/{{$poem->id}}">[Восстановить]</a>
         <br>
     @endforeach
 
