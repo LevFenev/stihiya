@@ -25,6 +25,8 @@ Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems'])
 
 Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem'])->name('poems'); // отсюда получает id
 
+Route::get('admin/poems/{id}', [\App\Http\Controllers\PoemController::class, 'admin_readPoem']);
+
 Route::get('/poems/post/{new_id}', [\App\Http\Controllers\PoemController::class, 'getPoem']);
 
 Route::post('/poems/post', [\App\Http\Controllers\PoemController::class, 'postPoem']);
@@ -68,7 +70,7 @@ Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUser
 // стихи
 Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems'])->name('poems');
 
-/*Route::get('admin/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id*/
+
 
 Route::get('admin/poems/delete/{id}', [\App\Http\Controllers\PoemController::class, 'deletePoem']);
 
