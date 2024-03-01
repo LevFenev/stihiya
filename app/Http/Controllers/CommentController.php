@@ -23,7 +23,7 @@ class CommentController extends Controller
 
     public function restoreComment(string $id) {
         $toBeRestoredComment = Comment::withTrashed()->where('id',$id)->get(); //он даёт удалённые комментарии в виде массива
-        $poem_id = $toBeRestoredComment[0]->poem_id; // 0 потому что массив
+        $poem_id = $toBeRestoredComment[$id-1]->poem_id; // 0 потому что массив // 0 не сработал
         $comments = Comment::where('id',$id)->restore(); // restore даёт кол-во id
         return redirect()->route('/poems/{poem_id}'); // вернет на стих с которого удалили коммент
     }
