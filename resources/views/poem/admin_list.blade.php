@@ -9,6 +9,6 @@
         </ol>
         </p>
 
-        <button>[<a href="/admin/poems/trashed">Восстановить стихи</a>]</button>
+        <button>[<a href="/admin/poems/trashed">Восстановить стихи<p>({{($deletedPoems)}})</p></a>]</button>
     </div>
 @endsection

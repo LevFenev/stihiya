@@ -16,7 +16,8 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
 
     public function admin_showPoems() { //action контроллера
         $poems = Poem::all(); // all() уже показывает только не удаленные сущности
-        return view('poem.admin_list', ['poems'=>$poems]);
+        $deletedPoems = Poem::onlyTrashed()->count();
+        return view('poem.admin_list', ['poems'=>$poems],['deletedPoems'=>$deletedPoems]);
     }
 
     public function readPoem(string $id) {
