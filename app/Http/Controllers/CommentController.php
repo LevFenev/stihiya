@@ -10,7 +10,8 @@ class CommentController extends Controller
 {
     public function deleteComment(string $id) {
         // $comments = Comment::where('id',$id)->delete(); // кол-во удалённых комментариев // ОСТАНОВИЛСЯ ТУТ - ПОМЕНЯТЬ ТО ЧТО НАДО ПОМЕНЯТЬ
-        $deletedComments = Comment::onlyTrashed()->where('id',$id)->get();
+        //$deletedComments = Comment::onlyTrashed()->where('id',$id)->get();
+        $deletedComments = Comment::withTrashed()->where('id',$id)->get(); //with чтобы показывать все ком-рии. может захочется его удалить прям полностью
         $poem_id = $deletedComments[0]->poem_id; // ошибка здесь
         $comments = Comment::where('id',$id)->delete();
         return redirect()->route('poems', ['id'=>$poem_id]);
