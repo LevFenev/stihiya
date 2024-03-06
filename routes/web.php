@@ -88,6 +88,8 @@ Route::get('admin/comments/trashed', [\App\Http\Controllers\CommentController::c
 Route::get('admin/comments/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
 // пользователи
-Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'showUsers']);
+Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'admin_showUsers'])->name('admin_users');
 
 Route::get('admin/users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
+
+Route::get('admin/users/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
