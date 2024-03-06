@@ -45,6 +45,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         /*if ($poems->storyline == null){ // так нужно автоматически сделать для всех элементов выводящихся на страницу
             $poems->storyline = "(отсутствует)"; // не работает потому что обращается ко всем стихам сразу (там нет storyline)
         }*/
+
         return view('poem.trashed', ['poems'=>$poems]);
     }
 
