@@ -10,9 +10,9 @@ class CommentController extends Controller
 {
     public function deleteComment(string $id) {
         // $comments = Comment::where('id',$id)->delete(); // кол-во удалённых комментариев // ОСТАНОВИЛСЯ ТУТ - ПОМЕНЯТЬ ТО ЧТО НАДО ПОМЕНЯТЬ
-        //$deletedComments = Comment::onlyTrashed()->where('id',$id)->get();
+        //$deletedComments = Comment::onlyTrashed()->where('id',$id)->get(); тут пыталось взять ком-нт на удаление из уже удаленных
         $deletedComments = Comment::withTrashed()->where('id',$id)->get(); //with чтобы показывать все ком-рии. может захочется его удалить прям полностью
-        $poem_id = $deletedComments[0]->poem_id; // ошибка здесь
+        $poem_id = $deletedComments[0]->poem_id;
         $comments = Comment::where('id',$id)->delete();
         return redirect()->route('poems', ['id'=>$poem_id]);
     }
@@ -24,10 +24,10 @@ class CommentController extends Controller
 
     public function restoreComment(string $id) {
         $toBeRestoredComment = Comment::withTrashed()->where('id',$id)->get(); //он даёт удалённые комментарии в виде массива
-        //$poem_id = $toBeRestoredComment[$id-1]->poem_id; // 0 потому что массив // 0 не сработал
+        $poem_id = $toBeRestoredComment[0]->poem_id;
         $comments = Comment::where('id',$id)->restore(); // restore даёт кол-во id
         //return redirect()->route('/poems/{poem_id}'); // вернет на стих с которого удалили коммент
-        return redirect()->route('/admin/poems'); // тут нужно возвращаться на стих с которого удалили коммент
+        return redirect()->route('poems', ['id'=>$poem_id]); // тут нужно возвращаться на стих с которого удалили коммент
     }
 
     public function getComment(string $poem_id) {

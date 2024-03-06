@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Poem;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦЫ
+class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦЫ - какие таблицы? 6.3.24
 {
     public function showPoems() { //action контроллера
         $poems = Poem::all(); // all() уже показывает только не удаленные сущности
