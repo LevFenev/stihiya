@@ -16,7 +16,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
     public function admin_showPoems() { //action контроллера
         $poems = Poem::all(); // all() уже показывает только не удаленные сущности
         $deletedPoems = Poem::onlyTrashed()->count();
-        return view('poem.admin_list', ['poems'=>$poems],['deletedPoems'=>$deletedPoems]);
+        return view('poem.admin.list', ['poems'=>$poems],['deletedPoems'=>$deletedPoems]);
     }
 
     public function readPoem(string $id) {
@@ -31,7 +31,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         $comments = [];
         $comments = Comment::where('poem_id',$id)->get();
         $deletedComments = Comment::onlyTrashed()->count();
-        return view('poem.admin_read',['poems'=>$poems,'comments'=>$comments,'deletedComments'=>$deletedComments]); // переменная - poem // вот как тут несколько баз данных
+        return view('poem.admin.read',['poems'=>$poems,'comments'=>$comments,'deletedComments'=>$deletedComments]); // переменная - poem // вот как тут несколько баз данных
     }
 
     public function deletePoem(string $id) {
@@ -46,7 +46,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
             $poems->storyline = "(отсутствует)"; // не работает потому что обращается ко всем стихам сразу (там нет storyline)
         }*/
 
-        return view('poem.trashed', ['poems'=>$poems]);
+        return view('poem.admin.trashed', ['poems'=>$poems]);
     }
 
     public function restorePoem(string $id) {
