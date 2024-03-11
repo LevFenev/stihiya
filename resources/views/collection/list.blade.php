@@ -1,13 +1,13 @@
 @extends('layout')
 @section('content')
     <div>
-        <p>Сборники:
+        <p>Сборники:</p>
         <ol>
             @foreach($collections as $collection)
-                <li>{{$collection->title}}</li>
+                <li>{{$collection->title}} [<a href="/admin/collections/delete/{{$collection->id}}">удалить</a>]</li>
 
             @endforeach
         </ol>
-        </p>
+
     </div>
 @endsection

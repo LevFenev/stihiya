@@ -40,12 +40,18 @@ Route::get('collections', [\App\Http\Controllers\CollectionController::class, 's
 
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
 
+Route::get('admin/collections/{id}', [\App\Http\Controllers\CollectionController::class, 'admin_readCollection']);
+
+Route::get('admin/collections/delete/{id}', [\App\Http\Controllers\CollectionController::class, 'deleteCollection']);
+
+Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionController::class, 'restoreCollection']);
+
 // АЛЬБОМЫ
 Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
 
 Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
 
-Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']);
+Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
 
 Route::get('admin/albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'admin_readAlbum']);
 
@@ -61,9 +67,9 @@ Route::post('comments/post', [\App\Http\Controllers\CommentController::class, 'p
 //Route::get('comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
 // ПОЛЬЗОВАТЕЛЬ
-Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
+Route::get('user', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
-Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)
+Route::get('user/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)
 
 // АДМИНСКАЯ
 
@@ -88,8 +94,8 @@ Route::get('admin/comments/trashed', [\App\Http\Controllers\CommentController::c
 Route::get('admin/comments/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
 // пользователи
-Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'admin_showUsers'])->name('admin_users');
+Route::get('admin/user', [\App\Http\Controllers\UserController::class, 'admin_showUsers'])->name('admin_users');
 
-Route::get('admin/users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
+Route::get('admin/user/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
 
-Route::get('admin/users/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
+Route::get('admin/user/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);

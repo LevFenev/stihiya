@@ -13,14 +13,25 @@ class UserController extends Controller
         return redirect()->route('admin_users');
     }
 
+    public function showTrashedUsers(string $id) {
+        $users = User::onlyTrashed()->get();
+        return view('user.admin.list', ['user' => $users]);
+    }
+
+    public function restoreUser(string $id) {
+        $toBeRestoredUser = User::withTrashed()->where('id',$id)->get();
+        $users = User::where('id',$id)->restore();
+        return view('user.admin.list', ['user' => $users]);
+    }
+
     public function showUsers() {
         $users = User::all();
-        return view('users.list', ['users'=>$users]);
+        return view('user.list', ['user'=>$users]);
     }
 
     public function admin_showUsers() {
         $users = User::all();
-        return view('users.admin.list', ['users'=>$users]);
+        return view('user.admin.list', ['user'=>$users]);
     }
 
     public function showUserComments(string $id) {
@@ -28,7 +39,7 @@ class UserController extends Controller
         $comments = Comment::where('user_id',$id)->get();
         print_r($comments->count());
         $poems = Poem::where('author_id',$id)->get();
-        return view('users.personal', ['users'=>$users,'comment'=>$comments,'poems'=>$poems]);
+        return view('user.personal', ['user'=>$users,'comment'=>$comments,'poems'=>$poems]);
     }
 
     /*

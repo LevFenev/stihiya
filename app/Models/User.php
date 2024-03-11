@@ -43,6 +43,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected $table = "users";//,"poems"; // почему он выделяет table фиолетовым если она нигде не используется?
+    protected $table = "user";//,"poems"; // почему он выделяет table фиолетовым если она нигде не используется?
     // protected $poems_table = "poems";
 }
