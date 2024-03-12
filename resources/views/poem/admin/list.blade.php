@@ -8,7 +8,6 @@
             @endforeach
         </ol>
         </p>
-
         <button><a href="/admin/poems/trashed">Восстановить стихи({{($deletedPoems)}})</a></button>
     </div>
 @endsection

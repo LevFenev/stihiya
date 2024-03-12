@@ -14,6 +14,11 @@ class CollectionController extends Controller
         return view('collection.list', ['collections'=>$collections]);
     }
 
+    public function admin_showCollections() {
+        $collections = Collection::all();
+        return view('collection.admin.list', ['collections'=>$collections]);
+    }
+
     public function readCollection(string $id) {
         $collections = Collection::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
 

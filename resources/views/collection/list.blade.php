@@ -8,6 +8,5 @@
 
             @endforeach
         </ol>
-
     </div>
 @endsection
