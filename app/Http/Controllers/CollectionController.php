@@ -16,7 +16,8 @@ class CollectionController extends Controller
 
     public function admin_showCollections() {
         $collections = Collection::all();
-        return view('collection.admin.list', ['collections'=>$collections]);
+        $deletedCollections = Collection::onlyTrashed()->count();
+        return view('collection.admin.list', ['collections'=>$collections],['deletedCollections'=>$deletedCollections]);
     }
 
     public function readCollection(string $id) {

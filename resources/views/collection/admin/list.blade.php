@@ -9,5 +9,6 @@
             @endforeach
         </ol>
         </p>
+        <button><a href="/admin/collections/trashed">Восстановить сборники({{($deletedCollections)}})</a></button>
     </div>
 @endsection
