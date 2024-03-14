@@ -79,11 +79,12 @@ Route::get('user/{id}', [\App\Http\Controllers\UserController::class, 'showUserC
 // АДМИНСКАЯ
 
 // стихи
-Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems'])->name('poems');
-
-
+// сюда нужно poem restore
 
 Route::get('admin/poems/delete/{id}', [\App\Http\Controllers\PoemController::class, 'deletePoem']);
+
+Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems'])->name('poems');
+
 
 // сборники
 /*
