@@ -46,6 +46,8 @@ Route::get('admin/collections/{id}', [\App\Http\Controllers\CollectionController
 
 Route::get('admin/collections/delete/{id}', [\App\Http\Controllers\CollectionController::class, 'deleteCollection']);
 
+Route::get('admin/collections/trashed', [\App\Http\Controllers\CollectionController::class, 'showTrashedCollections']);
+
 Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionController::class, 'restoreCollection']);
 
 // АЛЬБОМЫ
