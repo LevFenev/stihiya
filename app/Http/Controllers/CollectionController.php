@@ -58,9 +58,9 @@ class CollectionController extends Controller
         return view('collection.admin.list', ['collections'=>$collections],['deletedCollections'=>$deletedCollections]);
     }
 
-    public function showTrashedCollections() {
-        $comments = Comment::onlyTrashed()->get();
-        return view('collection.admin.trashed', ['comments'=>$comments]);
+    public function showTrashedCollections(string $id) {
+        $collections = Collection::onlyTrashed()->get();
+        return view('collection.admin.trashed', ['collections'=>$collections]);
     }
 
     public function restoreCollection(string $id) {
