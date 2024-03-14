@@ -52,7 +52,8 @@ class CollectionController extends Controller
         $deletedCollections = Collection::withTrashed()->where('id',$id)->get();
         // $poem_id = $deletedComments[0]->poem_id; взято с удаления комментария, пожтому остался poem id
         $collections = Collection::where('id',$id)->delete();
-        return redirect()->route('collections' /*, ['id'=>$poem_id]*/ );
+        //return redirect()->route('collections' /*, ['id'=>$poem_id]*/ );
+        return view('admin.collection.list');
     }
 
     public function showTrashedCollections() {
