@@ -40,13 +40,14 @@ Route::get('collections', [\App\Http\Controllers\CollectionController::class, 's
 
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
 
+Route::get('admin/collections/trashed', [\App\Http\Controllers\CollectionController::class, 'showTrashedCollections']);
+
 Route::get('admin/collections', [\App\Http\Controllers\CollectionController::class, 'admin_showCollections']);
 
 Route::get('admin/collections/{id}', [\App\Http\Controllers\CollectionController::class, 'admin_readCollection']);
 
 Route::get('admin/collections/delete/{id}', [\App\Http\Controllers\CollectionController::class, 'deleteCollection']);
 
-Route::get('admin/collections/trashed', [\App\Http\Controllers\CollectionController::class, 'showTrashedCollections']);
 
 Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionController::class, 'restoreCollection']);
 
