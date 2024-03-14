@@ -11,4 +11,9 @@ class Poem extends Model
     use HasFactory,SoftDeletes;
 
     protected $table = 'poem';
+
+    public function getComments(string $id) {
+        $comments = Comment::where('poem_id',$id)->get();
+        return $comments;
+    }
 }
