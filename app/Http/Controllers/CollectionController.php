@@ -54,7 +54,8 @@ class CollectionController extends Controller
         $collections = Collection::where('id',$id)->delete();
         //return redirect()->route('collections' /*, ['id'=>$poem_id]*/ );
         $collections = Collection::all();
-        return view('collection.admin.list', ['collections'=>$collections]);
+        $deletedCollections = Collection::onlyTrashed()->count();
+        return view('collection.admin.list', ['collections'=>$collections],['deletedCollections'=>$deletedCollections]);
     }
 
     public function showTrashedCollections() {
