@@ -6,8 +6,8 @@
 1=/home/f/fb7917ll/stihiya.easycs.ru/public_html/
 
 [cmdline]
-0=
-1=[32;38;10M
+0=[32;38;10M
+1=
 
 [Dir Hist New Right Panel]
 0=/home/f/fb7917ll/stihiya.easycs.ru/public_html
@@ -19,3 +19,5 @@
 2=/home/f/fb7917ll/stihiya.easycs.ru/.config
 3=/home/f/fb7917ll/stihiya.easycs.ru/config
 4=/home/f/fb7917ll/stihiya.easycs.ru
+5=/home/f/fb7917ll/stihiya.easycs.ru/storage
+6=/home/f/fb7917ll/stihiya.easycs.ru/storage/logs

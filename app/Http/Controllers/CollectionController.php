@@ -58,7 +58,7 @@ class CollectionController extends Controller
         return view('collection.admin.list', ['collections'=>$collections],['deletedCollections'=>$deletedCollections]);
     }
 
-    public function showTrashedCollections(string $id) {
+    public function showTrashedCollections() {
         $collections = Collection::onlyTrashed()->get();
         return view('collection.admin.trashed', ['collections'=>$collections]);
     }
@@ -67,6 +67,8 @@ class CollectionController extends Controller
         $toBeRestoredCollection = Collection::withTrashed()->where('id',$id)->get();
         //$poem_id = $toBeRestoredComment[0]->poem_id;
         $collections = Collection::where('id',$id)->restore(); // restore даёт кол-во id
-        return redirect()->route('collections');
+        $collections = Collection::all();
+        $deletedCollections = Collection::onlyTrashed()->count();
+        return view('collection.admin.list', ['collections'=>$collections],['deletedCollections'=>$deletedCollections]);
     }
 }
