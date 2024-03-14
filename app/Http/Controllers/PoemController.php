@@ -21,7 +21,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
 
     public function readPoem(string $id) {
         $poems = Poem::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
-        return view('poem.read',['poems'=>$poems,'comments'=>$comments]); // переменная - poem // вот как тут несколько баз данных
+        return view('poem.read',['poems'=>$poems]); // переменная - poem // вот как тут несколько баз данных
     }
 
     public function admin_readPoem(string $id) {
