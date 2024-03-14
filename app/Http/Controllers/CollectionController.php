@@ -53,6 +53,7 @@ class CollectionController extends Controller
         // $poem_id = $deletedComments[0]->poem_id; взято с удаления комментария, пожтому остался poem id
         $collections = Collection::where('id',$id)->delete();
         //return redirect()->route('collections' /*, ['id'=>$poem_id]*/ );
+        $collections = Collection::all();
         return view('collection.admin.list', ['collections'=>$collections]);
     }
 
