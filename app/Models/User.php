@@ -45,4 +45,8 @@ class User extends Authenticatable
 
     protected $table = "user";//,"poems"; // почему он выделяет table фиолетовым если она нигде не используется?
     // protected $poems_table = "poems";
+
+    public function comments() {
+        return $this->hasMany(\App\Models\Comment::class, \App\Models\Poem::class);
+    }
 }
