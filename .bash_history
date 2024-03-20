@@ -387,3 +387,39 @@ git pull
 git pull
 git pull
 git pull
+php artisan make:mig
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:mig
+git add .
+git commit -m "create deleted at column to collection migration"
+git push
+git pull
+php artisan migrate
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git checkout --
+mc
+cd storage/logs
+tail -f laravel.log 
+git pull
+rm app/Http/Controllers/CollectionController.php
+rm app/Http/Controllers/CollectionController.php
+git status
+git add .
+git pull
+git commit
+git commit -a
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
