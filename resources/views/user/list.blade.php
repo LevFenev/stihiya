@@ -12,6 +12,7 @@
                     <p>{{$comment->poem_id}}</p>
                     <p>Лайки: {{$comment->like_count}}</p>
             @endforeach
+            @endforeach
         </ol>
     </div>
 @endsection
