@@ -47,6 +47,10 @@ class User extends Authenticatable
     // protected $poems_table = "poems";
 
     public function comments() {
-        return $this->hasMany(\App\Models\Comment::class, \App\Models\Poem::class);
+        return $this->hasMany(\App\Models\Comment::class);
+    }
+
+    public function poems() {
+        return $this->hasMany(\App\Models\Poem::class);
     }
 }
