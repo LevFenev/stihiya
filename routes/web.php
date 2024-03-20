@@ -72,9 +72,9 @@ Route::post('comments/post', [\App\Http\Controllers\CommentController::class, 'p
 //Route::get('comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
 // ПОЛЬЗОВАТЕЛЬ
-Route::get('user', [\App\Http\Controllers\UserController::class, 'showUsers']);
+Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
-Route::get('user/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)
+Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)
 
 // АДМИНСКАЯ
 
@@ -100,8 +100,8 @@ Route::get('admin/comments/trashed', [\App\Http\Controllers\CommentController::c
 Route::get('admin/comments/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
 // пользователи
-Route::get('admin/user', [\App\Http\Controllers\UserController::class, 'admin_showUsers'])->name('admin_users');
+Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'admin_showUsers'])->name('admin_users');
 
-Route::get('admin/user/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
+Route::get('admin/users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
 
-Route::get('admin/user/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
+Route::get('admin/users/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
