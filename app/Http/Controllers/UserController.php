@@ -36,10 +36,11 @@ class UserController extends Controller
 
     public function showUserComments(string $id) {
         $users = User::where('id',$id)->get();
-        $comments = Comment::where('user_id',$id)->get();
-        print_r($comments->count());
-        $poems = Poem::where('author_id',$id)->get();
-        return view('user.personal', ['user'=>$users,'comment'=>$comments,'poems'=>$poems]);
+//        $comments = Comment::where('user_id',$id)->get();
+//        print_r($comments->count());
+        // и поэмы тоже надо в модель засунуть
+//        $poems = Poem::where('author_id',$id)->get();
+        return view('user.personal', ['user'=>$users]);
     }
 
     /*
