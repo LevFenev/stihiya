@@ -36,9 +36,9 @@ Route::get('admin/poems/trashed', [\App\Http\Controllers\PoemController::class, 
 Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::class, 'restorePoem']);
 
 // СБОРНИКИ
-Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
-
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
+
+Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
 
 Route::get('admin/collections/trashed', [\App\Http\Controllers\CollectionController::class, 'showTrashedCollections']);
 
@@ -107,4 +107,4 @@ Route::get('admin/users/{id}', [\App\Http\Controllers\UserController::class, 'sh
 Route::get('admin/users/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
 
 
-Route::get('collections/read/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
+
