@@ -15,23 +15,23 @@ class UserController extends Controller
 
     public function showTrashedUsers(string $id) {
         $users = User::onlyTrashed()->get();
-        return view('user.admin.list', ['user' => $users]);
+        return view('user.admin.list', ['users' => $users]);
     }
 
     public function restoreUser(string $id) {
         $toBeRestoredUser = User::withTrashed()->where('id',$id)->get();
         $users = User::where('id',$id)->restore();
-        return view('user.admin.list', ['user' => $users]);
+        return view('user.admin.list', ['users' => $users]);
     }
 
     public function showUsers() {
         $users = User::all();
-        return view('user.list', ['user'=>$users]);
+        return view('user.list', ['users'=>$users]);
     }
 
     public function admin_showUsers() {
         $users = User::all();
-        return view('user.admin.list', ['user'=>$users]);
+        return view('user.admin.list', ['users'=>$users]);
     }
 
     public function showUserComments(string $id) {
@@ -40,7 +40,7 @@ class UserController extends Controller
 //        print_r($comments->count());
         // и поэмы тоже надо в модель засунуть
 //        $poems = Poem::where('author_id',$id)->get();
-        return view('user.personal', ['user'=>$users]);
+        return view('user.personal', ['users'=>$users]);
     }
 
     /*
