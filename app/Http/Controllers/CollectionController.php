@@ -15,7 +15,7 @@ class CollectionController extends Controller
     }
 
     public function readCollection(string $id) {
-        $collections = Collection::where('id',$id)->get();
+        $collections = Collection::find($id);
         return view('collection.collection2', ['collections'=>$collections]);
     }
 
