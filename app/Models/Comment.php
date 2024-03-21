@@ -11,4 +11,8 @@ class Comment extends Model
     use HasFactory,SoftDeletes;
 
     protected $table = 'comment';
+
+    public function poem() {
+        return $this->belongsTo(\App\Models\Poem::class);
+    }
 }

@@ -2,14 +2,14 @@
 @section('content')
     <div>
         <a href="/admin/poems">Общий список стихов</a>
-        @foreach($poem->poem)
+        @foreach($poems as $poem)
             <h2>{{($poem->title)}}</h2>
             <i>{{($poem->author_id)}}</i> <!-- ($user->username)   как-то надо определять айдишник того кто написал стих и вывести имя -->
             <p>{!!str_replace("\n",'<br>',($poem->content))!!}</p>
             <br>
             <i>{{($poem->release_year)}}</i>
             <a href="/comments/post/{{$poem->id}}">Добавить комментарий</a>
-            @foreach($poem->comments)
+            @foreach($poem->comments as $comment)
                 <h3>{{$comment->username}}</h3>
                 <p>{{$comment->created_at}}</p>
                 <p>{{$comment->content}}</p>
