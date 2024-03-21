@@ -10,7 +10,7 @@
 <br>
     <i>{{($poem->release_year)}}</i>
     <a href="/comments/post/{{$poem->id}}">Добавить комментарий</a>
-    @foreach($poem->comments)
+    @foreach($poem->comments as $comment)
             <h3>{{$comment->username}}</h3>
             <p>{{$comment->created_at}}</p>
             <p>{{$comment->content}}</p>
