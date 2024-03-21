@@ -14,13 +14,17 @@ class CollectionController extends Controller
         return view('collection.list', ['collections'=>$collections]);
     }
 
+    public function readCollection() {
+
+    }
+
     public function admin_showCollections() {
         $collections = Collection::all();
         $deletedCollections = Collection::onlyTrashed()->count();
         return view('collection.admin.list', ['collections'=>$collections],['deletedCollections'=>$deletedCollections]);
     }
 
-    public function readCollection(string $id) {
+    /*public function readCollection(string $id) {
         $collections = Collection::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
 
         $poem_ids = [];
@@ -41,7 +45,7 @@ class CollectionController extends Controller
         //print_r($poems);
 
         return view('collection.read',['collections'=>$collections, 'poems'=>$poems]); // переменная - poem
-    }
+    }*/
 
     public function admin_readCollection(string $id) {
 

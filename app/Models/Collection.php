@@ -11,4 +11,8 @@ class Collection extends Model
     use HasFactory, SoftDeletes;
 
     protected $table = 'collection';
+
+    public function poems() {
+        return $this->belongsToMany(\App\Models\Poem::class);
+    }
 }
