@@ -15,4 +15,8 @@ class Comment extends Model
     public function poem() {
         return $this->belongsTo(\App\Models\Poem::class);
     }
+
+    public function user() {
+        return $this->belongsTo(\App\Models\User::class); //$this->poem_id;
+    }
 }
