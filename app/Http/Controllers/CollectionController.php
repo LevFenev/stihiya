@@ -15,8 +15,8 @@ class CollectionController extends Controller
     }
 
     public function readCollection(string $id) {
-        $collections = Collection::find($id);
-        return view('collection.collection2', ['collections'=>$collections]);
+        $collection = Collection::find($id);
+        return view('collection.collection2', ['collection'=>$collection]);
     }
 
     public function admin_showCollections() {
