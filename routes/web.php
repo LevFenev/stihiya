@@ -105,3 +105,6 @@ Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'admin_s
 Route::get('admin/users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
 
 Route::get('admin/users/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
+
+
+Route::get('collections/read/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
