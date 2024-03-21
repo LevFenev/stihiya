@@ -13,6 +13,6 @@ class Collection extends Model
     protected $table = 'collection';
 
     public function poems() {
-        return $this->belongsToMany(\App\Models\Poem::class);
+        return $this->belongsToMany(\App\Models\Poem::class,'poem_collection'); // в кавычках - таблица связки
     }
 }
