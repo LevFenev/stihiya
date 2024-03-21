@@ -25,12 +25,12 @@ class UserController extends Controller
     }
 
     public function showUsers() {
-        $users = User::all()->get();
+        $users = User::all();
         return view('user.list', ['user'=>$users]);
     }
 
     public function admin_showUsers() {
-        $users = User::all()->get();
+        $users = User::all();
         return view('user.admin.list', ['user'=>$users]);
     }
 
