@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/main', [\App\Http\Controllers\PoemController::class, 'showMain']);
+Route::get('/main', [\App\Http\Controllers\ViewController::class, 'showMain']);
 
 // СТИХИ
 
