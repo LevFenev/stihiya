@@ -423,3 +423,33 @@ git pull
 git pull
 git pull
 git pull
+php artisan make::migrate
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make::migrate
+php artisan migrate
+php artisan create::migration
+php artisan make:migration
+git add .
+git push
+git commit -m "made migration rename_users_table"
+git push
+git pull
+php artisan migrate
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan migrate
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
