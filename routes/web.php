@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/main', [\App\Http\Controllers\PoemController::class, 'showMain']);
+
 // СТИХИ
 
 Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
@@ -32,7 +34,6 @@ Route::get('admin/poems/{id}', [\App\Http\Controllers\PoemController::class, 'ad
 Route::get('/poems/post/{new_id}', [\App\Http\Controllers\PoemController::class, 'getPoem']);
 
 Route::post('/poems/post', [\App\Http\Controllers\PoemController::class, 'postPoem']);
-
 
 Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::class, 'restorePoem']);
 
