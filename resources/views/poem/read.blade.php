@@ -5,7 +5,10 @@
     <a href="/poems">Общий список стихов</a>
     @foreach($poems as $poem)
         <h2>{{($poem->title)}}</h2>
-            <i>@if(isset($poem->user->name)) @endif</i> <!-- ($user->username)   как-то надо определять айдишник того кто написал стих и вывести имя -->
+            @if(isset($poem->user))
+                <i>{{$poem->user->name}}</i>
+            @endif
+            <!-- ($user->username)   как-то надо определять айдишник того кто написал стих и вывести имя -->
     <p>{!!str_replace("\n",'<br>',($poem->content))!!}</p>
 <br>
     <i>{{($poem->release_year)}}</i>
