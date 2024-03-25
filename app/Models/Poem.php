@@ -24,7 +24,7 @@ class Poem extends Model
     }
 
     public function user() {
-        return $this->belongsTo(\App\Models\User::class); //$this->poem_id;
+        return $this->belongsTo(\App\Models\User::class, 'author_id'); //$this->poem_id;
     }
 
     public function username() {
