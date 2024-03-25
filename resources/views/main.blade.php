@@ -1,3 +1,5 @@
 @extends('layout')
-@include('content')
+@section('content')
+    @include('menu')
 
+@endsection
