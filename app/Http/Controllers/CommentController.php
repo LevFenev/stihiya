@@ -31,18 +31,22 @@ class CommentController extends Controller
     }
 
     public function getComment(string $poem_id) {
+
         return view('comment.form', ['poem_id'=>$poem_id]);
     }
 
     public function postComment(Request $request) {
+        //требования для того чтобы коммент прошёл валидацию
         $validated = $request->validate([
             'comment_body'=>['required', 'max:50', 'min:5'],
             'poem_id'=>['numeric', 'exists:poem,id']
         ]);
         $validated = $request->all();
+
         $comment = new Comment();
+
         $comment->content=$validated['comment_body'];
-        $comment->user_id=2;
+        $comment->user_id=2; //временная мера пока нет входа в аккаунт
         $comment->poem_id=$validated['poem_id'];
         $comment->save();
         return view('comment.added', ['request'=>$request]); // вернет на стих с которого удалили коммент

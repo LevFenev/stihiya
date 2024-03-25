@@ -4,7 +4,7 @@
     <p>Стихи:</p>
     <a href="/poems">Общий список стихов</a>
     @foreach($poems as $poem)
-        <h2>{{($poem->title)}}</h2>
+        <h2>{{($poem->title)}}</h2><h3>Лев</h3>
             @if(isset($poem->user))
                 <i>{{$poem->user->name}}</i>
             @endif
