@@ -19,13 +19,16 @@ Route::get('/', function () {
 
 Route::get('/main', [\App\Http\Controllers\ViewController::class, 'showMain']);
 
-// СТИХИ
 
-Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
+/**
+ * POEMS / СТИХИ
+ */
 
 //Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
 
 Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem'])->name('poems'); // отсюда получает id
+
+Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
 Route::get('admin/poems/trashed', [\App\Http\Controllers\PoemController::class, 'showTrashedPoems'])->name('trashedPoems');
 
@@ -37,7 +40,10 @@ Route::post('/poems/post', [\App\Http\Controllers\PoemController::class, 'postPo
 
 Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::class, 'restorePoem']);
 
-// СБОРНИКИ
+/**
+ * COLLECTIONS / СБОРНИКИ
+ */
+
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
 
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
@@ -53,7 +59,10 @@ Route::get('admin/collections/delete/{id}', [\App\Http\Controllers\CollectionCon
 
 Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionController::class, 'restoreCollection']);
 
-// АЛЬБОМЫ
+/**
+ * ALBUMS / АЛЬБОМЫ
+ */
+
 Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
 
 Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
@@ -62,7 +71,23 @@ Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::cla
 
 Route::get('admin/albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'admin_readAlbum']);
 
-// КОММЕНТАРИИ
+/**
+ * SONGS / ПЕСНИ
+ */
+
+Route::get('/admin/songs/delete/{id}', [\App\Http\Controllers\SongController::class, 'deleteSong']);
+
+Route::get('/admin/songs/restore/{id}', [\App\Http\Controllers\SongController::class, 'restoreSong']);
+
+Route::get('/admin/songs', [\App\Http\Controllers\SongController::class, 'admin_showSongs']);
+
+Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs']);
+
+
+/**
+ * COMMENTS / КОММЕНТАРИИ
+ */
+
 //Route::get('comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
 
 Route::get('comments/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'getComment']); // отвечает за форму
@@ -73,7 +98,10 @@ Route::post('comments/post', [\App\Http\Controllers\CommentController::class, 'p
 
 //Route::get('comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
-// ПОЛЬЗОВАТЕЛЬ
+/**
+ * USERS / ПОЛЬЗОВАТЕЛИ
+ */
+
 Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
 Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)

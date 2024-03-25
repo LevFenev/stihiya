@@ -38,7 +38,6 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         return redirect()->route('poems'); //как-то сюда редиректить на страницу со списком стихов
     }
 
-
     public function showTrashedPoems() {
         $poems = Poem::onlyTrashed()->get();
         /*if ($poems->storyline == null){ // так нужно автоматически сделать для всех элементов выводящихся на страницу
