@@ -3,9 +3,39 @@
     <div>
         <p>Пользователи</p>
         <ol>
-            @foreach($users as $user)
+            @foreach($users as $user->abc)
                 <h2><a href="users/{{$user->id}}">{{$user->name}}</a></h2>
-                @foreach($user->comments)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                @foreach($users as $user->comments)
                     <h3>{{$comment->username}}</h3>
                     <p>{{$comment->created_at}}</p>
                     <p>{{$comment->content}}</p>
