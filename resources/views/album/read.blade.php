@@ -11,10 +11,7 @@
             <i>{{($album->release_year)}}</i>
             <a href="/comment/post/{{$album->id}}">Добавить комментарий</a>
             @foreach($comments as $comment)
-                <h3>{{$comment->username}}</h3>
-                <p>{{$comment->created_at}}</p>
-                <p>{{$comment->content}}</p>
-                <p>Лайки: {{$comment->like_count}}</p>
+                @include('comments')
                 {{-- <p><a href="/comment/delete/{{$comment->id}}">Удалить</a></p> это админская вещь --}}
             @endforeach
         @endforeach

@@ -14,11 +14,11 @@
     <i>{{($poem->release_year)}}</i>
     <a href="/comments/post/{{$poem->id}}">Добавить комментарий</a>
     @foreach($poem->comments as $comment)
-            <h3>{{$comment->username}}</h3>
+        @include('comments')
+            {{--<h3>{{$comment->username}}</h3>
             <p>{{$comment->created_at}}</p>
             <p>{{$comment->content}}</p>
-            <p>Лайки: {{$comment->like_count}}</p>
-            {{-- <p><a href="/comment/delete/{{$comment->id}}">Удалить</a></p> это админская вещь --}}
+            <p>Лайки: {{$comment->like_count}}</p>--}}
         @endforeach
         @endforeach
 </div>
