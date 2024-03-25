@@ -3,44 +3,10 @@
     <div>
         <p>Пользователи</p>
         <ol>
-            @foreach($users as $user->abc)
+            @foreach($users as $user)
                 <h2><a href="users/{{$user->id}}">{{$user->name}}</a></h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                @foreach($users as $user->comments)
-                    <h3>{{$comment->username}}</h3>
-                    <p>{{$comment->created_at}}</p>
-                    <p>{{$comment->content}}</p>
-                    <p>{{$comment->poem_id}}</p>
-                    <p>Лайки: {{$comment->like_count}}</p>
+                @foreach($user->comments as $comment)
+                    @include('comments')
             @endforeach
             @endforeach
         </ol>
