@@ -25,7 +25,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
     }
 
     public function admin_readPoem(string $id) {
-        $poems = Poem::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
+        $poems = Poem::find($id); // данные записываются в переменную - скидывает полный объект
         /*$comments = [];
         $comments = Comment::where('poem_id',$id)->get();*/
         $deletedComments = Comment::onlyTrashed()->count();
