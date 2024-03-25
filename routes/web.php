@@ -63,13 +63,13 @@ Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionCo
  * ALBUMS / АЛЬБОМЫ
  */
 
-Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
-
-Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
-
 Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
 
 Route::get('admin/albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'admin_readAlbum']);
+
+Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
+
+Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
 
 /**
  * SONGS / ПЕСНИ

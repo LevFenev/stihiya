@@ -4,7 +4,7 @@
         <p>Сборники:</p>
         <ol>
             @foreach($collections as $collection)
-                <li>{{$collection->title}} [<a href="/admin/collections/delete/{{$collection->id}}">удалить</a>]</li>
+                <li>{{$collection->title}}</li>
 
             @endforeach
         </ol>
