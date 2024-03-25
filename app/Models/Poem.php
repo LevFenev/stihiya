@@ -28,7 +28,7 @@ class Poem extends Model
     }
 
     public function username() {
-        $user = $this->user();
+        $user = $this->user; //должен достать из relation
         if(is_null($user)){
             return "";
         } return $user->name;
