@@ -1,6 +1,6 @@
 <div>
     <!-- Well begun is half done. - Aristotle -->
-    <ul style="list-style: none">
+    <ul>
         <li style="display: block; float: left">
             <a href="/users">Пользователи</a>
         </li>
