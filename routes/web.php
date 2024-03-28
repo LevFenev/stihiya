@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/main', [\App\Http\Controllers\ViewController::class, 'showMain']);
 
+Route::get('/admin/main', [\App\Http\Controllers\ViewController::class, 'admin_showMain']);
+
 
 /**
  * POEMS / СТИХИ
