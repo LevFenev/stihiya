@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class SongController extends Controller
 {
-    public function showSongs() { //action контроллера
+    public function showSongs() {
         $songs = Song::all(); // all() уже показывает только не удаленные сущности
         return view('song.list', ['songs'=>$songs]);
     } // showSongs это по сути альбом, который уже в проекте есть, или будет отдельный общий список с песнями?
 
-    public function admin_showPoems() { //action контроллера
-        $songs = Poem::all(); // all() уже показывает только не удаленные сущности
+    public function admin_showSongs() {
+        $songs = Song::all(); // all() уже показывает только не удаленные сущности
         return view('song.admin.list', ['songs'=>$songs]);
     }
 
@@ -21,7 +21,6 @@ class SongController extends Controller
         $songs = Song::where('id',$id)->get(); // данные записываются в переменную - скидывает полный объект
 
         /*$comments = [];
-
         $comments = Comment::where('song_id',$id)->get();*/
 
         return view('song.read',['songs'=>$songs]);
