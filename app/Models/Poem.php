@@ -12,6 +12,7 @@ class Poem extends Model
     use HasFactory,SoftDeletes;
 
     protected $table = 'poem';
+    protected $attributes = ['title'=>'Без названия','author_id'=>0,'publisher_id'=>0,'release_year'=>2024,'content'=>'Без содержания'];
 
     public function getComments(string $id) {
 //        $comments = Comment::where('poem_id',$id)->get();
@@ -32,5 +33,10 @@ class Poem extends Model
         if(is_null($user)){
             return "";
         } return $user->name;
+    }
+
+    public function getAttributeNames() {
+        $attributeNames = \Schema::getColumnListing($this->table);
+        return $attributeNames;
     }
 }

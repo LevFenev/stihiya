@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Poem;
 use App\Models\Song;
 use Illuminate\Http\Request;
 
@@ -54,6 +55,31 @@ class SongController extends Controller
         } else {
             return redirect()->route('trashedSongs');
         }
+    }
+
+
+
+    public function leftAction(string $poem_id) {
+        $poem = Poem::find($poem_id);
+        if (is_null($poem)) {
+            $poem = new Poem();
+            $poem->release_date=date('Y-m-d H-i-s');
+            $poem->save();
+        }
+        return view('left', ['poem'=>$poem->getAttributes()]);
+    }
+
+    public function postLeftAction(Request $request) {
+
+        $validated = $request->validate([ // валидацию потом сделать
+            'comment_body'=>['required', 'max:50', 'min:5'],
+            'poem_id'=>['numeric', 'exists:poem,id']
+        ]);
+        $validated = $request->all();
+
+        $poem = new Poem();
+        $poem->fill($validated); // в поем модели сделать переменную fillable и туда занести те поля которые должен заполнять пользователь
+        $poem->save();
     }
 
     public function getSong(string $id) {

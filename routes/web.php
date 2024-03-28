@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/left/{poem_id}', [\App\Http\Controllers\SongController::class, 'leftAction'])->where('poem_id','[0-9]+');
+
+Route::post('/left', [\App\Http\Controllers\SongController::class, 'postLeftAction']);
+
+
 Route::get('/main', [\App\Http\Controllers\ViewController::class, 'showMain']);
 
 Route::get('/admin/main', [\App\Http\Controllers\ViewController::class, 'admin_showMain']);
