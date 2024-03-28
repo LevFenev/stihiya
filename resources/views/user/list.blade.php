@@ -6,7 +6,7 @@
             @foreach($users as $user)
                 <h2><a href="users/{{$user->id}}">{{$user->name}}</a></h2>
                 @foreach($user->comments as $comment)
-                    @include('comments')
+                    @include('poem.comments')
             @endforeach
             @endforeach
         </ol>

@@ -17,11 +17,7 @@
 
             <a href="/comments/post/{{$song->id}}">Добавить комментарий</a>
             @foreach($song->comments as $comment)
-                <h3>{{$comment->username}}</h3>
-                <p>{{$comment->created_at}}</p>
-                <p>{{$comment->content}}</p>
-                <p>Лайки: {{$comment->like_count}}</p>
-                {{-- <p><a href="/comment/delete/{{$comment->id}}">Удалить</a></p> это админская вещь --}}
+                @include('comments')
             @endforeach
 
         @endforeach
