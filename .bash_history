@@ -453,3 +453,43 @@ git pull
 git pull
 git pull
 git pull
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:controller
+git add .
+git push
+git commit -m "created page controller for showing users and admins their main page"
+git push
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+rm app/Http/Controllers/SongController.php
+rm app/Models/Poem.php
+rm routes/web.php
+git pull
+resources/views/left.blade.php
+rm resources/views/left.blade.php
+git pull
