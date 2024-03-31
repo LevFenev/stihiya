@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('status_column_to_poem', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('poem', function(Blueprint $table){
+            $table->string('status')->nullable();
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('status_column_to_poem');
+        Schema::table('poem', function(Blueprint $table) {
+            $table->dropColumn('status'); // dropColumn - убрать колонку из бд
+        });
     }
 };
