@@ -1,7 +1,3 @@
-OB
-ls
-mc
-ls
 git init
 git config
 git config --global user.name "Masha"
@@ -492,4 +488,13 @@ rm routes/web.php
 git pull
 resources/views/left.blade.php
 rm resources/views/left.blade.php
+git pull
+php artisan make:migrate
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migrate
+php artisan make:migration
+git add .
+git commit -m "created migration for create_status_column_to_poem"
+git push
+php artisan migrate
 git pull
