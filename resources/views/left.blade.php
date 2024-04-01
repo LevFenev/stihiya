@@ -3,7 +3,7 @@
         @csrf
     @foreach($poem as $key=>$attribute)
         @if($key=='content')
-                <label>{{$key}}<textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea></label>
+                <label>{{$key}}<textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea></label><br>
             @else
                 @php
                     $type='text';
@@ -17,7 +17,7 @@
                     @endphp
                 @endif
 
-                <label {{--{{$display}}--}}>{{$key}}<input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"></label>
+                <label {{$display}}>{{$key}}<input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"></label><br>
             @endif
 
         @endforeach
