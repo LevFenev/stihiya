@@ -47,18 +47,48 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         return view('poem.admin.trashed', ['poems'=>$poems]);
     }
 
-    public function restorePoem(string $id) {
+    public function restorePoem(string $id)
+    {
         //$toBeRestoredPoem = Poem::withTrashed()->where('id',$id)->get(); //он даёт удалённые стихи в виде массива
-        $validated = Poem::withTrashed()->where('id',$id)->get();
+        $validated = Poem::withTrashed()->where('id', $id)->get();
         //$poem_id = $toBeRestoredPoem[0]->poem_id; // 0 потому что массив
 //        $poem_id = $validated[0]->id;
-        $poems = Poem::where('id',$id)->restore();// restore даёт кол-во id
+        $poems = Poem::where('id', $id)->restore();// restore даёт кол-во id
         $deletedPoems = Poem::onlyTrashed()->count();
-        if ($deletedPoems==0){
+        if ($deletedPoems == 0) {
             return redirect()->route('poems');
         } else {
             return redirect()->route('trashedPoems');
         }
+    }
+
+    public function poem_Action(string $poem_id) {
+        $poem = Poem::find($poem_id);
+        if (is_null($poem)) {
+            $poem = new Poem();
+            $poem->release_date=date('Y-m-d H-i-s');
+            $poem->save();
+        }
+        return view('left', ['poem'=>$poem->getAttributes()]);
+    }
+
+    public function poem_postAction(Request $request) {
+
+        $validated = $request->validate([ // валидацию потом сделать
+            'title'=>['max:100', 'min:5'],
+            'author_id'=>['numeric', 'exists:user,id'],
+            'publisher_id'=>['numeric', 'exists:user,id'],
+            'release_date'=>['numeric'], // не нюмерик
+            'release_year'=>['required', 'numeric', 'min:4'],
+            'content'=>[''],
+            'storyline'=>[''],
+            // photo status бла бла..
+        ]);
+        $validated = $request->all();
+
+        $poem = new Poem();
+        $poem->fill($validated); // в поем модели сделать переменную fillable и туда занести те поля которые должен заполнять пользователь
+        $poem->save();
     }
 
     /*
@@ -80,10 +110,4 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         return view('comment.added', ['request'=>$request]); // вернет на стих с которого удалили коммент
     }
     */
-
-/*
-    function elgerhg($a,$b=null,$c=null){
-
-}
-*/
 }

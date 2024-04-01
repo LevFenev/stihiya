@@ -22,4 +22,5 @@
 
         @endforeach
         <button type="submit">Опубликовать</button>
+        <button type="submit">Сохранить</button> {{--надо проверить нажимает ли пользователь на кнопку и после нажатия сохранить стих--}}
     </form>

@@ -47,9 +47,9 @@ class SongController extends Controller
         return view('poem.admin.trashed', ['trashedSongs'=>$songs]);
     }
 
-    public function restorePoem(string $id) {
+    public function restoreSong(string $id) {
         Song::where('id',$id)->restore();// restore даёт кол-во id
-        $deletedSongs = Poem::onlyTrashed()->count();
+        $deletedSongs = Song::onlyTrashed()->count();
         if ($deletedSongs==0){
             return redirect()->route('songs');
         } else {

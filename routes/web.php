@@ -71,7 +71,6 @@ Route::get('admin/collections/{id}', [\App\Http\Controllers\CollectionController
 
 Route::get('admin/collections/delete/{id}', [\App\Http\Controllers\CollectionController::class, 'deleteCollection']);
 
-
 Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionController::class, 'restoreCollection']);
 
 /**
@@ -98,6 +97,8 @@ Route::get('/admin/songs/delete/{id}', [\App\Http\Controllers\SongController::cl
 Route::get('/admin/songs/restore/{id}', [\App\Http\Controllers\SongController::class, 'restoreSong']);
 
 Route::get('/admin/songs', [\App\Http\Controllers\SongController::class, 'admin_showSongs']);
+
+//Route::get('/songs/post/', [\App\Http\Controllers\SongController::class, 'showSongs']);
 
 Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs']);
 
