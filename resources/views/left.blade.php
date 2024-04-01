@@ -17,7 +17,7 @@
                     @endphp
                 @endif
 
-                <label {{$display}}>{{$key}}<input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"></label>
+                <label {{--{{$display}}--}}>{{$key}}<input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"></label>
             @endif
 
         @endforeach

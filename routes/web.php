@@ -47,6 +47,12 @@ Route::post('/poems/post', [\App\Http\Controllers\PoemController::class, 'postPo
 
 Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::class, 'restorePoem']);
 
+// admin
+
+Route::get('admin/poems/delete/{id}', [\App\Http\Controllers\PoemController::class, 'deletePoem']);
+
+Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems'])->name('poems');
+
 /**
  * COLLECTIONS / СБОРНИКИ
  */
@@ -54,6 +60,8 @@ Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::cl
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
 
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
+
+// admin
 
 Route::get('admin/collections/trashed', [\App\Http\Controllers\CollectionController::class, 'showTrashedCollections']);
 
@@ -72,11 +80,14 @@ Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionCo
 
 Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
 
-Route::get('admin/albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'admin_readAlbum']);
 
 Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
 
 Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
+
+// admin
+
+Route::get('admin/albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'admin_readAlbum']);
 
 /**
  * SONGS / ПЕСНИ
@@ -105,6 +116,14 @@ Route::post('comments/post', [\App\Http\Controllers\CommentController::class, 'p
 
 //Route::get('comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
+// admin
+
+Route::get('admin/comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
+
+Route::get('admin/comments/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
+
+Route::get('admin/comments/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
+
 /**
  * USERS / ПОЛЬЗОВАТЕЛИ
  */
@@ -113,15 +132,18 @@ Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
 
 Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)
 
+// admin
+
+Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'admin_showUsers'])->name('admin_users');
+
+Route::get('admin/users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
+
+Route::get('admin/users/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
+
 // АДМИНСКАЯ
 
 // стихи
 // сюда нужно poem restore
-
-Route::get('admin/poems/delete/{id}', [\App\Http\Controllers\PoemController::class, 'deletePoem']);
-
-Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems'])->name('poems');
-
 
 // сборники
 /*
@@ -130,18 +152,3 @@ Route::get('admin/collections', [\App\Http\Controllers\CollectionController::cla
 Route::get('admin/collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);*/
 
 // комментарии
-Route::get('admin/comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
-
-Route::get('admin/comments/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
-
-Route::get('admin/comments/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
-
-// пользователи
-Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'admin_showUsers'])->name('admin_users');
-
-Route::get('admin/users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
-
-Route::get('admin/users/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
-
-
-

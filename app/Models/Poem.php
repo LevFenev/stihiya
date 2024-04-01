@@ -14,10 +14,15 @@ class Poem extends Model
     protected $table = 'poem';
     protected $attributes = ['title'=>'Без названия','author_id'=>0,'publisher_id'=>0,'release_year'=>2024,'content'=>'Без содержания'];
 
+    const STATUS_NEW = 'new';
+    const STATUS_DRAFT = 'draft';
+    const STATUS_UNLISTED = 'unlisted';
+    const STATUS_PUBLISHED = 'published';
+    const STATUS_HIDDEN = 'hidden';
+
     public function getComments(string $id) {
 //        $comments = Comment::where('poem_id',$id)->get();
 //        return $comments;
-
     }
 
     public function comments() {
