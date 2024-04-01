@@ -1,33 +1,3 @@
-git init
-git config
-git config --global user.name "Masha"
-git config --global user.email spacemasha@gmail.com
-git remote add origin https://github.com/LevFenev/stihiya.git
-git pull origin main
-mkdir .ssh
-cd .ssh
-cd ..
-ssh-keygen -t ed25519 
-cd .ssh
-ls
-cat id_ed25519.pub
-git pull origin main
-git -v
-git --version
-git config core.sshCommand 'ssh -i ~/.ssh/id_ed25519'
-git pull origin main
-git config pull.rebase false
-cd ..
-cd /
-ls
-cd ~
-git config core.sshCommand 'ssh -i .ssh/id_ed25519'
-git pull origin main
-git pull origin main -key .ssh/id_ed25519
-git pull origin main --key .ssh/id_ed25519
-git pull origin main
-mc
-ssh -T git@github.com
 git remote set-url origin
 git remote set-url origin git@github.com:LevFenev/stihiya.git
 git pull origin main
@@ -497,4 +467,34 @@ git add .
 git commit -m "created migration for create_status_column_to_poem"
 git push
 php artisan migrate
+git pull
+php artisan make:migration create_status_column_to_poem
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migration create_status_column_to_poem
+git add .
+git commit -m "created migration for create_status_column_to_poem"
+php artisan make:migration create_status_column_to_poem
+git add .
+git commit -m "created migration for create_status_column_to_poem"
+git status
+ls
+cd database
+ls
+cd migrations
+ls
+git push
+git pull
+git pull
+php artisan migrate
+php artisan:migrate
+php artisan migrate
+cd
+php artisan migrate
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan migrate
+git commit -m "removed the previous migration"
+git pull
+php artisan migrate
+git pull
+git pull
 git pull
