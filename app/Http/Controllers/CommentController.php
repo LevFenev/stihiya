@@ -45,9 +45,10 @@ class CommentController extends Controller
 
         $comment = new Comment();
 
-        $comment->content=$validated['comment_body'];
+        /*$comment->content=$validated['comment_body'];
         $comment->user_id=2; //временная мера пока нет входа в аккаунт
-        $comment->poem_id=$validated['poem_id'];
+        $comment->poem_id=$validated['poem_id'];*/
+        $comment->fill($validated);
         $comment->save();
         return view('comment.added', ['request'=>$request]); // вернет на стих с которого удалили коммент
     }

@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', [App\Http\Controllers\ViewController::class, 'login']);
+
+Route::get('admin/login', [App\Http\Controllers\ViewController::class, 'admin_login']);
+
+Route::get('/reg', [App\Http\Controllers\ViewController::class, 'reg']);
+
 Route::get('/left/{poem_id}', [\App\Http\Controllers\SongController::class, 'leftAction'])->where('poem_id','[0-9]+');
 
 Route::post('/left', [\App\Http\Controllers\SongController::class, 'postLeftAction']);
@@ -79,7 +85,6 @@ Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionCo
 
 Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
 
-
 Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
 
 Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
@@ -107,15 +112,9 @@ Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs'])
  * COMMENTS / КОММЕНТАРИИ
  */
 
-//Route::get('comments/delete/{id}', [\App\Http\Controllers\CommentController::class, 'deleteComment']);
-
 Route::get('comments/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'getComment']); // отвечает за форму
 
 Route::post('comments/post', [\App\Http\Controllers\CommentController::class, 'postComment']); // отвечает за публикацию и т.д.
-
-//Route::get('comment/trashed', [\App\Http\Controllers\CommentController::class, 'showTrashedComments']);
-
-//Route::get('comment/restore/{id}', [\App\Http\Controllers\CommentController::class, 'restoreComment']);
 
 // admin
 
@@ -140,8 +139,6 @@ Route::get('admin/users', [\App\Http\Controllers\UserController::class, 'admin_s
 Route::get('admin/users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']);
 
 Route::get('admin/users/delete/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser']);
-
-// АДМИНСКАЯ
 
 // стихи
 // сюда нужно poem restore
