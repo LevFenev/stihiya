@@ -4,7 +4,9 @@
     @php(var_dump($validator))
     <div class="form-inner">
         @foreach($poem as $key=>$attribute)
-            @php(print $validator->errors()->first($key))
+            @error($key)
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             @if($key=='content')
                 <label>{{$key}}<textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea></label><br>
             @else
