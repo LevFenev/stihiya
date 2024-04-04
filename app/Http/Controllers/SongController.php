@@ -57,8 +57,6 @@ class SongController extends Controller
         }
     }
 
-
-
     public function leftAction(string $poem_id) {
         $poem = Poem::find($poem_id);
         if (is_null($poem)) {
@@ -70,12 +68,13 @@ class SongController extends Controller
     }
 
     public function postLeftAction(Request $request) {
-
         $validated = $request->validate([ // валидацию потом сделать
             'comment_body'=>['required', 'max:50', 'min:5'],
             'poem_id'=>['numeric', 'exists:poem,id']
         ]);
-        $validated = $request->all();
+        $validated = $request->all(); // ????
+
+        file_put_contents('left_log.txt', print_r($validated, true));
 
         $poem = new Poem();
         $poem->fill($validated); // в поем модели сделать переменную fillable и туда занести те поля которые должен заполнять пользователь

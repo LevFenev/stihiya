@@ -75,7 +75,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
     public function poem_postAction(Request $request) {
 
         $validated = $request->validate([ // валидацию потом сделать
-            'title'=>['max:100', 'min:5'],
+            'title'=>['max:100'],
             'author_id'=>['numeric', 'exists:user,id'],
             'publisher_id'=>['numeric', 'exists:user,id'],
             'release_date'=>['numeric'], // не нюмерик

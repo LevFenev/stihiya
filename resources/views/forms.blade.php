@@ -3,6 +3,7 @@
 </div>
 
 <div class="forms_menu">
+    <p>Что вы хотите опубликовать?</p>
     <ul>
         <li><a href="/poems/post/{new_id}">Стих</a></li>
         <li><a href="/collections/post/{new_id}">Сборник</a></li>
