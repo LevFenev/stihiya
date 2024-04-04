@@ -56,12 +56,16 @@ class SongController extends Controller
             return redirect()->route('trashedSongs');
         }
     }
-
+/*
+{if id совпадает
+не сохранять, а изменить сущ стих}
+сохраняет новый стих
+*/
     public function leftAction(string $poem_id) {
         $poem = Poem::find($poem_id);
         if (is_null($poem)) {
             $poem = new Poem();
-            $poem->release_date=date('Y-m-d H-i-s');
+            //$poem->release_date=date('Y-m-d H-i-s');
             $poem->save();
         }
         return view('left', ['poem'=>$poem->getAttributes()]);
@@ -80,6 +84,10 @@ class SongController extends Controller
         ]);*/
         $validated = $request->all();
         unset($validated['_token']);
+        unset($validated['id']);
+        unset($validated['deleted_at']);
+        unset($validated['updated_at']);
+        unset($validated['created_at']);
         file_put_contents('left_log.txt', print_r($validated, true));
 
         $poem = new Poem();
