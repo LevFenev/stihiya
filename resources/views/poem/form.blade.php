@@ -1,6 +1,7 @@
 @extends('layout')
 <form method="post" action="/poem/post"> {{--прописать потом метод внутри poemController связанный с формой getPoem--}}
     @csrf
+    @php(var_dump($validator))
     <div class="form-inner">
         @foreach($poem as $key=>$attribute)
             @php(print $validator->errors()->first($key))
