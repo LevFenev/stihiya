@@ -27,7 +27,7 @@ Route::get('/left/{poem_id}', [\App\Http\Controllers\SongController::class, 'lef
 
 Route::post('/left', [\App\Http\Controllers\SongController::class, 'postLeftAction']);
 
-Route::post('/forms', [\App\Http\Controllers\ViewController::class, 'showFormChoice']);
+Route::get('/forms', [\App\Http\Controllers\ViewController::class, 'showFormChoice']);
 
 
 Route::get('/main', [\App\Http\Controllers\ViewController::class, 'showMain']);
