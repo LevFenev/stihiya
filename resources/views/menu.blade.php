@@ -7,5 +7,6 @@
         <li><a href="/songs">Песни</a></li>
         <li><a href="/albums">Альбомы</a></li>--}}
         <li><a href="/main">Таблетки</a></li>
+        <li><a href="/forms">Формы</a></li>
     </ul>
 </div>

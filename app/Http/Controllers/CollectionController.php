@@ -76,4 +76,13 @@ class CollectionController extends Controller
         $deletedCollections = Collection::onlyTrashed()->count();
         return view('collection.admin.list', ['collections'=>$collections],['deletedCollections'=>$deletedCollections]);
     }
+
+    //form
+    public function getCollection(string $id) {
+
+    }
+
+    public function postCollection() {
+
+    }
 }

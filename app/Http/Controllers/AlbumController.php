@@ -24,4 +24,13 @@ class AlbumController extends Controller
         $comments = Comment::where('poem_id',$id)->get();
         return view('album.list',['albums'=>$albums,'comments'=>$comments]);
     }
+
+    //form
+    public function getAlbum(string $id) {
+
+    }
+
+    public function postAlbum() {
+
+    }
 }

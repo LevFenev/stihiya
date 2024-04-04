@@ -43,17 +43,17 @@ Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoe
 
 Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
-Route::get('admin/poems/trashed', [\App\Http\Controllers\PoemController::class, 'showTrashedPoems'])->name('trashedPoems');
-
-Route::get('admin/poems/{id}', [\App\Http\Controllers\PoemController::class, 'admin_readPoem']);
-
 Route::get('/poems/post/{new_id}', [\App\Http\Controllers\PoemController::class, 'getPoem']);
 
 Route::post('/poems/post', [\App\Http\Controllers\PoemController::class, 'postPoem']);
 
-Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::class, 'restorePoem']);
 
 // admin
+Route::get('admin/poems/trashed', [\App\Http\Controllers\PoemController::class, 'showTrashedPoems'])->name('trashedPoems');
+
+Route::get('admin/poems/{id}', [\App\Http\Controllers\PoemController::class, 'admin_readPoem']);
+
+Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::class, 'restorePoem']);
 
 Route::get('admin/poems/delete/{id}', [\App\Http\Controllers\PoemController::class, 'deletePoem']);
 
@@ -66,6 +66,10 @@ Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_s
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
 
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
+
+Route::get('/collections/post/{new_id}', [\App\Http\Controllers\CollectionController::class, 'getCollection']);
+
+Route::post('/collections/post', [\App\Http\Controllers\CollectionController::class, 'postCollection']);
 
 // admin
 
@@ -87,9 +91,12 @@ Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::cla
 
 Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
 
-Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
+Route::get('/albums/post/{new_id}', [\App\Http\Controllers\AlbumController::class, 'getAlbum']);
+
+Route::post('/albums/post', [\App\Http\Controllers\AlbumController::class, 'postAlbum']);
 
 // admin
+Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
 
 Route::get('admin/albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'admin_readAlbum']);
 
@@ -105,8 +112,11 @@ Route::get('/admin/songs', [\App\Http\Controllers\SongController::class, 'admin_
 
 //Route::get('/songs/post/', [\App\Http\Controllers\SongController::class, 'showSongs']);
 
-Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs']);
+Route::get('/songs/post/{new_id}', [\App\Http\Controllers\SongController::class, 'getSong']);
 
+Route::post('/songs/post', [\App\Http\Controllers\SongController::class, 'postSong']);
+
+Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs']);
 
 /**
  * COMMENTS / КОММЕНТАРИИ
