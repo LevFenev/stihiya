@@ -1,3 +1,7 @@
+<div class="menu">
+    @include('menu')
+</div>
+
 <div class="forms_menu">
     <ul>
         <li><a href="/poems/post/{new_id}">Стих</a></li>
