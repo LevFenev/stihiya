@@ -26,6 +26,10 @@ class ViewController extends Controller
         return view('admin_main');
     }
 
+    public function showFormChoice() {
+        return view('views');
+    }
+
     public function showPoemForm() {
         return view('poem.form');
     }
