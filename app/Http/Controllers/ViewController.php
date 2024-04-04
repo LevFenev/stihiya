@@ -27,7 +27,7 @@ class ViewController extends Controller
     }
 
     public function showFormChoice() {
-        return view('views');
+        return view('forms');
     }
 
     public function showPoemForm() {
