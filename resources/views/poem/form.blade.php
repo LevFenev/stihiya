@@ -3,6 +3,7 @@
     @csrf
     <div class="form-inner">
         @foreach($poem as $key=>$attribute)
+            @php(print $validator->errors()->first($key))
             @if($key=='content')
                 <label>{{$key}}<textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea></label><br>
             @else
