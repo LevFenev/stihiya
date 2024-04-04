@@ -69,8 +69,14 @@ class SongController extends Controller
 
     public function postLeftAction(Request $request) {
         $validated = $request->validate([ // валидацию потом сделать
-            'comment_body'=>['required', 'max:50', 'min:5'],
-            'poem_id'=>['numeric', 'exists:poem,id']
+            'title'=>['max:100'],
+            'author_id'=>['numeric', 'exists:user,id'],
+            'publisher_id'=>['numeric', 'exists:user,id'],
+            'release_date'=>['numeric'], // не нюмерик
+            'release_year'=>['required', 'numeric', 'min:4'],
+            'content'=>[''],
+            'storyline'=>[''],
+            // photo status бла бла..
         ]);
         $validated = $request->all();
 
