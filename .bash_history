@@ -1,13 +1,3 @@
-git remote set-url origin
-git remote set-url origin git@github.com:LevFenev/stihiya.git
-git pull origin main
-git add .
-git commit
-git push
-git branch
-git push --set-upstream origin main
-git checkout
-git checkout --
 git status
 git checkout main
 git add .
@@ -497,4 +487,14 @@ git pull
 php artisan migrate
 git pull
 git pull
+git pull
+php artisan make:controller
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:controller
+git add .
+git commit -m "created main controller for the general methods"
+git push
+git pull
+git pull
+rm routes/web.php
 git pull
