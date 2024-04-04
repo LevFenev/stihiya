@@ -68,7 +68,7 @@ class SongController extends Controller
     }
 
     public function postLeftAction(Request $request) {
-        $validated = $request->validate([ // валидацию потом сделать
+        /*$validated = $request->validate([ // валидацию потом сделать
             'title'=>['max:100'],
             'author_id'=>['numeric', 'exists:user,id'],
             'publisher_id'=>['numeric', 'exists:user,id'],
@@ -77,9 +77,9 @@ class SongController extends Controller
             'content'=>[''],
             'storyline'=>[''],
             // photo status бла бла..
-        ]);
+        ]);*/
         $validated = $request->all();
-
+        unset($validated['_token']);
         file_put_contents('left_log.txt', print_r($validated, true));
 
         $poem = new Poem();
