@@ -1,17 +1,8 @@
 @extends('layout')
-<form method="post" action="/poem/post"> {{--прописать потом метод внутри poemController связанный с формой getPoem--}}
+<form method="post" action="/poems/post"> {{--прописать потом метод внутри poemController связанный с формой getPoem--}}
     @csrf
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <div class="form-inner">
-        @foreach($poem as $key=>$attribute)
+        @foreach($poem->getAttributes() as $key=>$attribute)
             @error($key)
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

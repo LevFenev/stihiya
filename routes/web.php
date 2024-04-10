@@ -41,14 +41,15 @@ Route::get('/admin/main', [\App\Http\Controllers\ViewController::class, 'admin_s
 
 //Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem']); // отсюда получает id
 
-Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem'])->name('poems'); // отсюда получает id
+Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem'])->where('id','[0-9]+')->name('poems'); // отсюда получает id
 
-Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
+Route::get('/poems/post/{newxxxyz?}', [\App\Http\Controllers\PoemController::class, 'getPoem']);
 
-Route::get('/poems/post/{new_id}', [\App\Http\Controllers\PoemController::class, 'getPoem']);
+//Route::get('/poems/post', [\App\Http\Controllers\PoemController::class, 'getPoem']); менее элегантно
 
 Route::post('/poems/post', [\App\Http\Controllers\PoemController::class, 'postPoem']);
 
+Route::get('/poems', [\App\Http\Controllers\PoemController::class, 'showPoems']);
 
 // admin
 Route::get('admin/poems/trashed', [\App\Http\Controllers\PoemController::class, 'showTrashedPoems'])->name('trashedPoems');
@@ -59,7 +60,7 @@ Route::get('admin/poems/restore/{id}', [\App\Http\Controllers\PoemController::cl
 
 Route::get('admin/poems/delete/{id}', [\App\Http\Controllers\PoemController::class, 'deletePoem']);
 
-Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems'])->name('poems');
+Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_showPoems'])->name('admin_poems');
 
 /**
  * COLLECTIONS / СБОРНИКИ

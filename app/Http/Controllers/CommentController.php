@@ -30,26 +30,52 @@ class CommentController extends Controller
         return redirect()->route('poems', ['id'=>$poem_id]); // тут нужно возвращаться на стих с которого удалили коммент
     }
 
-    public function getComment(string $poem_id) {
-
-        return view('comment.form', ['poem_id'=>$poem_id]);
+    /*public function poem_Action(string $poem_id) {
+        $poem = Poem::find($poem_id);
+        if (is_null($poem)) {
+            $poem = new Poem();
+            $poem->release_date=date('Y-m-d H-i-s');
+            $poem->save();
+        }
+        return view('left', ['poem'=>$poem->getAttributes()]);
     }
 
-    public function postComment(Request $request) {
-        //требования для того чтобы коммент прошёл валидацию
-        $validated = $request->validate([
-            'comment_body'=>['required', 'max:50', 'min:5'],
-            'poem_id'=>['numeric', 'exists:poem,id']
+    public function poem_postAction(Request $request) {
+
+        $validated = $request->validate([ // валидацию потом сделать
+            'title'=>['max:100'],
+            'author_id'=>['numeric', 'exists:user,id'],
+            'publisher_id'=>['numeric', 'exists:user,id'],
+            'release_date'=>['numeric'], // не нюмерик
+            'release_year'=>['required', 'numeric', 'min:4'],
+            'content'=>[''],
+            'storyline'=>[''],
+            // photo status бла бла..
         ]);
         $validated = $request->all();
 
-        $comment = new Comment();
+        $poem = new Poem();
+        $poem->fill($validated); // в поем модели сделать переменную fillable и туда занести те поля которые должен заполнять пользователь
+        $poem->save();
+    }*/
 
-        /*$comment->content=$validated['comment_body'];
-        $comment->user_id=2; //временная мера пока нет входа в аккаунт
-        $comment->poem_id=$validated['poem_id'];*/
+    public function getComment(string $new='') {
+        $comment = Poem::find($new);
+        if (is_null($new)) {
+            $new = new Comment();
+        }
+        return view('comment.form', ['comment'=>$comment]); // вернет на стих с которого удалили коммент
+    }
+
+    public function postComment(Request $request) { // в реквесте данные стиха poem's data всё, что угодно
+        $validated = $request->validate([ // валидацию потом сделать
+            'content'=>['required', 'max:300']
+        ]);
+
+        $comment = new Comment();
         $comment->fill($validated);
         $comment->save();
-        return view('comment.added', ['request'=>$request]); // вернет на стих с которого удалили коммент
+
+        return redirect()->route('poems', ['id'=>$comment->poem_id]); // вернет на стих с которого удалили коммент
     }
 }

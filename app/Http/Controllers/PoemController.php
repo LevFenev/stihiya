@@ -91,23 +91,30 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         $poem->save();
     }
 
-    /*
-    public function getPoem(string $poem_id) {
-        return view('comment.form', ['poem_id'=>$poem_id]); // вернет на стих с которого удалили коммент
+    public function getPoem(string $newxxxyz='') {
+        $poem = Poem::find($newxxxyz);
+        if (is_null($poem)) {
+            $poem = new Poem();
+        }
+        return view('poem.form', ['poem'=>$poem]); // вернет на стих с которого удалили коммент
     }
 
-    public function postComment(Request $request) {
-        $validated = $request->validate([
-            'comment_body'=>['required', 'max:50', 'min:5'],
-            'poem_id'=>['numeric', 'exists:poem,id']
+    public function postPoem(Request $request) { // в реквесте данные стиха poem's data всё, что угодно
+        $validated = $request->validate([ // валидацию потом сделать
+            'title'=>['max:100'],
+            /*'author_id'=>['numeric', 'exists:user,id'],
+            'publisher_id'=>['numeric', 'exists:user,id'],
+            'release_date'=>['numeric'], // не нюмерик*/
+            'release_year'=>['required', 'numeric', 'min:4'],
+            'content'=>[''],
+            'storyline'=>[''],
+            // photo status бла бла..
         ]);
-        $validated = $request->all();
-        $comment = new Comment();
-        $comment->content=$validated['comment_body'];
-        $comment->user_id=2;
-        $comment->poem_id=$validated['poem_id'];
-        $comment->save();
-        return view('comment.added', ['request'=>$request]); // вернет на стих с которого удалили коммент
+
+        $poem = new Poem();
+        $poem->fill($validated);
+        $poem->save();
+
+        return redirect()->route('poems', ['id'=>$poem->id]); // вернет на стих с которого удалили коммент
     }
-    */
 }

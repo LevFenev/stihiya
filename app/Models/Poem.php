@@ -20,7 +20,8 @@ class Poem extends Model
     const STATUS_PUBLISHED = 'published';
     const STATUS_HIDDEN = 'hidden';
 
-    protected $fillable = ['created_at'];
+    //white-list для заполнения // указываю какие поля можно заполнять fillable
+    protected $fillable = ['title', 'content', 'release_year', 'created_at'];
 
     public function getComments(string $id) {
 //        $comments = Comment::where('poem_id',$id)->get();

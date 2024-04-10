@@ -136,10 +136,13 @@ return new class extends Migration
             $table->timestamps();
 
             $table->id('user_id');
-            $table->id('poem_id');
-            $table->id('song_id');
+            $table->id('poem_id')->nullable();
+            $table->id('collection_id')->nullable();
+            $table->id('song_id')->nullable();
+            $table->id('album_id')->nullable();
             $table->text('content');
-            $table->integer('like_count');
+            $table->integer('like_count')->nullable();
+            $table->integer('dislike_count')->nullable();
 
             $table->string('status'); // new удаляются каждый день
             $table->timestamp('deleted_at')->nullable();
