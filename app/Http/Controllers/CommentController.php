@@ -59,16 +59,20 @@ class CommentController extends Controller
         $poem->save();
     }*/
 
-    public function getComment(string $new='') {
-        $comment = Poem::find($new);
-        if (is_null($new)) {
-            $new = new Comment();
+    public function getComment(string $poem_id, string $new='') { // переменные без дефолтного значения обязательны
+        $comment = Comment::find($new); // если нашёл то редактирует существующий
+        if (is_null($comment)) {
+            $comment = new Comment();
+            $comment->poem_id = $poem_id;
         }
+//        $poem_id = $comment->poem()->id;
         return view('comment.form', ['comment'=>$comment]); // вернет на стих с которого удалили коммент
     }
 
     public function postComment(Request $request) { // в реквесте данные стиха poem's data всё, что угодно
         $validated = $request->validate([ // валидацию потом сделать
+            'user_id'=>['numeric', 'exists:user,id'],
+            'poem_id'=>['numeric', 'exists:poem,id'],
             'content'=>['required', 'max:300']
         ]);
 

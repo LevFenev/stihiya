@@ -125,9 +125,14 @@ Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs'])
  * COMMENTS / КОММЕНТАРИИ
  */
 
-Route::get('comments/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'getComment']); // отвечает за форму
+Route::get('/poem/{poem_id}/comments/post/{new?}', [\App\Http\Controllers\CommentController::class, 'getComment']);
 
-Route::post('comments/post', [\App\Http\Controllers\CommentController::class, 'postComment']); // отвечает за публикацию и т.д.
+Route::post('/comments/post', [\App\Http\Controllers\CommentController::class, 'postComment']);
+
+// before
+//Route::get('comments/post/{poem_id}', [\App\Http\Controllers\CommentController::class, 'getComment']); // отвечает за форму
+
+//Route::post('comments/post', [\App\Http\Controllers\CommentController::class, 'postComment']); // отвечает за публикацию и т.д.
 
 // admin
 

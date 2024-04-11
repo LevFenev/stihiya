@@ -47,4 +47,8 @@ class Poem extends Model
         $attributeNames = \Schema::getColumnListing($this->table);
         return $attributeNames;
     }
+
+    /*public function getAuthorName() {
+        if ($this->user())
+    }*/
 }

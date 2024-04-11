@@ -6,6 +6,16 @@
             @error($key)
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+            {{--@if('author_id' || 'publisher_id')
+                <label for="author_id">Выберите пользователя:</label>
+                <select name="author_id" id="id">
+                    @foreach()
+                    <option value={{"$user->id"}}>Rigatoni</option>
+                    <option value="dave">Dave</option>
+                    <option value="pumpernickel">Pumpernickel</option>
+                    <option value="reeses">Reeses</option>
+                </select>
+            @endif--}}
             @if($key=='content')
                 <label>{{$key}}<textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea></label><br>
             @else

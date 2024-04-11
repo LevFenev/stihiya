@@ -1,7 +1,7 @@
 @extends('layout')
-<form method="post" action="/comment/post">
+<form method="post" action="/comments/post">
     @csrf
-    @foreach($comment as $key=>$attribute)
+    @foreach($comment->getAttributes() as $key=>$attribute)
         @if($key=='content')
             <label>{{$key}}<textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea></label><br>
         @else
