@@ -1,62 +1,3 @@
-git status
-git checkout main
-git add .
-git commit -m 'init commit'
-git push
-git push
-git pull
-mc
-mc
-git init
-git remote set-url origin git@github.com:LevFenev/stihiya.git
-git remote add origin git@github.com:LevFenev/stihiya.git
-git pull
-git pull
-git config pull.rebase false
-git checkout main
-git pull
-git add .
-git commit -m 'initial commit'
-git push
-mc
-php artisan migrate
-export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-php artisan migrate
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-ls
-ls -la
-cat -env
-cat .env
-php artisan make:controller
-export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-ls -la
-php artisan make:controller
-git status
-git add app/Http/Controllers/LessonController.php 
-git commit 
-git push
-php artisan make:view 
-git status
-git add resources/views/layout.blade.php 
-git push
-git push
-git status
-git push
-php artisan make:view 
-git status
-git commit -m "new view added"
-git push
-git pull
-git pull
-php artisan make:view
 git commit -m "new view added"
 git pull
 git push
@@ -496,5 +437,64 @@ git commit -m "created main controller for the general methods"
 git push
 git pull
 git pull
+rm routes/web.php
+git pull
+git pull
+rm app/Http/Controllers/AlbumController.php
+rm app/Http/Controllers/CollectionController.ph
+rm app/Http/Controllers/SongController.php
+rm app/Http/Controllers/CollectionController.php
+rm app/Http/Controllers/ViewController.php
+rm resources/views/menu.blade.php
+rm resources/views/poem/form.blade.php
+rm routes/web.php
+rm routes/web.php
+rm resources/views/forms.blade.php
+git pull
+git pull
+git pull
+git pull
+git pull
+php artisan make:migrate
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migrate
+php artisan make:migration
+git add .
+git commit -m "created an initial migration"
+git push
+git pull
+rm database/migrations/2024_04_04_123754_2024_02_28_180000_create_everything.php
+git pull
+rm resources/views/forms.blade.php
+git pull
+mc
+git pull
+mc
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+rm app/Http/Controllers/SongController.php
+rm app/Models/Poem.php
+git pull
+git pull
+rm app/Http/Controllers/PoemController.php
+rm app/Models/Poem.php
+rm resources/views/forms.blade.php
+rm resources/views/poem/form.blade.php
+rm routes/web.php
+git pull
+git pull
+rm app/Http/Controllers/CommentController.php
+rm app/Models/Comment.php
+rm app/Models/Poem.php
+rm resources/views/comment/form.blade.php
+rm resources/views/forms.blade.php
+rm resources/views/poem/form.blade.php
+rm resources/views/poem/read.blade.php
 rm routes/web.php
 git pull

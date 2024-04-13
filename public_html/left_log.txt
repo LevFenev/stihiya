@@ -1,0 +1,14 @@
+Array
+(
+    [title] => Я помню время золотое...
+    [author_id] => 6
+    [publisher_id] => 2
+    [release_date] => 0000-00-00
+    [release_year] => 0
+    [content] => Я помню время золотое,
+Я помню сердцу милый край:
+    [storyline] => Фёдор Тютчев пишет о давнешней возлюбленной.
+    [video] => 
+    [photo] => 
+    [status] => 
+)
