@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div>
-    <a href="/poems">Общий список стихов</a>
+    <a href="/poems">Все стихи</a>
     @foreach($poems as $poem)
         <h2>{{($poem->title)}}</h2>
         <p>Автор: <i>{{$poem->username()}}</i></p>

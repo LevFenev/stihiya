@@ -39,7 +39,7 @@ class Poem extends Model
     public function username() {
         $user = $this->user; //должен достать из relation
         if(is_null($user)){
-            return "No user found.";
+            return "неизвестен";
         } return $user->name;
     }
 
