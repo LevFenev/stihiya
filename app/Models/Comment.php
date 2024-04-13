@@ -23,6 +23,10 @@ class Comment extends Model
         return $this->belongsTo(\App\Models\User::class);
     }
 
+    public function username() {
+        return $this->belongsTo(\App\Models\User::class);
+    }
+
     public function getAttributeNames() {
         $attributeNames = \Schema::getColumnListing($this->table);
         return $attributeNames;

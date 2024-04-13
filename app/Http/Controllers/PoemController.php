@@ -91,7 +91,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         $poem->save();
     }
 
-    public function getPoem(string $newxxxyz='') {
+    public function getPoem(string $newxxxyz='') { // поэма в форму
         $poem = Poem::find($newxxxyz);
         if (is_null($poem)) {
             $poem = new Poem();
@@ -99,8 +99,9 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         return view('poem.form', ['poem'=>$poem]); // вернет на стих с которого удалили коммент
     }
 
-    public function postPoem(Request $request) { // в реквесте данные стиха poem's data всё, что угодно
+    public function postPoem(Request $request) { // в реквесте данные стиха poem's data всё, что угодно // поэма сохранить в базу данных
         $validated = $request->validate([ // валидацию потом сделать
+            'id'=>['numeric', 'min:1'],
             'title'=>['max:100'],
             /*'author_id'=>['numeric', 'exists:user,id'],
             'publisher_id'=>['numeric', 'exists:user,id'],
@@ -111,7 +112,11 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
             // photo status бла бла..
         ]);
 
-        $poem = new Poem();
+        //$poem = new Poem();
+        $poem = Poem::find($validated['id']);
+        if (is_null($poem)) {
+            $poem = new Poem();
+        }
         $poem->fill($validated);
         $poem->save();
 
