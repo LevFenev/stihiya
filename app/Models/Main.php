@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Main extends Model
 {
     use HasFactory;
+
+    public function username() {
+        $user = $this->user; //должен достать из relation
+        if(is_null($user)){
+            return "неизвестен";
+        } return $user->name;
+    }
 }

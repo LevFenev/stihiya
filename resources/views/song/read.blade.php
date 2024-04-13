@@ -4,7 +4,7 @@
         <a href="/songs">Все песни</a>
         @foreach($songs as $song)
             <h2>{{($song->title)}}</h2>
-            <p>Артист(ы): <i>{{$song->username()}}</i></p>
+            <p>Артист(ы): <i>{{$main->username()}}</i></p>
             <p>{!!str_replace("\n",'<br>',($song->lyrics))!!}</p>
             <p> Дата выхода: <i>{{($song->release_date)}}</i></p>
             <i>{{($song->release_year)}}</i>

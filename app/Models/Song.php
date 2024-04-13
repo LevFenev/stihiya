@@ -18,4 +18,12 @@ class Song extends Model
     public function user() {
         return $this->belongsTo(\App\Models\User::class); //$this->poem_id;
     }
+
+    /*public function username() { XXX IN THE MAIN MODEL NOW XXX
+        $user = $this->user; //должен достать из relation
+        if(is_null($user)){
+            return "неизвестен";
+        }
+        return $user->name;
+    }*/
 }

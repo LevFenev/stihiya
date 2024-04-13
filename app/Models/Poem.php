@@ -36,12 +36,12 @@ class Poem extends Model
         return $this->belongsTo(\App\Models\User::class, 'author_id'); //$this->poem_id;
     }
 
-    public function username() {
+    /*public function username() { XXX IN THE MAIN MODEL NOW XXX
         $user = $this->user; //должен достать из relation
         if(is_null($user)){
             return "неизвестен";
         } return $user->name;
-    }
+    }*/
 
     public function getAttributeNames() {
         $attributeNames = \Schema::getColumnListing($this->table);
