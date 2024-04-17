@@ -11,9 +11,13 @@ class Song extends Main
     use HasFactory, SoftDeletes; // что это?
 
     protected $table = 'song';
-    protected $attributes = ['title'=>'Без названия','lyrics'=>'Где песня, Лебовски?','artist_id'=>0,'release_date'=>'2024-01-01 00:00:00','release_year'=>2024,'content'=>'Без содержания'];
+    protected $attributes =
+        ['title'=>'Без названия',
+        'lyrics'=>'Где песня, Лебовски?',
+        'artist_id'=>0,
+        'release_date'=>'2024-01-01 00:00:00'];
 
-    protected $fillable = ['title', 'lyrics', 'release_date'];
+    protected $fillable = ['title', 'lyrics', 'artist_id', 'release_date'];
 
     public function comments() {
         return $this->hasMany(\App\Models\Comment::class);

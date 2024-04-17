@@ -105,7 +105,7 @@ class SongController extends Controller
         if (is_null($song)) {
             $song = new Song();
         }
-        return view('song.form', ['song'=>$song->getAttributeNames()]);
+        return view('song.form', ['song'=>$song]);
     }
 
     public function postSong(Request $request) {
@@ -123,7 +123,5 @@ class SongController extends Controller
 
         return redirect()->route('songs', ['id'=>$song->id]);
     }
-
-
 
 }
