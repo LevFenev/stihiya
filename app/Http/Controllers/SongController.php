@@ -61,27 +61,32 @@ class SongController extends Controller
 не сохранять, а изменить сущ стих}
 сохраняет новый стих
 */
-    public function leftAction(string $poem_id) {
+    /*public function leftAction(string $poem_id='') {
         $poem = Poem::find($poem_id);
         if (is_null($poem)) {
             $poem = new Poem();
             //$poem->release_date=date('Y-m-d H-i-s');
-            $poem->save();
         }
         return view('left', ['poem'=>$poem->getAttributes()]);
     }
 
     public function postLeftAction(Request $request) {
-        /*$validated = $request->validate([ // валидацию потом сделать
+        $validated = $request->validate([ // валидацию потом сделать
             'title'=>['max:100'],
-            'author_id'=>['numeric', 'exists:user,id'],
-            'publisher_id'=>['numeric', 'exists:user,id'],
-            'release_date'=>['numeric'], // не нюмерик
-            'release_year'=>['required', 'numeric', 'min:4'],
             'content'=>[''],
-            'storyline'=>[''],
+            'leftFile'=>['mimes:jpg,png,gif|max:3'] // размер в килобайтах
             // photo status бла бла..
-        ]);*/
+        ]);
+        print_r($validated);
+        if ($request->hasFile('leftFile')){
+//            print_r($_FILES);
+            $file = $request->file('leftFile'); // ф-ия file
+            move_uploaded_file($_FILES['leftFile']['tmp_name'], '../uploads/'.date('H-i-s').'mood.png');
+//            $file = $request->file('leftFile')->storeAs('uploads', 'mood.png', 'public'); // ф-ия file
+//            print($file->getClientOriginalName());
+        }
+        exit();
+
         $validated = $request->all();
         unset($validated['_token']);
         unset($validated['id']);
@@ -93,14 +98,30 @@ class SongController extends Controller
         $poem = new Poem();
         $poem->fill($validated); // в поем модели сделать переменную fillable и туда занести те поля которые должен заполнять пользователь
         $poem->save();
+    }*/
+
+    public function getSong(string $id='') {
+        $song = Song::find($id);
+        if (is_null($song)) {
+            $song = new Song();
+        }
+        return view('song.form', ['song'=>$song->getAttributeNames()]);
     }
 
-    public function getSong(string $id) {
-        //
-    }
+    public function postSong(Request $request) {
+        $validated = $request->validate([
+            'id'=>['numeric', 'min:1'],
+            'title'=>['max:100']
+        ]);
 
-    public function postSong() {
+        $song = Song::find($validated['id']);
+        if (is_null($song)) {
+            $song = new Song();
+        }
+        $song->fill($validated);
+        $song->save();
 
+        return redirect()->route('songs', ['id'=>$song->id]);
     }
 
 

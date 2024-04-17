@@ -1,18 +1,3 @@
-git commit -m "new view added"
-git pull
-git push
-git add resources/views/lesson.blade.php 
-git commit -m "new view added"
-git push
-php artisan make:view
-git commit -m "header added"
-git add resources/views/header.blade.php 
-git push
-git commit -m "header added"
-git push
-git pull
-git pull
-rm resources/views/layout.blade.php 
 git pull
 git pull
 git pull
@@ -498,3 +483,18 @@ rm resources/views/poem/form.blade.php
 rm resources/views/poem/read.blade.php
 rm routes/web.php
 git pull
+git pull
+rm  app/Http/Controllers/PoemController.php
+rm  app/Models/Comment.php
+git pull
+git pull
+php artisan make:model
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:model
+git add .
+git push
+git commit -m "created main model"
+git push 
+git pull
+mc
+mc

@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use function Symfony\Component\Console\Style\comment;
 
-class Poem extends Model
+class Poem extends Main
 {
     use HasFactory,SoftDeletes;
 
     protected $table = 'poem';
     protected $attributes = ['title'=>'Без названия','author_id'=>0,'publisher_id'=>0,'release_date'=>'2024-01-01 00:00:00','release_year'=>2024,'content'=>'Без содержания'];
 
-    const STATUS_NEW = 'new';
+/*    const STATUS_NEW = 'new';
     const STATUS_DRAFT = 'draft';
     const STATUS_UNLISTED = 'unlisted';
     const STATUS_PUBLISHED = 'published';
-    const STATUS_HIDDEN = 'hidden';
+    const STATUS_HIDDEN = 'hidden';*/
 
     //white-list для заполнения // указываю какие поля можно заполнять fillable
     protected $fillable = ['title', 'content', 'release_year', 'created_at'];
@@ -43,10 +43,10 @@ class Poem extends Model
         } return $user->name;
     }*/
 
-    public function getAttributeNames() {
+    /*public function getAttributeNames() {
         $attributeNames = \Schema::getColumnListing($this->table);
         return $attributeNames;
-    }
+    }*/
 
     /*public function getAuthorName() {
         if ($this->user())

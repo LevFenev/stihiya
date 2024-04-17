@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -23,7 +27,7 @@ Route::get('admin/login', [App\Http\Controllers\ViewController::class, 'admin_lo
 
 Route::get('/reg', [App\Http\Controllers\ViewController::class, 'reg']);
 
-Route::get('/left/{poem_id}', [\App\Http\Controllers\SongController::class, 'leftAction'])->where('poem_id','[0-9]+');
+Route::get('/left/{poem_id?}', [\App\Http\Controllers\SongController::class, 'leftAction'])->where('poem_id','[0-9]+');
 
 Route::post('/left', [\App\Http\Controllers\SongController::class, 'postLeftAction']);
 
@@ -115,7 +119,7 @@ Route::get('/admin/songs', [\App\Http\Controllers\SongController::class, 'admin_
 
 //Route::get('/songs/post/', [\App\Http\Controllers\SongController::class, 'showSongs']);
 
-Route::get('/songs/post/{new_id}', [\App\Http\Controllers\SongController::class, 'getSong']);
+Route::get('/songs/post/{new_id?}', [\App\Http\Controllers\SongController::class, 'getSong']);
 
 Route::post('/songs/post', [\App\Http\Controllers\SongController::class, 'postSong']);
 

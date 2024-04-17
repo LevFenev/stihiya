@@ -4,7 +4,7 @@
     <a href="/poems">Все стихи</a>
     @foreach($poems as $poem)
         <h2>{{($poem->title)}}</h2>
-        <p>Автор: <i>{{$main->username()}}</i></p>
+        <p>Автор: <i>{{$poem->username()}}</i></p>
         <p>{!!str_replace("\n",'<br>',($poem->content))!!}</p>
         <p>Год выпуска: <i>{{($poem->release_year)}}</i></p>
         <div class="buttons">

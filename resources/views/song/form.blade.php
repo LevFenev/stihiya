@@ -1,5 +1,5 @@
 @extends('layout')
-<form method="post" action="/song/post">
+<form method="post" action="/songs/post">
     @csrf
     @foreach($song as $key=>$attribute)
         @if($key=='content')

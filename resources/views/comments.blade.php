@@ -1,5 +1,5 @@
 <div class="comment">
-    <h3>{{$main->username}}</h3>
+    <h3>{{$poem->username()}}</h3>
     <p>{{$comment->created_at}} {{$comment->updated_at}}</p>
     <p>{{$comment->content}}</p>
     <p>Кол-во лайков: {{$comment->like_count}}</p>
