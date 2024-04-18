@@ -78,7 +78,7 @@ class CollectionController extends Controller
     }
 
     //form
-    public function getCollection(string $id) {
+    public function getCollection(string $id='') {
 
     }
 

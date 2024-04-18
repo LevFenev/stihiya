@@ -15,7 +15,7 @@ class ViewController extends Controller
     }
 
     public function reg() {
-        return view('registration');
+        return view('regist_form');
     }
 
     public function showMain() { // показывает мейн пейдж для юзеров

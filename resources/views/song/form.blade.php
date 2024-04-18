@@ -1,6 +1,8 @@
 @extends('layout')
-<form method="post" action="/songs/post">
+<form method="post" enctype="multipart/form-data" action="/songs/post">
     @csrf
+    <h2>Вы публикуете: ... </h2>
+
     {{--@foreach($song as $key=>$attribute)
         @if($key=='content')
             <label>{{$key}}<textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea></label><br>
