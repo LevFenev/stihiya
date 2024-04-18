@@ -1,7 +1,7 @@
 @extends('layout')
 {{--    @include('menu')--}}
-    <button style="background-color: red"><a href="/admin/main">Я админ</a></button>
-    <button style="background-color: blue"><a href="/main">Я пользователь</a></button>
+    <button style="background-color: red"><a href="/admin/main">Админ</a></button>
+    <button style="background-color: blue"><a href="/main">Пользователь</a></button>
 {{--
 кнопки:
 Я админ (красный)
