@@ -26,9 +26,4 @@ class Comment extends Main
     /*public function username() { XXX IN THE MAIN MODEL NOW XXX
         return $this->belongsTo(\App\Models\User::class);
     }*/
-
-    public function getAttributeNames() {
-        $attributeNames = \Schema::getColumnListing($this->table);
-        return $attributeNames;
-    }
 }

@@ -74,7 +74,7 @@ Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::clas
 
 Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
 
-Route::get('/collections/post/{new_id?}', [\App\Http\Controllers\CollectionController::class, 'getCollection']);
+Route::get('/collections/post/{new_id}', [\App\Http\Controllers\CollectionController::class, 'getCollection']);
 
 Route::post('/collections/post', [\App\Http\Controllers\CollectionController::class, 'postCollection']);
 

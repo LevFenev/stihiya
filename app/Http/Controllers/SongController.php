@@ -56,12 +56,12 @@ class SongController extends Controller
             return redirect()->route('trashedSongs');
         }
     }
-/*
-{if id совпадает
+
+/*{if id совпадает
 не сохранять, а изменить сущ стих}
-сохраняет новый стих
-*/
-    /*public function leftAction(string $poem_id='') {
+сохраняет новый стих*/
+
+    public function leftAction(string $poem_id='') {
         $poem = Poem::find($poem_id);
         if (is_null($poem)) {
             $poem = new Poem();
@@ -81,8 +81,8 @@ class SongController extends Controller
         if ($request->hasFile('leftFile')){
 //            print_r($_FILES);
             $file = $request->file('leftFile'); // ф-ия file
-            move_uploaded_file($_FILES['leftFile']['tmp_name'], '../uploads/'.date('H-i-s').'mood.png');
-//            $file = $request->file('leftFile')->storeAs('uploads', 'mood.png', 'public'); // ф-ия file
+//            move_uploaded_file($_FILES['leftFile']['tmp_name'], '../uploads/'.date('H-i-s').'mood.png');
+            $file = $request->file('leftFile')->storeAs('uploads', 'mood.png', 'public'); // ф-ия file
 //            print($file->getClientOriginalName());
         }
         exit();
@@ -98,7 +98,7 @@ class SongController extends Controller
         $poem = new Poem();
         $poem->fill($validated); // в поем модели сделать переменную fillable и туда занести те поля которые должен заполнять пользователь
         $poem->save();
-    }*/
+    }
 
     public function getSong(string $id='') {
         $song = Song::find($id);

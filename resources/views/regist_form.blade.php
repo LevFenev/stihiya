@@ -3,7 +3,7 @@
     @yield('content')
 </div>
 
-<form action="#" method="post" target="_blank">
+<form action="post/user" method="post" target="_blank">
     <h2>Регистрация</h2>
     <fieldset>
         <legend>Персональные данные</legend>
