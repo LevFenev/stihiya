@@ -3,41 +3,6 @@ git pull
 git pull
 git pull
 git pull
-php artisan make:model
-export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-php artisan make:model
-git add .
-git commit -m "poem model created"
-git push
-git pull
-git pull
-git pull
-git pull
-php artisan make:controller
-php artisan make:controller
-git add .
-pit push
-git push
-git pull
-git commit -m "2 new controllers added to the project"
-git push
-git pull
-git pull
-git pull
-git pull
-git pull
-php artisan make:model
-git add .
-git commit -m "collection model created"
-git push
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
 git pull
 git pull
 git pull
@@ -498,3 +463,38 @@ git push
 git pull
 mc
 mc
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migration
+git add .
+git commit -m "created migration create_deleted_at_column_at_song"
+git push
+php artisan migrate
+git pull
+php artisan migrate
+php artisan migrate
+git pull
+php artisan migrate
+git pull
+rm app/Http/Controllers/SongController.php
+rm app/Models/Song.php
+rm resources/views/menu.blade.php
+rm resources/views/song/form.blade.php
+git pull
+git pull
+rm app/Http/Controllers/CollectionController.php
+rm app/Http/Controllers/ViewController.php
+rm resources/views/song/form.blade.php
+rm routes/web.php
+rm resources/views/regist_form.blade.php
+git pull
+git pull
+git pull
+rm app/Http/Controllers/SongController.php
+rm app/Models/Comment.php
+rm resources/views/comments.blade.php
+rm resources/views/regist_form.blade.php
+rm resources/views/user/list.blade.php
+rm routes/web.php
+rm app/Http/Controllers/MainController.php
+git pul
+git pull

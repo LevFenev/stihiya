@@ -111,7 +111,7 @@ class SongController extends Controller
     public function postSong(Request $request) {
         $validated = $request->validate([
             'id'=>['numeric'],
-            'title'=>['max:100'],
+            'title'=>[''],
             'lyrics'=>[''],
             'artist_id'=>['numeric'],
             'release_date'=>[''],

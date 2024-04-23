@@ -12,7 +12,14 @@ class Poem extends Main
     use HasFactory,SoftDeletes;
 
     protected $table = 'poem';
-    protected $attributes = ['title'=>'Без названия','author_id'=>0,'publisher_id'=>0,'release_date'=>'2024-01-01 00:00:00','release_year'=>2024,'content'=>'Без содержания'];
+    protected $attributes = [
+        'title'=>'Без названия',
+        'author_id'=>0,
+        'publisher_id'=>0,
+        'release_date'=>'2024-01-01 00:00:00',
+        'release_year'=>2024,
+        'content'=>'Без содержания'
+    ];
 
 /*    const STATUS_NEW = 'new';
     const STATUS_DRAFT = 'draft';

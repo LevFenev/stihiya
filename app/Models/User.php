@@ -25,7 +25,14 @@ class User extends Authenticatable
         'avatar',
     ];
 
-    protected $attributes = ['id'=>'0','name'=>'Имя','email'=>'ivanov@gmail.com','password'=>'123','bio'=>'Tell us about yourself','avatar'=>'?'];
+    protected $attributes = [
+        'id'=>'0',
+        'name'=>'Имя',
+        'email'=>'ivanov@gmail.com',
+        'password'=>'123',
+        'bio'=>'Tell us about yourself',
+        'avatar'=>'?'
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
