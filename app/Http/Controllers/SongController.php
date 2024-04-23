@@ -110,8 +110,15 @@ class SongController extends Controller
 
     public function postSong(Request $request) {
         $validated = $request->validate([
-            'id'=>['numeric', 'min:1'],
-            'title'=>['max:100']
+            'id'=>['numeric'],
+            'title'=>['max:100'],
+            'lyrics'=>[''],
+            'artist_id'=>['numeric'],
+            'release_date'=>[''],
+            'cover'=>[''],
+            'description'=>[''],
+            'video'=>[''],
+            'album_id'=>[''],
         ]);
 
         $song = Song::find($validated['id']);
