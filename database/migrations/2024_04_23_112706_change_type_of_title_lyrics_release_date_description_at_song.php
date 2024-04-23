@@ -11,30 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::dropColumns("song", ["title, lyrics, release_date, release_year, credits"]);
         Schema::table('song', function(Blueprint $table){
-            $table->dropColumn('title');
             $table->after('artist_id', function (Blueprint $table) {
                 $table->string('title', 255)->nullable();
             });
 
-            $table->dropColumn('lyrics');
             $table->after('title', function (Blueprint $table) {
                 $table->text('lyrics')->nullable();
             });
 
-            $table->dropColumn('release_date');
             $table->after('lyrics', function (Blueprint $table) {
                 $table->string('release_date',10);
             });
 
-            $table->dropColumn('release_year');
-
-            $table->dropColumn('credits');
             $table->after('cover', function (Blueprint $table) {
                 $table->text('credits')->nullable();
             });
 
-            $table->dropColumn('description');
             $table->after('credits', function (Blueprint $table) {
                 $table->text('description')->nullable();
             });
