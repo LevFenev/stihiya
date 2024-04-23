@@ -79,10 +79,26 @@ class CollectionController extends Controller
 
     //form
     public function getCollection(string $id='') {
-
+        $collection = Collection::find($id);
+        if (is_null($collection)) {
+            $collection = new Collection();
+        }
+        return view('collection.form', ['collection'=>$collection]);
     }
 
-    public function postCollection() {
+    public function postCollection(Request $request) {
+        $validated = $request->validate([
+            'id'=>['numeric'],
+            'title'=>[''],
+        ]);
 
+        $collection = Collection::find($validated['id']);
+        if (is_null($collection)) {
+            $collection = new Collection();
+        }
+        $collection->fill($validated);
+        $collection->save();
+
+        return redirect()->route('collections', ['id'=>$collection->id]);
     }
 }

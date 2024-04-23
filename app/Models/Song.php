@@ -16,7 +16,7 @@ class Song extends Main
         'title'=>'Без названия',
         'lyrics'=>'Где песня, Лебовски?',
         'artist_id'=>0,
-        'release_date'=>'2024-01-01 00:00:00',
+        'release_date'=>'2024-01-01',
         'cover'=> '?',
         'description'=> 'Tell us about the song.',
         'video'=>'Put the link to the Music Video here.',
