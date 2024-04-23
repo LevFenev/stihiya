@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('song', function(Blueprint $table){
+
             $table->after('artist_id', function (Blueprint $table) {
                 $table->dropColumn('title');
                 $table->string('title', 255)->nullable();
