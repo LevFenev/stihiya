@@ -49,4 +49,31 @@ class UserController extends Controller
         return view('poems.list', ['poems'=>$poems]);
     }
      */
+
+    public function getUser(string $new='') { // юезр в форму
+        $user = User::find($new);
+        if (is_null($user)) {
+            $user = new User();
+        }
+        return view('user.form', ['user'=>$user]);
+    }
+
+    public function postUser(Request $request) {
+        $validated = $request->validate([
+            'id'=>['numeric'],
+            'name'=>['max:100'],
+            'bio'=>['min:5'],
+        ]);
+
+        $user = User::find($validated['id']);
+        if(is_null($user)) {
+            $user = new User();
+        }
+        $user->fill($validated);
+        $user->save();
+
+        return redirect()->route('users', ['id'=>$user->id]);
+    }
+
+
 }

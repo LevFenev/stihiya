@@ -96,11 +96,11 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         if (is_null($poem)) {
             $poem = new Poem();
         }
-        return view('poem.form', ['poem'=>$poem]); // вернет на стих с которого удалили коммент
+        return view('poem.form', ['poem'=>$poem]);
     }
 
     public function postPoem(Request $request) { // в реквесте данные стиха poem's data всё, что угодно // поэма сохранить в базу данных
-        $validated = $request->validate([ // валидацию потом сделать
+        $validated = $request->validate([
             'id'=>['numeric', 'min:1'],
             'title'=>['max:100'],
             /*'author_id'=>['numeric', 'exists:user,id'],
@@ -120,6 +120,6 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
         $poem->fill($validated);
         $poem->save();
 
-        return redirect()->route('poems', ['id'=>$poem->id]); // вернет на стих с которого удалили коммент
+        return redirect()->route('poems', ['id'=>$poem->id]);
     }
 }

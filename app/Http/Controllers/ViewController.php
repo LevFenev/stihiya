@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
-    public function login() {
+    /*public function login() {
         return view('login');
-    }
+    }*/
 
     public function admin_login() {
         return view('admin_login');
     }
 
-    public function reg() {
+    /*public function reg() {
         return view('regist_form');
-    }
+    }*/
 
     public function showMain() { // показывает мейн пейдж для юзеров
         return view('main');

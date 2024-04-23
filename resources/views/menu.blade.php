@@ -1,4 +1,4 @@
-<div>
+<nav>
     <!-- Well begun is half done. - Aristotle -->
     <ul>
         {{--<li><a href="/users">Пользователи</a></li>
@@ -10,4 +10,4 @@
         <li><a href="/reg">Регистрация</a></li>
         <li><a href="/forms">Формы</a></li>
     </ul>
-</div>
+</nav>

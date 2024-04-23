@@ -21,11 +21,11 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/login', [App\Http\Controllers\ViewController::class, 'login']);
+Route::get('/login', [App\Http\Controllers\Controller::class, 'login']);
 
 Route::get('admin/login', [App\Http\Controllers\ViewController::class, 'admin_login']);
 
-Route::get('/reg', [App\Http\Controllers\ViewController::class, 'reg']);
+Route::get('/reg', [App\Http\Controllers\Controller::class, 'reg']);
 
 Route::get('/left/{poem_id?}', [\App\Http\Controllers\SongController::class, 'leftAction'])->where('poem_id','[0-9]+');
 
@@ -150,9 +150,13 @@ Route::get('admin/comments/restore/{id}', [\App\Http\Controllers\CommentControll
  * USERS / ПОЛЬЗОВАТЕЛИ
  */
 
-Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers']);
+Route::get('users', [\App\Http\Controllers\UserController::class, 'showUsers'])->name('users');
 
-Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments']); // отсюда получает id (string $id)
+Route::get('users/{id}', [\App\Http\Controllers\UserController::class, 'showUserComments'])->where('id','[0-9]+'); // отсюда получает id (string $id)
+
+Route::get('/users/post/{new?}', [\App\Http\Controllers\UserController::class, 'getUser']);
+
+Route::post('/users/post', [\App\Http\Controllers\UserController::class, 'postUser']);
 
 // admin
 

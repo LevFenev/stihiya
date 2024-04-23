@@ -21,7 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'bio',
+        'avatar',
     ];
+
+    protected $attributes = ['id'=>'0','name'=>'Имя','email'=>'ivanov@gmail.com','password'=>'123','bio'=>'Tell us about yourself','avatar'=>'?'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -53,4 +57,10 @@ class User extends Authenticatable
     public function poems() {
         return $this->hasMany(\App\Models\Poem::class);
     }
+
+    /*public function getAttributes() вот этим я переписал метод который уже был у модели
+    {
+        $attributeNames = \Schema::getColumnListing($this->table);
+        return $attributeNames;
+    }*/
 }
