@@ -1,26 +1,34 @@
 @extends('layout')
-<form method="post" action="/collection/post">
+<form method="post" action="/songs/post">
     @csrf
-    @foreach($collection as $key=>$attribute)
-        @if($key=='content')
-            <label>{{$key}}<textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea></label><br>
-        @else
-            @php
-                $type='text';
-            $display='';
-            @endphp
-
-            @if($key=='id' or $key=='created_at' or $key=='updated_at')
+    <div class="form-inner">
+        @foreach($collection->getAttributes() as $key=>$attribute)
+            key {{$key}} attribute {{$attribute}} <br>
+            @error($key)
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            @if($key=='description')
+                <label>{{$key}}
+                    <textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea>
+                </label><br>
+            @else
                 @php
-                    $type='hidden';
-                  $display='style="visibility: collapse;"'
+                    $type = 'text';
+                    $display = '';
                 @endphp
             @endif
 
-            <label {{$display}}>{{$key}} <br> <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"></label><br>
-        @endif
+            @if($key=='id' or $key=='created_at' or $key=='updated_at' or $key=='deleted_at')
+                @php
+                    $type='hidden';
+                    $display='style="visibility: collapse;"'
+                @endphp
+            @endif
 
-    @endforeach
-    <button type="submit">Опубликовать</button>
-    <button type="submit">Сохранить</button>
+            <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label> <br>
+
+        @endforeach
+
+        <button type="submit">Опубликовать</button>
+    </div>
 </form>

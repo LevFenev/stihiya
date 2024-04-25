@@ -102,12 +102,13 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
     public function postPoem(Request $request) { // в реквесте данные стиха poem's data всё, что угодно // поэма сохранить в базу данных
         $validated = $request->validate([
             'id'=>['numeric', 'min:1'],
-            'title'=>['max:100'],
+            'title'=>['required', 'max:100'],
             /*'author_id'=>['numeric', 'exists:user,id'],
             'publisher_id'=>['numeric', 'exists:user,id'],
             'release_date'=>['numeric'], // не нюмерик*/
             'release_year'=>['required', 'numeric', 'min:4'],
-            'content'=>[''],
+            'release_date'=>['required'],
+            'content'=>['required'],
             'storyline'=>[''],
             // photo status бла бла..
         ]);

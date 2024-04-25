@@ -61,8 +61,8 @@ class UserController extends Controller
     public function postUser(Request $request) {
         $validated = $request->validate([
             'id'=>['numeric'],
-            'name'=>['max:100'],
-            'bio'=>['min:5'],
+            'name'=>['required, max:100'],
+            'bio'=>['required, min:5'],
         ]);
 
         $user = User::find($validated['id']);

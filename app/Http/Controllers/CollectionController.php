@@ -89,7 +89,12 @@ class CollectionController extends Controller
     public function postCollection(Request $request) {
         $validated = $request->validate([
             'id'=>['numeric'],
-            'title'=>[''],
+            'author_id'=>['required, numeric, exists:author_id'],
+            'title'=>['required'],
+            'description'=>['required'],
+            'release_year'=>['required'],
+            'cover'=>['required'],
+            'isListenable'=>['required'],
         ]);
 
         $collection = Collection::find($validated['id']);
