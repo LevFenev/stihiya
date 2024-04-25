@@ -26,11 +26,31 @@ class AlbumController extends Controller
     }
 
     //form
-    public function getAlbum(string $id) {
-
+    public function getAlbum(string $id='') {
+        $album = Album::find($id);
+        if(is_null($album)){
+            $album = new Album();
+        }
+        return view('album.form', ['album'=>$album]);
     }
 
-    public function postAlbum() {
+    public function postAlbum(Request $request) {
+        $validated = $request->validate([ // to be changed after db update
+            'id'=>['numeric'],
+            'author'=>['required'],
+            'title'=>['required'],
+            'release_year'=>['required'],
+            'release_date'=>[''],
+            'cover'=>[''],
+        ]);
 
+        $album = Album::find($validated['id']);
+        if (is_null($album)) {
+            $album = new Album();
+        }
+        $album->fill($validated);
+        $album->save();
+
+        return redirect()->route('albums', ['id'=>$album->id]);
     }
 }

@@ -25,6 +25,12 @@
                 @endphp
             @endif
 
+            @if($key=='cover')
+                @php
+                    $type = 'file';
+                @endphp
+            @endif
+
             <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label> <br>
 
         @endforeach

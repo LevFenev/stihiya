@@ -34,6 +34,12 @@
                 <label {{$display}}>{{$key}}<input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"></label><br>
             @endif
 
+            @if($key=='photo' or $key=='video')
+                @php
+                    $type = 'file';
+                @endphp
+            @endif
+
         @endforeach
         <input type="submit" value="Опубликовать">
 {{--        <input type="submit" value="Сохранить">--}}{{--надо проверить нажимает ли пользователь на кнопку и после нажатия сохранить стих--}}

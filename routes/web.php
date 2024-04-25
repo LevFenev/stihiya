@@ -70,13 +70,13 @@ Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_s
  * COLLECTIONS / СБОРНИКИ
  */
 
-Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection']);
+Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection'])->where('id','[0-9]+');
 
-Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections']);
-
-Route::get('/collections/post/{new_id}', [\App\Http\Controllers\CollectionController::class, 'getCollection']);
+Route::get('/collections/post/{new_id?}', [\App\Http\Controllers\CollectionController::class, 'getCollection'])->where('id','[0-9]+');
 
 Route::post('/collections/post', [\App\Http\Controllers\CollectionController::class, 'postCollection']);
+
+Route::get('collections', [\App\Http\Controllers\CollectionController::class, 'showCollections'])->name('collections');
 
 // admin
 
@@ -96,9 +96,9 @@ Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionCo
 
 Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
 
-Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums']);
+Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums'])->name('albums');
 
-Route::get('/albums/post/{new_id}', [\App\Http\Controllers\AlbumController::class, 'getAlbum']);
+Route::get('/albums/post/{new_id?}', [\App\Http\Controllers\AlbumController::class, 'getAlbum'])->where('id','[0-9]+');
 
 Route::post('/albums/post', [\App\Http\Controllers\AlbumController::class, 'postAlbum']);
 

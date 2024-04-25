@@ -1,13 +1,13 @@
 @extends('layout')
-<form method="post" action="/users/post">
+<form method="post" action="/albums/post">
     @csrf
     <div class="form-inner">
-        @foreach($user->getAttributes() as $key=>$attribute)
+        @foreach($album->getAttributes() as $key=>$attribute)
             key {{$key}} attribute {{$attribute}} <br>
             @error($key)
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            @if($key=='bio')
+            @if($key=='description') {{-- is not on db yet--}}
                 <label>{{$key}}
                     <textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea>
                 </label><br>
@@ -18,22 +18,23 @@
                 @endphp
             @endif
 
-                @if($key=='id' or $key=='created_at' or $key=='updated_at')
-                    @php
-                        $type='hidden';
-                        $display='style="visibility: collapse;"'
-                    @endphp
-                @endif
+            @if($key=='id' or $key=='created_at' or $key=='updated_at')
+                @php
+                    $type='hidden';
+                    $display='style="visibility: collapse;"'
+                @endphp
+            @endif
 
-            @if($key=='avatar')
+            @if($key=='cover')
                 @php
                     $type = 'file';
                 @endphp
             @endif
 
-                    <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label> <br>
+            <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label> <br>
 
-                @endforeach
-                <button type="submit">Опубликовать</button>
+        @endforeach
+
+        <button type="submit">Опубликовать</button>
     </div>
 </form>
