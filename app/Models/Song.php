@@ -17,6 +17,7 @@ class Song extends Main
         'lyrics'=>'Где песня, Лебовски?',
         'artist_id'=>0,
         'release_date'=>'2024-01-01',
+        'release_year'=>'2024',
         'cover'=> '?',
         'description'=> 'Tell us about the song.',
         'video'=>'Put the link to the Music Video here.',
@@ -24,7 +25,7 @@ class Song extends Main
     ];
 
     protected $fillable = [
-        'title', 'lyrics', 'artist_id', 'release_date', 'cover', 'description', 'video', 'album_id'
+        'title', 'lyrics', 'artist_id', 'release_date', 'release_year', 'cover', 'description', 'video', 'album_id'
     ];
 
     public function comments() {

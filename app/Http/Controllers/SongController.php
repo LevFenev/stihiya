@@ -113,12 +113,14 @@ class SongController extends Controller
             'id'=>['numeric'],
             'title'=>['required'],
             'lyrics'=>[''],
-            'artist_id'=>['numeric', 'exists:artist_id'],
+//            'artist_id'=>['numeric', 'exists:user_id'],
+            'artist_id'=>['numeric', 'exists:user,id'],
             'release_date'=>['required'],
             'cover'=>[''],
             'description'=>[''],
             'video'=>[''],
-            'album_id'=>['required, exists:album_id'],
+//            'album_id'=>['required', 'exists:album_id'],
+            'album_id'=>['required', 'exists:album,id'],
         ]);
 
         $song = Song::find($validated['id']);
@@ -127,6 +129,10 @@ class SongController extends Controller
         }
         $song->fill($validated);
         $song->save();
+
+        if ($request->hasFile('cover')) {
+            $songCover = $request->file('cover')->storeAs('../storage/app/public/uploads', 'cover'.$song->id.'.png', 'public'); // ф-ия file
+        }
 
         return redirect()->route('songs', ['id'=>$song->id]);
     }

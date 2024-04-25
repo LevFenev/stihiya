@@ -123,7 +123,7 @@ Route::get('/songs/post/{new_id?}', [\App\Http\Controllers\SongController::class
 
 Route::post('/songs/post', [\App\Http\Controllers\SongController::class, 'postSong']);
 
-Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs']);
+Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs'])->name('songs');
 
 /**
  * COMMENTS / КОММЕНТАРИИ

@@ -1,53 +1,3 @@
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-php artisan make::model
-export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-php artisan make::model
-php artisan make:model
-git add .
-git push
-git pull
 git commit -m 
 git commit -m "poem collection link model created"
 git pull
@@ -497,4 +447,54 @@ rm resources/views/user/list.blade.php
 rm routes/web.php
 rm app/Http/Controllers/MainController.php
 git pul
+git pull
+git pull
+rm app/Http/Controllers/Controller.php
+rm app/Http/Controllers/PoemController.php
+rm app/Http/Controllers/UserController.php
+rm app/Http/Controllers/ViewController.php
+rm app/Models/User.php
+rm resources/views/forms.blade.php
+rm resources/views/menu.blade.php
+rm resources/views/poem/form.blade.php
+rm resources/views/user/list.blade.php
+rm routes/web.php
+rm resources/views/reg.blade.php
+rm resources/views/user/form.blade.php
+git pull
+git pull
+php artisan make:migration
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migration
+git add .
+git push
+git commit -m "created migration change_type_of_title_lyrics_release_date_description_at_song"
+git push
+git pull
+git pull
+php artisan migrate
+git pull
+php artisan migrate
+php artisan migrate
+git pull
+php artisan migrate
+mc
+git pull
+php artisan migrate
+git pull
+rm app/Models/Song.php
+rm database/migrations/2024_04_23_112706_change_type_of_title_lyrics_release_date_description_at_song.php
+git pull
+git pull
+rm app/Http/Controllers/CollectionController.php
+rm resources/views/collection/form.blade.php
+git pull
+git pull
+rm app/Models/Collection.php
+rm resources/views/collection/form.blade.php
+rm routes/web.php
+git pull
+git pull
+git pull
+rm app/Models/Album.php
 git pull

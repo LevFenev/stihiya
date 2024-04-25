@@ -18,6 +18,10 @@ class Album extends Main
         'release_date'=>'11.01.2024',
     ];
 
+    protected $fillable = [
+
+    ];
+
     public function songs() {
         return $this->belongsToMany(\App\Models\Song::class,'song_album');
     }
