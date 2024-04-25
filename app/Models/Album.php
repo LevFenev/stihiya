@@ -16,7 +16,6 @@ class Album extends Main
         'author'=>'Имя артиста',
         'release_year'=>'2024',
         'release_date'=>'11.01.2024',
-        'file'=>'',
     ];
 
     public function songs() {
