@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropColumns("song", ["title, lyrics, release_date, release_year, credits"]);
+        /*Schema::dropColumns("song", ["title, lyrics, release_date, release_year, credits"]);
         Schema::table('song', function(Blueprint $table){
             $table->after('artist_id', function (Blueprint $table) {
                 $table->string('title', 255);
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->after('credits', function (Blueprint $table) {
                 $table->text('description')->nullable();
             });
-        });
+        });*/
     }
 
     /**
