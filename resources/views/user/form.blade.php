@@ -1,5 +1,5 @@
 @extends('layout')
-<form method="post" action="/users/post">
+<form method="post" enctype="multipart/form-data" action="/users/post">
     @csrf
     <div class="form-inner">
         @foreach($user->getAttributes() as $key=>$attribute)

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('id_at_song', function (Blueprint $table) {
-            //
+        Schema::table('song', function (Blueprint $table) {
+            $table->increments('id');
         });
     }
 
@@ -21,8 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('id_at_song', function (Blueprint $table) {
-            //
+        Schema::table('song', function (Blueprint $table) {
+            $table->dropColumn('id');
+            $table->integer('id');
         });
     }
 };

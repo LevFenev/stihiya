@@ -1,5 +1,5 @@
 @extends('layout')
-<form method="post" action="/albums/post">
+<form method="post" enctype="multipart/form-data" action="/albums/post">
     @csrf
     <div class="form-inner">
         @foreach($album->getAttributes() as $key=>$attribute)
