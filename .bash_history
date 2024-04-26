@@ -1,23 +1,3 @@
-git commit -m 
-git commit -m "poem collection link model created"
-git pull
-git add .
-git pull
-git status
-git commit
-git push
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-php artisan make:model
-git commit 
 git commit -m "comments model created"
 git add .
 git commit -m "comments model created"
@@ -497,4 +477,24 @@ git pull
 git pull
 git pull
 rm app/Models/Album.php
+git pull
+midnight commander
+mc
+mc
+mc
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan lang:publish
+git add .
+git commit -m "eng lang files"
+git pull
+git push
+git pull
+rm lang/ru/auth.php
+rm lang/ru/general.php
+rm lang/ru/pagination.php
+rm lang/ru/passwords.php
+rm lang/ru/validation.php
+rm config/app.php
+rm resources/views/collection/form.blade.php
+rm resources/views/poem/form.blade.php
 git pull
