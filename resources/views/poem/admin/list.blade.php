@@ -4,7 +4,7 @@
         <p>Стихи:
         <ol>
             @foreach($poems as $poem)
-                <li><a href="poems/{{($poem->id)}}">{{($poem->title)}}</a> [<a href="/admin/poems/delete/{{$poem->id}}">удалить</a>]</li>
+                <li><a href="/poems/{{($poem->id)}}">{{($poem->title)}}</a> [<a href="/admin/poems/delete/{{$poem->id}}">удалить</a>]</li>
             @endforeach
         </ol>
         </p>
