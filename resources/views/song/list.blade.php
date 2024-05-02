@@ -4,7 +4,7 @@
         <p>Все песни:</p>
         <ol>
             @foreach($songs as $song)
-                <li>{{$song->title}}</li>
+                <li><a href="songs/{{($song->id)}}">{{($song->title)}}</a></li>
 
             @endforeach
         </ol>

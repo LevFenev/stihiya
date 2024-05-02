@@ -94,7 +94,7 @@ Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionCo
  * ALBUMS / АЛЬБОМЫ
  */
 
-Route::get('albums/read/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
+Route::get('albums/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
 
 Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums'])->name('albums');
 
