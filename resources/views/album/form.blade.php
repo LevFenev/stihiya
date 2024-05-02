@@ -8,9 +8,9 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             @if($key=='description') {{-- is not on db yet--}}
-                <label>{{$key}}
-                    <textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea>
-                </label><br>
+            <label>{{$key}}
+                <textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea>
+            </label><br>
             @else
                 @php
                     $type = 'text';
@@ -28,6 +28,12 @@
             @if($key=='cover')
                 @php
                     $type = 'file';
+                @endphp
+            @endif
+
+            @if($key=='release_date')
+                @php
+                    $type = 'date';
                 @endphp
             @endif
 

@@ -72,6 +72,13 @@ class UserController extends Controller
         $user->fill($validated);
         $user->save();
 
+        if ($request->hasFile('avatar')) {
+            $userAvatar = $request->file('avatar')->storeAs('uploads/user', 'avatar'.$user->id.'.png', 'public');
+            $content = Storage::url('uploads/avatar'.$user->id.'.png');
+            $user->avatar=$content;
+            $user->save();
+        }
+
         return redirect()->route('users', ['id'=>$user->id]);
     }
 

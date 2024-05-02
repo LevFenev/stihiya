@@ -28,12 +28,12 @@ class Poem extends Main
     const STATUS_HIDDEN = 'hidden';*/
 
     //white-list для заполнения // указываю какие поля можно заполнять fillable
-    protected $fillable = ['title', 'content', 'release_year', 'created_at'];
-
-    public function getComments(string $id) {
-//        $comments = Comment::where('poem_id',$id)->get();
-//        return $comments;
-    }
+    protected $fillable = [
+        'title',
+        'content',
+        'release_year',
+        'created_at'
+    ];
 
     public function comments() {
         return $this->hasMany(\App\Models\Comment::class);

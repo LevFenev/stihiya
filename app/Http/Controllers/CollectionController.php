@@ -89,20 +89,33 @@ class CollectionController extends Controller
     public function postCollection(Request $request) {
         $validated = $request->validate([
             'id'=>['numeric'],
-            'author_id'=>['required, numeric, exists:author_id'],
+            'author_id'=>['required', 'numeric', 'exists:user,id'],
             'title'=>['required'],
             'description'=>['required'],
             'release_year'=>['required'],
-            'cover'=>['required'],
-            'isListenable'=>['required'],
+            'cover'=>[''],
+            'is_listenable'=>['required'],
         ]);
 
-        $collection = Collection::find($validated['id']);
+        $collection = null;
+
+        if (isset($validated['id'])){
+            $collection = Collection::find($validated['id']);
+        }
+
         if (is_null($collection)) {
             $collection = new Collection();
         }
+
         $collection->fill($validated);
         $collection->save();
+
+        if ($request->hasFile('cover')) {
+            $collectionCover = $request->file('cover')->storeAs('uploads/collection', 'cover'.$collection->id.'.png', 'public');
+            $content = Storage::url('uploads/cover'.$collection->id.'.png');
+            $collection->cover=$content;
+            $collection->save();
+        }
 
         return redirect()->route('collections', ['id'=>$collection->id]);
     }

@@ -17,12 +17,17 @@ class Collection extends Main
         'release_year'=>'2024',
         'description'=>'Расскажите о сборнике.',
         'cover'=>'?',
-        'isListenable'=>'0',
+        'is_listenable'=>'0',
     ];
 
-//    protected $fillable = [
-//        '',
-//    ];
+    protected $fillable = [
+        'title',
+        'author_id',
+        'release_year',
+        'description',
+        'cover',
+        'is_listenable',
+    ];
 
     public function poems() {
         return $this->belongsToMany(\App\Models\Poem::class,'poem_collection'); // в кавычках - таблица связки

@@ -1,5 +1,5 @@
 @extends('layout')
-<form method="post" enctype="multipart/form-data" action="/songs/post">
+<form method="post" enctype="multipart/form-data" action="/collections/post">
     @csrf
     <div class="form-inner">
         @foreach($collection->getAttributes() as $key=>$attribute)

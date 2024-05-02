@@ -12,7 +12,6 @@ class Song extends Main
 
     protected $table = 'song';
     protected $attributes = [
-        'id'=>'0',
         'title'=>'Без названия',
         'lyrics'=>'Где песня, Лебовски?',
         'artist_id'=>0,

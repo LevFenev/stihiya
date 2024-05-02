@@ -10,10 +10,18 @@ class Comment extends Main
 {
     use HasFactory,SoftDeletes;
 
-    protected $attributes = ['user_id'=>'', 'poem_id'=>'', 'content'=>''];
+    protected $attributes = [
+        'user_id'=>'',
+        'poem_id'=>'',
+        'content'=>''
+    ];
     protected $table = 'comment';
 
-    protected $fillable = ['user_id', 'poem_id', 'content'];
+    protected $fillable = [
+        'user_id',
+        'poem_id',
+        'content',
+    ];
 
     public function poem() {
         return $this->belongsTo(\App\Models\Poem::class); //$this->poem_id;

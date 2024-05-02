@@ -2,13 +2,10 @@
 <form method="post" enctype="multipart/form-data" action="/poems/post"> {{--прописать потом метод внутри poemController связанный с формой getPoem--}}
     @csrf
     <div class="form-inner">
-        {{__('general.lev_first_string')}}
     @foreach($poem->getAttributes() as $key=>$attribute)
             @error($key)
             <div class="alert alert-danger">{{ $message }}</div>
-            {{__('validation.accepted',['attribute'=>'Принято!'])}}
             @enderror
-        pub
             {{--@if('author_id' || 'publisher_id')
                 <label for="author_id">Выберите пользователя:</label>
                 <select name="author_id" id="id">

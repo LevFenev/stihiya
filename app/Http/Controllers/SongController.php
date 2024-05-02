@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use App\Models\Poem;
 use App\Models\Song;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use mysql_xdevapi\CollectionFind;
 
 class SongController extends Controller
 {
@@ -123,15 +126,25 @@ class SongController extends Controller
             'album_id'=>['required', 'exists:album,id'],
         ]);
 
-        $song = Song::find($validated['id']);
+        $song = null;
+
+        if (isset($validated['id'])){
+            $song = Song::find($validated['id']);
+        }
+
         if (is_null($song)) {
             $song = new Song();
         }
+
         $song->fill($validated);
         $song->save();
 
         if ($request->hasFile('cover')) {
-            $songCover = $request->file('cover')->storeAs('../storage/app/public/uploads', 'cover'.$song->id.'.png', 'public'); // ф-ия file
+            $songCover = $request->file('cover')->storeAs('uploads/song', 'cover'.$song->id.'.png', 'public'); // ф-ия file
+            $content = Storage::url('uploads/cover'.$song->id.'.png');
+//            $song->cover=strlen($content).' '.'uploads/coveryyy.png'.' '.$content;
+            $song->cover=$content;
+            $song->save();
         }
 
         return redirect()->route('songs', ['id'=>$song->id]);

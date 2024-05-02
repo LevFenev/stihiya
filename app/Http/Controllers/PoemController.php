@@ -113,13 +113,25 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
             // photo status бла бла..
         ]);
 
-        //$poem = new Poem();
-        $poem = Poem::find($validated['id']);
+        $poem = null;
+
+        if (isset($validated['id'])) {
+            $poem = Poem::find($validated['id']);
+        } else
+
         if (is_null($poem)) {
             $poem = new Poem();
         }
+
         $poem->fill($validated);
         $poem->save();
+
+        if ($request->hasFile('photo')) {
+            $poemMoodPhoto = $request->file('photo')->storeAs('uploads/poem', 'mood_photo_'.$poem->id.'.png', 'public');
+            $content = Storage::url('uploads/poem/mood_photo_'.$poem->id.'.png');
+            $poem->cover=$content;
+            $poem->save();
+        }
 
         return redirect()->route('poems', ['id'=>$poem->id]);
     }
