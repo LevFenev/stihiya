@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('poem_song', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->id('poem_id');
-            $table->id('song_id');
+            $table->integer('poem_id');
+            $table->integer('song_id');
         });
     }
 
