@@ -27,11 +27,13 @@ class User extends Authenticatable
 
     protected $attributes = [
         'id'=>'0',
+        'username'=> 'Имя пользователя',
         'name'=>'Имя',
         'email'=>'ivanov@gmail.com',
         'password'=>'123',
         'bio'=>'Tell us about yourself',
-        'avatar'=>'?'
+        'avatar'=>'?',
+        'status'=>'1',
     ];
 
     /**

@@ -27,6 +27,10 @@ class Song extends Main
         'title', 'lyrics', 'artist_id', 'release_date', 'release_year', 'cover', 'description', 'video', 'album_id'
     ];
 
+    public function poems() {
+        return $this->belongsToMany(\App\Models\Poem::class, 'poem_song');
+    }
+
     public function comments() {
         return $this->hasMany(\App\Models\Comment::class);
     }

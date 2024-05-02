@@ -35,6 +35,10 @@ class Poem extends Main
         'created_at'
     ];
 
+    public function songs() { // recordings of a poem
+        return $this->belongsToMany(\App\Models\Song::class,'poem_song');
+    }
+
     public function comments() {
         return $this->hasMany(\App\Models\Comment::class);
     }

@@ -1,5 +1,5 @@
 @extends('layout')
-<form method="post" action="/users/post">
+<form method="post" action="/reg">
     @csrf
     <div class="form-inner">
         @foreach($user->getAttributes() as $key=>$attribute)
@@ -26,8 +26,9 @@
                     // $display='style="visibility: collapse;"'
                 @endphp
 
-                <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label> <br>
             @endif
+            <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label> <br>
+
         @endforeach
         <button type="submit">Зарегистрироваться</button>
     </div>

@@ -25,7 +25,9 @@ Route::get('/login', [App\Http\Controllers\Controller::class, 'login']);
 
 Route::get('admin/login', [App\Http\Controllers\ViewController::class, 'admin_login']);
 
-Route::get('/reg', [App\Http\Controllers\Controller::class, 'reg']);
+Route::get('/reg', [App\Http\Controllers\Controller::class, 'getReg']);
+
+Route::post('/reg', [App\Http\Controllers\Controller::class, 'postReg']);
 
 Route::get('/left/{poem_id?}', [\App\Http\Controllers\SongController::class, 'leftAction'])->where('poem_id','[0-9]+');
 
