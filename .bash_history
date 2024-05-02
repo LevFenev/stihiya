@@ -1,20 +1,3 @@
-git commit -m "comments model created"
-git add .
-git commit -m "comments model created"
-git push
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
 git pull
 git pull
 git pull
@@ -495,6 +478,23 @@ rm lang/ru/pagination.php
 rm lang/ru/passwords.php
 rm lang/ru/validation.php
 rm config/app.php
+rm resources/views/collection/form.blade.php
+rm resources/views/poem/form.blade.php
+git pull
+mc
+git pull
+rm app/Http/Controllers/AlbumController.php
+rm app/Http/Controllers/CollectionController.php
+rm app/Http/Controllers/PoemController.php
+rm app/Http/Controllers/SongController.php
+rm app/Http/Controllers/UserController.php
+rm app/Models/Album.php
+rm app/Models/Collection.php
+rm app/Models/Comment.php
+rm app/Models/Poem.php
+rm app/Models/Song.php
+rm lang/ru/general.php
+rm resources/views/album/form.blade.php
 rm resources/views/collection/form.blade.php
 rm resources/views/poem/form.blade.php
 git pull
