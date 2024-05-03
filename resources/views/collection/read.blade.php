@@ -6,7 +6,7 @@
             @foreach($collections as $collection)
                 <h2>{{$collection->title}}</h2>
                 @foreach($poems as $poem)
-                    <p>({{$poem->title}}<a href="poems/{{($poem->id)}}"></a><br>)</p>
+                    <p>({{$poem->title}}<a href="poems/{{($poem->id)}}"></a></p>
                 @endforeach
             @endforeach
         </ol>

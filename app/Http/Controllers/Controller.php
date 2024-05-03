@@ -34,7 +34,7 @@ class Controller extends BaseController
             'avatar' => '',
             'status' => '',
         ]);
-        User::create($userData);
+        User::create($userData); //new+fill+save
 
         // return view('reg', ['user' => $user]);
     }
