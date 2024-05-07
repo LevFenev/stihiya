@@ -10,7 +10,7 @@
             $display='';
             @endphp
 
-            @if($key=='id' or $key=='created_at' or $key=='updated_at')
+            @if($key=='id' or $key=='user_id' or $key=='created_at' or $key=='updated_at')
                 @php
                     $type='hidden';
                   $display='style="visibility: collapse;"'

@@ -8,6 +8,8 @@
         <li><a href="/albums">Альбомы</a></li>--}}
         <li><a href="/main">Главная</a></li>
         <li><a href="/reg">Регистрация</a></li>
+        <li><a href="/login">Логин</a></li>
+        <li><a href="/logout">Выйти</a></li>
         <li><a href="/forms">Формы</a></li>
     </ul>
 </nav>

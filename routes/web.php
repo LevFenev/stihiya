@@ -21,7 +21,11 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/login', [App\Http\Controllers\Controller::class, 'login']);
+Route::get('/login', [App\Http\Controllers\Controller::class, 'getLogin'])->name('login');
+
+Route::post('/login/post', [App\Http\Controllers\Controller::class, 'postLogin']);
+
+Route::get('/logout', [App\Http\Controllers\Controller::class, 'logOut']);
 
 Route::get('admin/login', [App\Http\Controllers\ViewController::class, 'admin_login']);
 
@@ -49,7 +53,7 @@ Route::get('/admin/main', [\App\Http\Controllers\ViewController::class, 'admin_s
 
 Route::get('/poems/{id}', [\App\Http\Controllers\PoemController::class, 'readPoem'])->where('id','[0-9]+')->name('poems'); // отсюда получает id
 
-Route::get('/poems/post/{newxxxyz?}', [\App\Http\Controllers\PoemController::class, 'getPoem']);
+Route::get('/poems/post/{newxxxyz?}', [\App\Http\Controllers\PoemController::class, 'getPoem'])->middleware('auth');
 
 //Route::get('/poems/post', [\App\Http\Controllers\PoemController::class, 'getPoem']); менее элегантно
 
@@ -74,7 +78,7 @@ Route::get('admin/poems', [\App\Http\Controllers\PoemController::class, 'admin_s
 
 Route::get('collections/{id}', [\App\Http\Controllers\CollectionController::class, 'readCollection'])->where('id','[0-9]+');
 
-Route::get('/collections/post/{new_id?}', [\App\Http\Controllers\CollectionController::class, 'getCollection'])->where('id','[0-9]+');
+Route::get('/collections/post/{new_id?}', [\App\Http\Controllers\CollectionController::class, 'getCollection'])->middleware('auth')->where('id','[0-9]+');
 
 Route::post('/collections/post', [\App\Http\Controllers\CollectionController::class, 'postCollection']);
 
@@ -100,7 +104,7 @@ Route::get('albums/{album_id}', [\App\Http\Controllers\AlbumController::class, '
 
 Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums'])->name('albums');
 
-Route::get('/albums/post/{new_id?}', [\App\Http\Controllers\AlbumController::class, 'getAlbum'])->where('id','[0-9]+');
+Route::get('/albums/post/{new_id?}', [\App\Http\Controllers\AlbumController::class, 'getAlbum'])->middleware('auth')->where('id','[0-9]+');
 
 Route::post('/albums/post', [\App\Http\Controllers\AlbumController::class, 'postAlbum']);
 
@@ -121,7 +125,7 @@ Route::get('/admin/songs', [\App\Http\Controllers\SongController::class, 'admin_
 
 //Route::get('/songs/post/', [\App\Http\Controllers\SongController::class, 'showSongs']);
 
-Route::get('/songs/post/{new_id?}', [\App\Http\Controllers\SongController::class, 'getSong']);
+Route::get('/songs/post/{new_id?}', [\App\Http\Controllers\SongController::class, 'getSong'])->middleware('auth');
 
 Route::post('/songs/post', [\App\Http\Controllers\SongController::class, 'postSong']);
 
@@ -133,7 +137,7 @@ Route::get('/songs', [\App\Http\Controllers\SongController::class, 'showSongs'])
  * COMMENTS / КОММЕНТАРИИ
  */
 
-Route::get('/poem/{poem_id}/comments/post/{new?}', [\App\Http\Controllers\CommentController::class, 'getComment']);
+Route::get('/poem/{poem_id}/comments/post/{new?}', [\App\Http\Controllers\CommentController::class, 'getComment'])->middleware('auth');
 
 Route::post('/comments/post', [\App\Http\Controllers\CommentController::class, 'postComment']);
 

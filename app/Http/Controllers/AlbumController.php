@@ -16,7 +16,7 @@ class AlbumController extends Controller
 
     public function admin_showAlbums() {
         $albums = Album::all(); // all() уже показывает только не удаленные сущности
-        return view('album.admin_list', ['albums'=>$albums]);
+        return view('album.admin.list', ['albums'=>$albums]);
     }
 
     public function readAlbum(string $id) {

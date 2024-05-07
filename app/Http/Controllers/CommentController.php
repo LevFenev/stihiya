@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -71,15 +72,17 @@ class CommentController extends Controller
 
     public function postComment(Request $request) { // в реквесте данные стиха poem's data всё, что угодно
         $validated = $request->validate([ // валидацию потом сделать
-            'user_id'=>['numeric', 'exists:user,id'],
             'poem_id'=>['numeric', 'exists:poem,id'],
             'content'=>['required', 'max:300']
         ]);
 
         $comment = new Comment();
         $comment->fill($validated);
+        $comment->user_id=Auth::user()->id;
         $comment->save();
 
         return redirect()->route('poems', ['id'=>$comment->poem_id]); // вернет на стих с которого удалили коммент
     }
+
+
 }
