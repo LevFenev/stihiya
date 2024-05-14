@@ -1,0 +1,29 @@
+body {
+    background-color: red;
+}
+
+div.registration_wrapper {
+    background-color: rgba(203, 203, 203, 1);
+    height: 615px;
+    width: 700px;
+    border-radius: 15px;
+}
+form {
+    position: center;
+}
+
+div.reg_content {
+    position: center;
+}
+
+button {
+
+}
+
+input {
+
+}
+
+div.alert {
+
+}
