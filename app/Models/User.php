@@ -64,7 +64,7 @@ class User extends Authenticatable
     }
 
     public function poems() {
-        return $this->hasMany(\App\Models\Poem::class);
+        return $this->hasMany(\App\Models\Poem::class, 'author_id');
     }
 
     /*public function getAttributes() вот этим я переписал метод который уже был у модели

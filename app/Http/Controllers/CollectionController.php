@@ -6,6 +6,8 @@ use App\Models\Collection;
 use App\Models\Poem;
 use App\Models\PoemCollectionLink;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use function Illuminate\Process\options;
 
 class CollectionController extends Controller
 {
@@ -118,5 +120,32 @@ class CollectionController extends Controller
         }
 
         return redirect()->route('collections', ['id'=>$collection->id]);
+    }
+
+    public function getPoemsJSON(string $id='') {
+        $user = Auth::user();
+        $userPoems = $user->poems;
+        $collection = Collection::find($id);
+        $collectionPoems = $collection->poems;
+
+        $userPoemsNames = [];
+        $collectionPoemsNames = [];
+
+        foreach ($collectionPoems as $poem) {
+            $collectionPoemsNames[$poem->id] = $poem->title;
+        }
+
+        foreach ($userPoems as $poem) {
+            if (isset($collectionPoemsNames[$poem->id])) {
+                $userPoemsNames[] = $poem->title;
+            }
+        }
+
+        // inCollection - уже в какой-то коллекции
+        // general - в этой коллекции
+        return response()->json([
+            'general'=>$collectionPoemsNames,
+            'inCollection'=>$userPoemsNames,
+        ],options:JSON_UNESCAPED_UNICODE);
     }
 }

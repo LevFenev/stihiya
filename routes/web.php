@@ -21,6 +21,8 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/getjson/{collection_id?}', [App\Http\Controllers\CollectionController::class, 'getPoemsJSON'])->middleware('auth');
+
 Route::get('/login', [App\Http\Controllers\Controller::class, 'getLogin'])->name('login');
 
 Route::post('/login/post', [App\Http\Controllers\Controller::class, 'postLogin']);

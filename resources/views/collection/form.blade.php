@@ -34,7 +34,7 @@
             <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label> <br>
 
         @endforeach
-
-        <button type="submit">Опубликовать</button>
+            <select multiple="multiple" name="inCollection[]" id="inCollection"></select>
+            <button type="submit">Опубликовать</button>
     </div>
 </form>
