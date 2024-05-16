@@ -1,7 +1,8 @@
 @extends('layout')
-@guest
-    <a href="/login">Войти</a>
-@endguest
+@section('content')
+{{--@guest--}}
+{{--    <a href="/login">Войти</a>--}}
+{{--@endguest--}}
 @auth
     {{\Illuminate\Support\Facades\Auth::user()->name}}
     {{\Illuminate\Support\Facades\Auth::user()->username}}
@@ -14,10 +15,11 @@
 Я админ (красный)
 Я пользователь (синий)--}}
 
-<div>
+<ul class="main-menu">
     <li><a href="/users">Пользователи</a></li>
     <li><a href="/poems">Стихи</a></li>
     <li><a href="/collections">Сборники</a></li>
     <li><a href="/songs">Песни</a></li>
     <li><a href="/albums">Альбомы</a></li>
-</div>
+</ul>
+@endsection

@@ -1,16 +1,16 @@
 @extends('layout')
-<form method="post" enctype="multipart/form-data" action="/collections/post">
+@section('content')
+<form method="post" enctype="multipart/form-data" action="/collections/post" class="general-form">
     @csrf
     <div class="form-inner">
         @foreach($collection->getAttributes() as $key=>$attribute)
-            key {{$key}} attribute {{$attribute}} <br>
             @error($key)
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             @if($key=='description')
-                <label>{{$key}}
+                <label><span>{{$key}}</span>
                     <textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea>
-                </label><br>
+                </label>
             @else
                 @php
                     $type = 'text';
@@ -31,10 +31,13 @@
                 @endphp
             @endif
 
-            <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label> <br>
+            <label {{$display}}> <span>{{$key}}</span> <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label>
 
         @endforeach
-            <select multiple="multiple" name="inCollection[]" id="inCollection"></select>
+        <div id="quickSearch"><input type="text"/></div>
+            <div id="inCollection"></div>
+            <div id="chooseAuthor"></div>
             <button type="submit">Опубликовать</button>
     </div>
 </form>
+@endsection

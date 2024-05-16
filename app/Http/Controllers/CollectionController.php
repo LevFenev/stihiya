@@ -51,7 +51,8 @@ class CollectionController extends Controller
     }*/
 
     public function admin_readCollection(string $id) {
-
+        $collection = Collection::find($id);
+        return view('collection.admin.read', ['collection'=>$collection]);
     }
 
     // остановился тут 7.3.24
@@ -111,6 +112,20 @@ class CollectionController extends Controller
 
         $collection->fill($validated);
         $collection->save();
+
+        $inCollectionInput = $request->input('inCollection');
+        foreach ($inCollectionInput as $i) {
+            // $collection->id
+            // poem_id = $i
+            if (PoemCollectionLink::where(['collection_id'=>$collection->id, 'poem_id'=>$i])->count()==0) {
+                $poemCollectionLink = new PoemCollectionLink();
+                $poemCollectionLink->collection_id = $collection->id;
+                $poemCollectionLink->poem_id = $i;
+                $poemCollectionLink->created_at = date('Y-m-d H:i:s');
+                $poemCollectionLink->updated_at = date('Y-m-d H:i:s');
+                $poemCollectionLink->save();
+            }
+        }
 
         if ($request->hasFile('cover')) {
             $collectionCover = $request->file('cover')->storeAs('uploads/collection', 'cover'.$collection->id.'.png', 'public');

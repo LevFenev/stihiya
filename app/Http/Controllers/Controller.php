@@ -29,7 +29,7 @@ class Controller extends BaseController
         $userData = $request->validate([
             'name' => '',
             'username' => '',
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:user'],
             'password' => ['required'],
             'bio' => '',
             'avatar' => '',

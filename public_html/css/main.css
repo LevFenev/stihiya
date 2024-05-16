@@ -1,19 +1,19 @@
 body {
-    background-color: red;
+
 }
 
 div.registration_wrapper {
     background-color: rgba(203, 203, 203, 1);
-    height: 615px;
-    width: 700px;
+    /*height: 615px;*/
+    /*width: 700px;*/
     border-radius: 15px;
+    padding: 150px;
+
 }
 form {
-    position: center;
 }
 
 div.reg_content {
-    position: center;
 }
 
 button {
@@ -26,4 +26,38 @@ input {
 
 div.alert {
 
+}
+
+.main-menu li {
+    display: inline-block;
+    width: 120px;
+    border: 1px solid #eeeeee;
+    border-radius: 3px;
+    text-align: center;
+    font-family: Calibri;
+}
+
+.main-menu li:hover {
+    background-color: #deffcd;
+}
+
+.main-menu li:active {
+    background-color: #acff93;
+    border-top-color: #cccccc;
+    border-left-color: #cccccc;
+}
+
+.main-menu li a {
+    display: block;
+    text-decoration: none;
+    color: #555555;
+}
+
+.general-form label {
+    display: block;
+}
+
+.general-form label span {
+    display: inline-block;
+    width: 200px;
 }
