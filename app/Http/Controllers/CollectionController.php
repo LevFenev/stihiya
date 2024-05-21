@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Collection;
 use App\Models\Poem;
 use App\Models\PoemCollectionLink;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use function Illuminate\Process\options;
@@ -162,5 +163,23 @@ class CollectionController extends Controller
             'general'=>$collectionPoemsNames,
             'inCollection'=>$userPoemsNames,
         ],options:JSON_UNESCAPED_UNICODE);
+    }
+
+    public function getAuthorsJSON(string $id='') { //doesn't work 14:52 20.05.24
+        $user = Auth::user();
+
+        $users = User::all();
+
+        $collectionAuthors = [];
+
+        foreach ($users as $user) {
+            if ($user->id != $id) {
+                $collectionAuthors[$user->id] = $user->name;
+            }
+        }
+
+        return response()->json([
+            'authorNames'=>$collectionAuthors,
+        ], options:JSON_UNESCAPED_UNICODE);
     }
 }

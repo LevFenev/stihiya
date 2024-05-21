@@ -67,6 +67,10 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\Poem::class, 'author_id');
     }
 
+    public function collections() {
+        return $this->hasMany(\App\Models\Collection::class, 'author_id');
+    }
+
     /*public function getAttributes() вот этим я переписал метод который уже был у модели
     {
         $attributeNames = \Schema::getColumnListing($this->table);

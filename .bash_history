@@ -1,83 +1,3 @@
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-php artisan new:Model
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pu;;
-git pull
-git pull
-git checkout --
-git pull
-git reset --hard
-git pull
-git pull --force
-rm 
-rm resources/views/comment/added.blade.php
-rm resources/views/comment/added.blade.php
-rm resources/views/poem/form.blade.php
-git pull
-git pull
-git pull
-rs app/Http/Controllers/PoemController.php
-rm app/Http/Controllers/PoemController.php
-rm resources/views/poem/list.blade.php
-rm routes/web.php
-git pull
-rm resources/views/poem/admin_list.blade.php
-git pull
-git pull
-rm app/Http/Controllers/PoemController.php
-rm resources/views/poem/admin_list.blade.php
-routes/web.php
-rm routes/web.php
-git pull
-rm resources/views/poem/restore.blade.php
-rm  resources/views/poem/trashed.blade.php
-git pull
-git pull
-php artisan new::model
-Resources res = getResources(); 
-String text = String.format(res.getString(R.string.string_id_inside_xml_file));export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-php artisan new::model
-php artisan new:model
-php artisan create:model
-php artisan create::model
-php artisan make:model
-php artisan make:controller
-php artisan make:controller
-git add .
-git pull
-git push
 git commit -m "created album controller and model named album"
 git pull
 git push
@@ -497,4 +417,84 @@ rm lang/ru/general.php
 rm resources/views/album/form.blade.php
 rm resources/views/collection/form.blade.php
 rm resources/views/poem/form.blade.php
+git pull
+git pull
+git pull
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migration
+git add .
+git commit -m "created migration create_table_poem_song"
+git push
+php artisan migrate
+php artisan migrate:down
+php artisan migrate:rollback
+php artisan:migrate
+php artisan migrate
+cd
+cd database/migrations
+cat 2024_05_02_163017_create_table_poem_song.php 
+cd
+php artisan migrate:rollback
+git pull
+php artisan migrate
+git pull
+git pull
+rm resources/views/song/read.blade.php
+rm routes/web.php
+git pull
+git pull
+rm app/Http/Controllers/Controller.php
+rm app/Models/Poem.php
+rm app/Models/Song.php
+rm app/Models/User.php
+rm resources/views/poem/read.blade.php
+rm resources/views/reg.blade.php
+rm resources/views/song/read.blade.php
+rm routes/web.php
+git pull
+git pull
+rm app/Http/Controllers/Controller.php
+rm resources/views/collection/collection2.blade.php
+rm resources/views/collection/read.blade.php
+git pull
+git pull
+rm app/Http/Controllers/AlbumController.php
+rm app/Http/Controllers/CommentController.php
+rm app/Http/Controllers/Controller.php
+rm resources/views/comment/form.blade.php
+rm resources/views/main.blade.php
+rm resources/views/menu.blade.php
+rm routes/web.php
+rm public_html/csstest.html
+rm resources/views/login.blade.php
+git pull
+git pull
+rm public_html/csstest.html
+rm resources/views/layout.blade.php
+rm resources/views/login.blade.php
+rm resources/views/reg.blade.php
+rm public_html/css/main.css
+rm public_html/js/main.js
+git pull
+git pull
+rm app/Http/Controllers/CollectionController.php
+rm  app/Models/User.php
+rm public_html/js/main.js
+rm resources/views/collection/form.blade.php
+rm routes/web.php
+rm public_html/js/jq.js
+git pull
+rm resources/views/layout.blade.php
+git pull
+git pull
+rm app/Http/Controllers/CollectionController.php
+rm app/Http/Controllers/Controller.php
+rm public_html/css/main.css
+rm public_html/js/main.js
+rm resources/views/collection/admin/list.blade.php
+rm resources/views/collection/form.blade.php
+rm resources/views/collection/read.blade.php
+rm resources/views/forms.blade.php
+rm resources/views/main.blade.php
+rm resources/views/menu.blade.php
 git pull

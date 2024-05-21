@@ -1,11 +1,12 @@
 // name="inCollection[]" id="inCollection"
 $(function () {
     const inCollection = $('#inCollection');
+    const poem_id = $('#poem_id').val(); // #poem_id - обращение к инпуту с poem_id
     $.ajax({
         dataType: 'json',
         type: 'GET',
         async: true,
-        url: '/getjson/2',
+        url: `/getpoemjson/${poem_id}`,
         success: function (result) {
             if (typeof result.general === "undefined") {
                 alert('Incorrect response');
@@ -22,13 +23,34 @@ $(function () {
                 console.log(i, name);
             }*/
         },
-        complete: function () {
+        /*complete: function () {
             console.log('Finished!');
-        }
+        }*/
     });
     // inCollection.append('<option>Название</option>')
     // inCollection.append('<option>Содержание</option>')
     // inCollection.append('<option>Дата написания</option>')
+
+    // ИМЕНА АВТОРОВ
+    const chooseAuthor = $('#chooseAuthor');
+    $.ajax({
+        dataType: 'json',
+        type: 'GET',
+        async: true,
+        url: '/getauthorjson',
+        success: function (result) {
+            if (typeof result.authorNames === "undefined") {
+                alert('Incorrect response');
+                return false;
+            }
+            for (let i in result.authorNames) {
+                if (result.authorNames.hasOwnProperty(i)) {
+                    let authorName = result.authorNames[i];
+                    chooseAuthor.append(`<span><input type="radio" value="${i}" name="chooseAuthor">${authorName}</span>`);
+                }
+            }
+        }
+    });
 
     // ПОИСК СТИХА
     function quickSearch() {

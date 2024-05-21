@@ -32,4 +32,8 @@ class Collection extends Main
     public function poems() {
         return $this->belongsToMany(\App\Models\Poem::class,'poem_collection'); // в кавычках - таблица связки
     }
+
+    /*public function authorsNames() {
+        return $this->belongsToMany(\App\Models\Poem::class,'poem_collection'); // в кавычках - таблица связки
+    }*/
 }
