@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    const PREMIUM_THRESHOLD = 1000000000;
+
     /**
      * Run the migrations.
      */
@@ -14,6 +16,7 @@ return new class extends Migration
         Schema::create('reaction', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
         });
     }
 
