@@ -69,4 +69,11 @@ $(function () {
             })
         })
     }
+
+    $('.like-buttons div').click(function () {
+        let element_name = $(this).parent().data('element_name');
+        let element_id = $(this).parent().data('id');
+        let reaction_id = $(this).data('rid');
+        console.log(element_id, element_name, reaction_id);
+    });
 });
