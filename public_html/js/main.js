@@ -63,7 +63,7 @@ $(function () {
             $('#inCollection span').each(function () {
                 console.log($(this).text());
                 let r = new RegExp(val, 'gi'); // regular expression, global i - CaseInsensitive
-                if($(this).text().search(r)<0) {
+                if ($(this).text().search(r) < 0) {
                     $(this).hide();
                 }
             })

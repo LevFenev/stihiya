@@ -68,4 +68,8 @@ class Controller extends BaseController
         return redirect('main');
     }
 
+    public function toLike (string $element_id, string $element_name, string $reaction_id) {
+
+    }
+
 }
