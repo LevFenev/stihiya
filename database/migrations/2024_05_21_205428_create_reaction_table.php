@@ -18,6 +18,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
         });
+
+        Schema::create('comment', function (Blueprint $table) {
+            $table->dropColumn('like_count');
+        });
     }
 
     /**
@@ -26,5 +30,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('reaction');
+        Schema::create('comment', function (Blueprint $table) {
+            $table->integer('like_count');
+        });
     }
 };
