@@ -1,23 +1,3 @@
-git commit -m "created album controller and model named album"
-git pull
-git push
-git pull
-git pull
-rm app/Http/Controllers/PoemController.php
-rm app/Http/Controllers/SongController.php
-rm resources/views/poem/admin_list.blade.php
-rm routes/web.php
-git pull
-rm
-rm app/Http/Controllers/PoemController.php 
-rm app/Http/Controllers/SongController.php
-rm resources/views/poem/admin_list.blade.php
-rm routes/web.php
-git pull
-git checkout --
-git status
-git reset hard
-git reset hard --
 git reset --hard
 git pull
 git status
@@ -497,4 +477,24 @@ rm resources/views/collection/read.blade.php
 rm resources/views/forms.blade.php
 rm resources/views/main.blade.php
 rm resources/views/menu.blade.php
+git pull
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migration
+git add .
+git commit -m "created likes table migration"
+git push
+git pull
+php artisan migrate
+php artisan make:model
+git add .
+git commit -m "created like model"
+git push
+php artisan make:migration
+git add .
+git commit -m "created reaction table migration"
+git push
+git pull
+git pull
+rm public_html/js/main.js
+rm resources/views/poem/read.blade.php
 git pull
