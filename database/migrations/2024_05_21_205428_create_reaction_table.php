@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
         });
 
-        Schema::create('comment', function (Blueprint $table) {
+        Schema::table('comment', function (Blueprint $table) {
             $table->dropColumn('like_count');
         });
     }
