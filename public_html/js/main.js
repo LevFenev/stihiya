@@ -76,4 +76,26 @@ $(function () {
         let reaction_id = $(this).data('rid');
         console.log(element_id, element_name, reaction_id);
     });
+
+    const likesButtons = $('#likesButtons');
+
+    function getLikesJSON() { // does not appear on the page
+        $.ajax({
+            dataType: 'json',
+            type: 'GET',
+            async: true,
+            url: '/getlikesjson',
+            success: function (result) {
+                if (typeof result.reactionNames === "undefined") {
+                    alert('Incorrect response');
+                }
+                for (let i in result.reactionNames) {
+                    if (result.reactionNames.hasOwnProperty(i)) {
+                        let reactionName = result.reactionNames[i];
+                        likesButtons.append(`<span><button>${reactionName}</button></span>`)
+                    }
+                }
+            }
+        })
+    }
 });

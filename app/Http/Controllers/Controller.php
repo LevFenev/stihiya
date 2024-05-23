@@ -88,4 +88,18 @@ class Controller extends BaseController
         Like::create($reactionData);
     }
 
+    public function getLikesJSON()
+    {
+        $reactions = Like::all();
+
+        $reactionsNames = [];
+
+        foreach ($reactions as $reaction) {
+            $reactionsNames[] = $reaction->name;
+        }
+
+        return response()->json([
+            'reactionNames'=>$reactionsNames
+        ], options:JSON_UNESCAPED_UNICODE);
+    }
 }

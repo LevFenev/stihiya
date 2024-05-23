@@ -14,10 +14,11 @@
                 <a href="/poems/post/{{$poem->id}}">Редактировать стих</a><br>
                 <a href="/poem/{{$poem->id}}/comments/post/">Добавить комментарий</a>
             </div>
-            <div class="like-buttons" data-id="{{$poem->id}}" data-element_name="poem">
+            {{--<div class="like-buttons" data-id="{{$poem->id}}" data-element_name="poem">
                 <div class="like" data-rid="1">{{$reaction->name}}</div>
                 <div class="dislike" data-rid="2">{{$reaction->name}}</div>
-            </div>
+            </div>--}}
+        @include('likes')
 
             @foreach($poem->comments as $comment)
                 @include('comments')

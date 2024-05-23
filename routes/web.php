@@ -25,6 +25,8 @@ Route::get('/getpoemjson/{collection_id}', [App\Http\Controllers\CollectionContr
 
 Route::get('/getauthorjson/{id?}', [App\Http\Controllers\CollectionController::class, 'getAuthorsJSON'])->middleware('auth');
 
+Route::get('/getlikesjson', [App\Http\Controllers\Controller::class, 'getLikesJSON']);
+
 Route::get('/login', [App\Http\Controllers\Controller::class, 'getLogin'])->name('login');
 
 Route::post('/login/post', [App\Http\Controllers\Controller::class, 'postLogin']);
