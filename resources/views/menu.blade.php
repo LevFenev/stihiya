@@ -15,5 +15,6 @@
         @auth
             <li><a href="/logout">Выйти</a></li>
         @endauth
+        <li><a href="/likes">Выйти</a></li>
     </ul>
 </nav>
