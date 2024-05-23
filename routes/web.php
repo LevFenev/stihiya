@@ -33,7 +33,11 @@ Route::get('/logout', [App\Http\Controllers\Controller::class, 'logOut']);
 
 Route::get('admin/login', [App\Http\Controllers\ViewController::class, 'admin_login']);
 
-Route::get('/likes', [App\Http\Controllers\Controller::class, 'getLogin'])->name('login');
+Route::get('/likes', [App\Http\Controllers\Controller::class, 'getLike']);
+
+Route::get('/likes-form', [App\Http\Controllers\Controller::class, 'showLikesForm']);
+
+Route::post('/likes-form/create', [App\Http\Controllers\Controller::class, 'createReaction']);
 
 Route::get('/reg', [App\Http\Controllers\Controller::class, 'getReg']);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -48,8 +49,8 @@ class Controller extends BaseController
     public function postLogin(Request $request)
     {
         $userData = $request->validate([
-            'email'=>['required', 'email'],
-            'password'=>['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required'],
         ]);
         if (Auth::attempt($userData)) {
             $request->session()->regenerate();
@@ -68,8 +69,23 @@ class Controller extends BaseController
         return redirect('main');
     }
 
-    public function toLike (string $element_id, string $element_name, string $reaction_id) {
+    public function toLike(string $element_id, string $element_name, string $reaction_id)
+    {
 
+    }
+
+    public function showLikesForm()
+    {
+        return view('likes');
+    }
+
+    public function createReaction(Request $request)
+    {
+        $reactionData = $request->validate([
+            'id' => ['required'],
+            'name' => ['required']
+        ]);
+        Like::create($reactionData);
     }
 
 }

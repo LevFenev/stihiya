@@ -15,8 +15,8 @@
                 <a href="/poem/{{$poem->id}}/comments/post/">Добавить комментарий</a>
             </div>
             <div class="like-buttons" data-id="{{$poem->id}}" data-element_name="poem">
-                <div class="like" data-rid="1">&hearts;</div>
-                <div class="dislike" data-rid="2">&#x1F494;</div>
+                <div class="like" data-rid="1">{{$reaction->name}}</div>
+                <div class="dislike" data-rid="2">{{$reaction->name}}</div>
             </div>
 
             @foreach($poem->comments as $comment)

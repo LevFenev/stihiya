@@ -8,6 +8,7 @@
         <li><a href="/collections/post/">Сборник</a></li>
         <li><a href="/songs/post/">Песня</a></li>
         <li><a href="/albums/post/">Альбом</a></li>
+        <li><a href="/likes/">Лайки (реакции)</a></li>
     </ul>
 </div>
 @endsection

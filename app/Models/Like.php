@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
+
+    protected $table = 'reaction';
+
+    protected $attributes = [
+        'id'=>'',
+        'name'=>''
+    ];
+
+    protected $fillable = [
+        'id', 'name'
+    ];
 }
