@@ -142,18 +142,21 @@ class CollectionController extends Controller
         $user = Auth::user();
         $userPoems = $user->poems;
         $collection = Collection::find($id);
-        $collectionPoems = $collection->poems;
 
         $userPoemsNames = [];
         $collectionPoemsNames = [];
 
-        foreach ($collectionPoems as $poem) {
-            $collectionPoemsNames[$poem->id] = $poem->title;
-        }
+        if ($collection != null) {
+            $collectionPoems = $collection->poems;
 
-        foreach ($userPoems as $poem) {
-            if (isset($collectionPoemsNames[$poem->id])) {
-                $userPoemsNames[] = $poem->title;
+            foreach ($collectionPoems as $poem) {
+                $collectionPoemsNames[$poem->id] = $poem->title;
+            }
+
+            foreach ($userPoems as $poem) {
+                if (isset($collectionPoemsNames[$poem->id])) {
+                    $userPoemsNames[] = $poem->title;
+                }
             }
         }
 

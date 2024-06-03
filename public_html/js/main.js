@@ -76,10 +76,15 @@ $(function () {
         let reaction_id = $(this).data('rid');
         console.log(element_id, element_name, reaction_id);
     });
+});
 
-    const likesButtons = $('#likesButtons');
+function getLikesJSON(element_type, element_id) { // does not appear on the page
+    $(function () {
+        const likesButtons = $('#likesButtons');
+        likesButtons.data('element-type', element_type);
+        likesButtons.data('element-id', element_id);
 
-    function getLikesJSON() { // does not appear on the page
+        console.log('likes');
         $.ajax({
             dataType: 'json',
             type: 'GET',
@@ -92,10 +97,27 @@ $(function () {
                 for (let i in result.reactionNames) {
                     if (result.reactionNames.hasOwnProperty(i)) {
                         let reactionName = result.reactionNames[i];
-                        likesButtons.append(`<span><button>${reactionName}</button></span>`)
+                        likesButtons.append(`<span><button data-reaction-id="${i}">${reactionName}</button></span>`)
                     }
                 }
+                likesButtons.find('button').click(function () {
+
+                    $.ajax({
+                        dataType: 'json',
+                        type: 'GET',
+                        async: true,
+                        url: '/to-like',
+                        data: {
+                            element_id: likesButtons.data('element-id'),
+                            element_type: likesButtons.data('element-type'),
+                            reaction_id: $(this).data('reaction-id')
+                        },
+                        success: function (result) {
+                            console.log('Like data received.')
+                        }
+                    })
+                });
             }
-        })
-    }
-});
+        });
+    });
+}

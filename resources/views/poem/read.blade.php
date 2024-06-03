@@ -18,6 +18,8 @@
                 <div class="like" data-rid="1">{{$reaction->name}}</div>
                 <div class="dislike" data-rid="2">{{$reaction->name}}</div>
             </div>--}}
+        er[gerghe[rprpgner'
+            <script>getLikesJSON('poem', {{$poem->id}})</script>
         @include('likes')
 
             @foreach($poem->comments as $comment)

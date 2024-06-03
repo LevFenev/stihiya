@@ -9,10 +9,16 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
+use function PHPUnit\Framework\isNull;
+use function PHPUnit\Runner\validate;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function helloPage() {
+        return view('index');
+    }
 
     public function login()
     {
@@ -71,12 +77,25 @@ class Controller extends BaseController
 
     public function toLike(string $element_id, string $element_name, string $reaction_id)
     {
-
+        //$element_name(element_id)->likes_count = +1;
+        $like = new Like();
+        $like->element_id = $element_id;
+        $like->element_name = $element_name;
+        $like->reaction_id = $reaction_id;
+        $like->save();
     }
+
+    /*public function toLikePost(Request $request)
+    {
+        //$element_name(element_id)->likes_count = +1;
+        $likeData = $request->validate([
+
+        ]);
+    }*/
 
     public function showLikesForm()
     {
-        return view('likes');
+        return view('likes_form');
     }
 
     public function createReaction(Request $request)
@@ -86,6 +105,46 @@ class Controller extends BaseController
             'name' => ['required']
         ]);
         Like::create($reactionData);
+    }
+
+    public function editReaction(Request $request)
+    {
+        $likeData = Like::find($reaction_id);
+        if (is_null($reaction_id)) {
+            $likeData = new Like();
+        }
+        Like::where('id',$reaction_id)->update($likeData);
+        return view('likes_edit', [$likeData]);
+    }
+
+    /*public function editReaction(string $reaction_id)
+    {
+        $likeData = Like::find($reaction_id);
+        if (is_null($reaction_id)) {
+            $likeData = new Like();
+        }
+        return view('likes_edit', [$likeData]);
+    }*/
+
+    public function postEditReaction(Request $request)
+    {
+        $editedReactions = $request->validate([
+            'id' => [''],
+            'name' => ['']
+        ]);
+
+        $like = null;
+
+        if (isset($editedReactions['id'])) {
+            $like::find($editedReactions['id']);
+        } else if (is_null($like)){
+            $like = new Like();
+        }
+
+        $like->fill($editedReactions);
+        $like->save();
+
+        return view('main');
     }
 
     public function getLikesJSON()
@@ -99,7 +158,7 @@ class Controller extends BaseController
         }
 
         return response()->json([
-            'reactionNames'=>$reactionsNames
+            'reactionNames' => $reactionsNames
         ], options:JSON_UNESCAPED_UNICODE);
     }
 }

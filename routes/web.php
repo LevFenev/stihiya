@@ -21,6 +21,8 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/', [App\Http\Controllers\CollectionController::class, 'helloPage'])->middleware('auth');
+
 Route::get('/getpoemjson/{collection_id}', [App\Http\Controllers\CollectionController::class, 'getPoemsJSON'])->middleware('auth');
 
 Route::get('/getauthorjson/{id?}', [App\Http\Controllers\CollectionController::class, 'getAuthorsJSON'])->middleware('auth');
@@ -35,11 +37,17 @@ Route::get('/logout', [App\Http\Controllers\Controller::class, 'logOut']);
 
 Route::get('admin/login', [App\Http\Controllers\ViewController::class, 'admin_login']);
 
-Route::get('/likes', [App\Http\Controllers\Controller::class, 'getLike']);
+Route::get('/likes', [App\Http\Controllers\Controller::class, 'showLikesForm']);
+
+Route::get('/to-like', [App\Http\Controllers\Controller::class, 'toLike']);
 
 Route::get('/likes-form', [App\Http\Controllers\Controller::class, 'showLikesForm']);
 
 Route::post('/likes-form/create', [App\Http\Controllers\Controller::class, 'createReaction']);
+
+Route::get('/likes-edit', [App\Http\Controllers\Controller::class, 'editReaction']);
+
+Route::get('/likes-edit/done', [App\Http\Controllers\Controller::class, 'postEditReaction']);
 
 Route::get('/reg', [App\Http\Controllers\Controller::class, 'getReg']);
 

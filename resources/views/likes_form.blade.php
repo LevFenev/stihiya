@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+    <a href="/likes-edit">Редактирование лайков</a>
     <form action="/likes-form/create" method="post" class="general-form">
         @csrf
         <label for="id">

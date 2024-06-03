@@ -1,5 +1,5 @@
 body {
-
+    margin: 0;
 }
 
 div.registration_wrapper {
@@ -28,10 +28,21 @@ div.alert {
 
 }
 
+.general-form label {
+    display: block;
+}
+
+.general-form label span {
+    display: inline-block;
+    width: 200px;
+}
+
+/* MAIN MENU */
+
 .main-menu li {
     display: inline-block;
     width: 120px;
-    border: 1px solid #eeeeee;
+    border: 1px solid #000000;
     border-radius: 3px;
     text-align: center;
     font-family: Calibri;
@@ -53,11 +64,7 @@ div.alert {
     color: #555555;
 }
 
-.general-form label {
-    display: block;
-}
-
-.general-form label span {
-    display: inline-block;
-    width: 200px;
+.header {
+    background-color: #FFCC7F;
+    padding: 10px;
 }
