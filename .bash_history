@@ -1,35 +1,3 @@
-git reset --hard
-git pull
-git status
-git pull
-git pull
-php artisan 
-export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-php artisan 
-php artisan make:migrate
-php artisan make:migration
-git commit -m "migration create_deleted_at_column_to_poem"
-git add .
-git commit -m "migration create_deleted_at_column_to_poem"
-git push
-git pull
-php artisan migrate
-git pull
-php artisan migrate
-git pull
-git pull
-git pull
-git pull
-rm app/Http/Controllers/PoemController.php
-rm routes/web.php
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
 git pull
 git pull
 git pull
@@ -497,4 +465,36 @@ git pull
 git pull
 rm public_html/js/main.js
 rm resources/views/poem/read.blade.php
+git pull
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migration
+git add .
+git commit -m "created likes page form and create_reactions_table migration for keeping reactions"
+git push
+php artisan migrate
+php artisan migrate:rollback
+php artisan:migrate
+php artisan make:migrate
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate
+php artisan migrate:rollback
+git pull
+php artisan migrate
+git pull
+php artisan migrate
+git pull
+rm app/Http/Controllers/Controller.php
+rm app/Models/Like.php
+rm resources/views/forms.blade.php
+rm resources/views/likes.blade.php
+rm resources/views/menu.blade.php
+rm routes/web.php
+git pull
+git pull
+rm app/Http/Controllers/Controller.php
+rm public_html/js/main.js
+rm resources/views/likes.blade.php
+rm resources/views/poem/read.blade.php
+rm routes/web.php
 git pull

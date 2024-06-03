@@ -75,13 +75,13 @@ class Controller extends BaseController
         return redirect('main');
     }
 
-    public function toLike(string $element_id, string $element_name, string $reaction_id)
+    public function toLike(Request $request)
     {
         //$element_name(element_id)->likes_count = +1;
         $like = new Like();
-        $like->element_id = $element_id;
-        $like->element_name = $element_name;
-        $like->reaction_id = $reaction_id;
+        $like->element_id = $request->element_id;
+        $like->element_name = $request->element_name;
+        $like->reaction_id = $request->reaction_id;
         $like->save();
     }
 
