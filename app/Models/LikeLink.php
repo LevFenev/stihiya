@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class LikeLink extends Model
 {
     use HasFactory;
+
+    protected $table = 'likes';
+
+    
 }

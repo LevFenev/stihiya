@@ -3,10 +3,7 @@
 {{--@guest--}}
 {{--    <a href="/login">Войти</a>--}}
 {{--@endguest--}}
-@auth
-    {{\Illuminate\Support\Facades\Auth::user()->name}}
-    {{\Illuminate\Support\Facades\Auth::user()->username}}
-@endauth
+
 {{--    @include('menu')--}}
 <button style="background-color: red"><a href="/admin/main">Админ</a></button>
 <button style="background-color: blue"><a href="/main">Пользователь</a></button>

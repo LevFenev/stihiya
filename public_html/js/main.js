@@ -80,44 +80,57 @@ $(function () {
 
 function getLikesJSON(element_type, element_id) { // does not appear on the page
     $(function () {
-        const likesButtons = $('#likesButtons');
-        likesButtons.data('element-type', element_type);
-        likesButtons.data('element-id', element_id);
+        updateLikesButtonsNumbers(element_type, element_id);
+    });
+}
 
-        console.log('likes');
-        $.ajax({
-            dataType: 'json',
-            type: 'GET',
-            async: true,
-            url: '/getlikesjson',
-            success: function (result) {
-                if (typeof result.reactionNames === "undefined") {
-                    alert('Incorrect response');
-                }
-                for (let i in result.reactionNames) {
-                    if (result.reactionNames.hasOwnProperty(i)) {
-                        let reactionName = result.reactionNames[i];
-                        likesButtons.append(`<span><button data-reaction-id="${i}">${reactionName}</button></span>`)
-                    }
-                }
-                likesButtons.find('button').click(function () {
+function updateLikesButtonsNumbers(element_type, element_id) {
+    const likesButtons = $('#likesButtons');
+    likesButtons.html(''); // to remove previous likes buttons
+    likesButtons.data('element-type', element_type);
+    likesButtons.data('element-id', element_id);
 
-                    $.ajax({
-                        dataType: 'json',
-                        type: 'GET',
-                        async: true,
-                        url: '/to-like',
-                        data: {
-                            element_id: likesButtons.data('element-id'),
-                            element_type: likesButtons.data('element-type'),
-                            reaction_id: $(this).data('reaction-id')
-                        },
-                        success: function (result) {
-                            console.log('Like data received.')
-                        }
-                    })
-                });
+    console.log('likes');
+    $.ajax({
+        dataType: 'json',
+        type: 'GET',
+        async: true,
+        url: '/getlikesjson',
+        data: {element_type: element_type, element_id: element_id},
+        success: function (result) {
+            if (typeof result.reactionNames === "undefined") {
+                alert('Incorrect response');
             }
-        });
+            for (let i in result.reactionNames) {
+                if (result.reactionNames.hasOwnProperty(i)) {
+                    let reactionName = result.reactionNames[i].name;
+                    let reactionAmount = result.reactionNames[i].amount;
+                    let reactionId = result.reactionNames[i].id;
+                    let reactionAmountTitle = '';
+                    if (reactionAmount > 0) {
+                        reactionAmountTitle = reactionAmount;
+                    }
+                    likesButtons.append(`<span><button data-reaction-id="${reactionId}">${reactionName}${reactionAmountTitle}</button></span>`)
+                }
+            }
+            likesButtons.find('button').click(function () {
+
+                $.ajax({
+                    dataType: 'json',
+                    type: 'GET',
+                    async: true,
+                    url: '/to-like',
+                    data: {
+                        element_id: likesButtons.data('element-id'),
+                        element_type: likesButtons.data('element-type'),
+                        reaction_id: $(this).data('reaction-id')
+                    },
+                    success: function (result) {
+                        console.log('Like data received.');
+                        updateLikesButtonsNumbers(element_type, element_id);
+                    }
+                })
+            });
+        }
     });
 }

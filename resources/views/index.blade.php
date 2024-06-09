@@ -1,4 +1,4 @@
+@extends('layout')
 <h1>
     Добро пожаловать в СТИХиЮ!
 </h1>
-@include('menu')

@@ -16,6 +16,10 @@
             @auth
                 <li><a href="/logout">Выйти</a></li>
             @endauth
+            @auth
+                {{\Illuminate\Support\Facades\Auth::user()->name}}
+                {{\Illuminate\Support\Facades\Auth::user()->username}}
+            @endauth
         </ul>
     </nav>
 </div>

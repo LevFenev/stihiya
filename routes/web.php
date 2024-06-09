@@ -39,7 +39,7 @@ Route::get('admin/login', [App\Http\Controllers\ViewController::class, 'admin_lo
 
 Route::get('/likes', [App\Http\Controllers\Controller::class, 'showLikesForm']);
 
-Route::get('/to-like', [App\Http\Controllers\Controller::class, 'toLike']);
+Route::get('/to-like', [App\Http\Controllers\Controller::class, 'toLike'])->middleware('auth');
 
 Route::get('/likes-form', [App\Http\Controllers\Controller::class, 'showLikesForm']);
 

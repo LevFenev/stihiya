@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Like;
+use App\Models\LikeLink;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -11,12 +12,14 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isNull;
 use function PHPUnit\Runner\validate;
+use function Ramsey\Collection\element;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function helloPage() {
+    public function helloPage()
+    {
         return view('index');
     }
 
@@ -77,12 +80,24 @@ class Controller extends BaseController
 
     public function toLike(Request $request)
     {
+        $like = LikeLink::where([
+            'element_id' => $request->element_id,
+            'element_name' => $request->element_type,
+            'user_id' => Auth::user()->id
+        ])->first();
         //$element_name(element_id)->likes_count = +1;
-        $like = new Like();
+        if (is_null($like)) {
+            $like = new LikeLink();
+        }
         $like->element_id = $request->element_id;
-        $like->element_name = $request->element_name;
+        $like->element_name = $request->element_type;
         $like->reaction_id = $request->reaction_id;
+        $like->user_id = Auth::user()->id;
         $like->save();
+
+        return response()->json([
+            'success' => true
+        ], options:JSON_UNESCAPED_UNICODE);
     }
 
     /*public function toLikePost(Request $request)
@@ -113,7 +128,7 @@ class Controller extends BaseController
         if (is_null($reaction_id)) {
             $likeData = new Like();
         }
-        Like::where('id',$reaction_id)->update($likeData);
+        Like::where('id', $reaction_id)->update($likeData);
         return view('likes_edit', [$likeData]);
     }
 
@@ -137,7 +152,7 @@ class Controller extends BaseController
 
         if (isset($editedReactions['id'])) {
             $like::find($editedReactions['id']);
-        } else if (is_null($like)){
+        } else if (is_null($like)) {
             $like = new Like();
         }
 
@@ -147,14 +162,35 @@ class Controller extends BaseController
         return view('main');
     }
 
-    public function getLikesJSON()
+    public function getLikesJSON(Request $request)
     {
+        $likes = LikeLink::where([
+            'element_id' => $request->element_id,
+            'element_name' => $request->element_type
+        ])->get();
+
+        $likeCount = [];
+
+        // to be changed with group by
+        foreach ($likes as $like) {
+            if (!isset($likeCount[$like->reaction_id])) {
+                $likeCount[$like->reaction_id] = 0;
+            }
+            $likeCount[$like->reaction_id]++;
+        }
+
         $reactions = Like::all();
 
-        $reactionsNames = [];
-
         foreach ($reactions as $reaction) {
-            $reactionsNames[] = $reaction->name;
+            if (!isset($likeCount[$reaction->id])) {
+                $likeCount[$reaction->id] = 0;
+            }
+            $reactionsNames[] =
+                [
+                    'id' => $reaction->id,
+                    'name' => $reaction->name,
+                    'amount' => $likeCount[$reaction->id]
+                ];
         }
 
         return response()->json([

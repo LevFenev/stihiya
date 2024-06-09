@@ -11,7 +11,28 @@ div.registration_wrapper {
 
 }
 form {
+
 }
+
+input {
+    border-radius: 5px;
+}
+
+textarea {
+    border-radius: 5px;
+}
+
+button {
+    border-radius: 5px;
+}
+
+.inner-form {
+
+}
+
+.poem__form-label {
+     font-size: 16px;
+ }
 
 div.reg_content {
 }
