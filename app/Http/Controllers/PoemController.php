@@ -102,6 +102,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
 
     public function getPoem(string $newxxxyz = '')
     { // поэма в форму
+
         $poem = Poem::find($newxxxyz);
         if (is_null($poem)) {
             $poem = new Poem();

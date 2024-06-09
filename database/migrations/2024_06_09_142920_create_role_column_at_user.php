@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('role_column_at_user', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('user', function (Blueprint $table) {
+            $table->string('role')->default('user');
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('role_column_at_user');
+        Schema::table('user', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 };
