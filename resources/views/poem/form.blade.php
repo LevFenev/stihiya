@@ -9,7 +9,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 @if($key=='content')
-                    <label class="poem__form-label">{{__($key)}}<textarea name="{{$key}}" id="2" cols="30"
+                    <label class="poem__form-label">{{__('common.'.$key)}}<textarea name="{{$key}}" id="2" cols="30"
                                              rows="10">{{$attribute}}</textarea></label><br>
                 @else
                     @php
@@ -24,7 +24,7 @@
                         @endphp
                     @endif
 
-                    <label {{$display}}>{{$key}}<input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"></label>
+                    <label {{$display}}>{{__('common.'.$key)}}<input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"></label>
                     <br>
                 @endif
 

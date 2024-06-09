@@ -1,21 +1,3 @@
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-php artisan make:mig
 export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
 php artisan make:mig
 git add .
@@ -498,3 +480,21 @@ rm resources/views/likes.blade.php
 rm resources/views/poem/read.blade.php
 rm routes/web.php
 git pull
+git pull
+rm app/Http/Controllers/CollectionController.php
+rm app/Http/Controllers/Controller.php
+rm public_html/css/main.css
+rm public_html/js/main.js
+rm resources/views/likes_form.blade.php
+rm resources/views/menu.blade.php
+rm resources/views/poem/read.blade.php
+rm routes/web.php
+rm resources/views/index.blade.php
+rm resources/views/likes_edit.blade.php
+git pull
+php artisan make:model
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:model
+git add .
+git commit -m "created a LikeLink model which will save data for each like"
+git push
