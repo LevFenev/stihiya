@@ -5,8 +5,8 @@
 {{--@endguest--}}
 
 {{--    @include('menu')--}}
-<button style="background-color: red"><a href="/admin/main">Админ</a></button>
-<button style="background-color: blue"><a href="/main">Пользователь</a></button>
+{{--<button style="background-color: red"><a href="/admin/main">Админ</a></button>
+<button style="background-color: blue"><a href="/main">Пользователь</a></button>--}}
 {{--
 кнопки:
 Я админ (красный)

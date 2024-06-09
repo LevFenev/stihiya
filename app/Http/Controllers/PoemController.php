@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Poem;
+use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use mysql_xdevapi\Exception;
 
 class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦЫ - какие таблицы? 6.3.24
 {
@@ -102,12 +106,18 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
 
     public function getPoem(string $newxxxyz = '')
     { // поэма в форму
+        $user = Auth::user();
 
         $poem = Poem::find($newxxxyz);
         if (is_null($poem)) {
             $poem = new Poem();
         }
-        return view('poem.form', ['poem' => $poem]);
+
+        if ($user->role == User::ROLE_ADMIN || $user->id == $poem->publisher_id) {
+            return view('poem.form', ['poem' => $poem]);
+        }
+//        throw new \Exception('Access denied.');
+        abort(403);
     }
 
     public function postPoem(Request $request)

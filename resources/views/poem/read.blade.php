@@ -8,6 +8,7 @@
                 <a href="/songs/{{$poem->id}}">Ссылка на аудиозапись</a>
             @endforeach
             <p>Автор: <i>{{$poem->username()}}</i></p>
+            <p>Публикатор: <i>{{$poem->publisher_name()}}</i></p>
             <p>{!!str_replace("\n",'<br>',($poem->content))!!}</p>
             <p>Год выпуска: <i>{{($poem->release_year)}}</i></p>
             <div class="buttons">

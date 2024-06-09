@@ -26,4 +26,11 @@ class Main extends Model
             return "неизвестен";
         } return $user->name;
     }
+
+    public function publisher_name() {
+        $user = $this->publisher; //должен достать из relation
+        if(is_null($user)){
+            return "неизвестен";
+        } return $user->name;
+    }
 }

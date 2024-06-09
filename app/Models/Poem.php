@@ -48,6 +48,11 @@ class Poem extends Main
         return $this->belongsTo(\App\Models\User::class, 'author_id'); //$this->poem_id;
     }
 
+    public function publisher()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'publisher_id'); //$this->poem_id;
+    }
+
     /*public function username() { XXX IN THE MAIN MODEL NOW XXX
         $user = $this->user; //должен достать из relation
         if(is_null($user)){
