@@ -120,14 +120,14 @@ Route::get('admin/collections/restore/{id}', [\App\Http\Controllers\CollectionCo
  * ALBUMS / АЛЬБОМЫ
  */
 
-Route::get('albums/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
-
-Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums'])->name('albums');
 
 Route::get('/albums/post/{new_id?}', [\App\Http\Controllers\AlbumController::class, 'getAlbum'])->middleware('auth')->where('id','[0-9]+');
 
 Route::post('/albums/post', [\App\Http\Controllers\AlbumController::class, 'postAlbum']);
 
+Route::get('albums/{album_id}', [\App\Http\Controllers\AlbumController::class, 'readAlbum']); // без "/read"?
+
+Route::get('albums', [\App\Http\Controllers\AlbumController::class, 'showAlbums'])->name('albums');
 // admin
 Route::get('admin/albums', [\App\Http\Controllers\AlbumController::class, 'admin_showAlbums']);
 

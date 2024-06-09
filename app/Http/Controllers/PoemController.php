@@ -44,7 +44,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
     public function deletePoem(string $id)
     {
         Poem::where('id', $id)->delete();
-        return redirect()->route('poems'); //как-то сюда редиректить на страницу со списком стихов
+        return redirect()->route('admin_poems'); //как-то сюда редиректить на страницу со списком стихов
     }
 
     public function showTrashedPoems()
@@ -113,7 +113,7 @@ class PoemController extends Controller // ВОТ ЗДЕСЬ ДВЕ ТАБЛИЦ
             $poem = new Poem();
         }
 
-        if ($user->role == User::ROLE_ADMIN || $user->id == $poem->publisher_id) {
+        if ($user->role == User::ROLE_ADMIN || $user->id == $poem->publisher_id || empty($poem->publisher_id)) {
             return view('poem.form', ['poem' => $poem]);
         }
 //        throw new \Exception('Access denied.');

@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+    <h2>Публикация стиха</h2>
     <form method="post" enctype="multipart/form-data"
           action="/poems/post"> {{--прописать потом метод внутри poemController связанный с формой getPoem--}}
         @csrf

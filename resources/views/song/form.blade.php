@@ -1,10 +1,11 @@
 @extends('layout')
 @section('content')
+    <h2>Публикация песни</h2>
     <form method="post" enctype="multipart/form-data" action="/songs/post">
         @csrf
         <div class="form-inner">
             @foreach($song->getAttributes() as $key=>$attribute)
-                key {{$key}} attribute {{$attribute}} <br>
+                {{--                key {{$key}} attribute {{$attribute}} <br>--}}
                 @error($key)
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -32,9 +33,12 @@
                     @endphp
                 @endif
 
-                <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}"> </label>
-                <br>
+                @if($key!='lyrics')
 
+                    <label {{$display}}> {{$key}} <input name="{{$key}}" type="{{$type}}" value="{{$attribute}}">
+                    </label>
+                    <br>
+                @endif
             @endforeach
 
             <button type="submit">Опубликовать</button>

@@ -5,9 +5,9 @@
         @foreach($songs as $song)
             <h2>{{($song->title)}}</h2>
             @foreach($song->poems as $poem) {{-- for each in case there are several versions--}}
-                <a href="/poems/{{$poem->id}}">Оригинальный стих</a>
-            @endforeach
+            <a href="/poems/{{$poem->id}}">Оригинальный стих</a>
             <a href="/songs/{{$poem->song}}">{{$poem->song}}</a>
+            @endforeach
             <p>Артист(ы): <i>{{$song->username()}}</i></p>
             <p>{!!str_replace("\n",'<br>',($song->lyrics))!!}</p>
             <p> Дата выхода: <i>{{($song->release_date)}}</i></p>

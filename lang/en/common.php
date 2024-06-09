@@ -4,5 +4,8 @@ return [
     'author_id' => "Author's ID",
     'publisher_id' => "Publisher's ID",
     'release_date' => "Release date",
-    'content'=> "Content"
+    'content'=> "Content",
+
+    'description'=> "Description",
+    'cover'=>"Cover"
 ];

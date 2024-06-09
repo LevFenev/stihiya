@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+    <h2>Публикация сборника</h2>
     <form method="post" enctype="multipart/form-data" action="/collections/post" class="general-form">
         @csrf
         <div class="form-inner">
@@ -8,7 +9,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 @if($key=='description')
-                    <label><span>{{$key}}</span>
+                    <label><span>{{__('common.'.$key)}}</span>
                         <textarea name="{{$key}}" id="2" cols="30" rows="10">{{$attribute}}</textarea>
                     </label>
                 @else
@@ -33,8 +34,12 @@
                     @endphp
                 @endif
 
-                <label {{$display}}> <span>{{$key}}</span> <input {!!$id!!} name="{{$key}}" type="{{$type}}"
-                                                                  value="{{$attribute}}"> </label>
+                @if($key!='description')
+                    <label {{$display}}> <span>{{__('common.'.$key)}}</span> <input {!!$id!!} name="{{$key}}"
+                                                                                    type="{{$type}}"
+                                                                                    value="{{$attribute}}"> </label>
+                @endif
+
 
             @endforeach
             <div id="quickSearch"><input type="text"/></div>

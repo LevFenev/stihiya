@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+    <h2>Редактирование профиля</h2>
     <form method="post" enctype="multipart/form-data" action="/users/post">
         @csrf
         <div class="form-inner">
