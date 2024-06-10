@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div class="registration_wrapper">
-    <button id="click-me" type="submit">click me</button>
+{{--    <button id="click-me" type="submit">click me</button>--}}
     <form method="post" action="/login/post">
         @csrf
         <div class="form-inner">

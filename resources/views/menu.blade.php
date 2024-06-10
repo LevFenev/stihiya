@@ -18,7 +18,7 @@
             @endauth
             @auth
                 {{\Illuminate\Support\Facades\Auth::user()->name}}
-                {{\Illuminate\Support\Facades\Auth::user()->username}}
+{{--                {{\Illuminate\Support\Facades\Auth::user()->username}}--}}
             @endauth
         </ul>
     </nav>

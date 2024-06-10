@@ -5,7 +5,7 @@
         @csrf
         <div class="form-inner">
             @foreach($user->getAttributes() as $key=>$attribute)
-                key {{$key}} attribute {{$attribute}} <br>
+{{--                key {{$key}} attribute {{$attribute}} <br>--}}
                 @error($key)
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

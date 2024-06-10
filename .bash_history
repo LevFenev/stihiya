@@ -1,49 +1,3 @@
-export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-php artisan make:mig
-git add .
-git commit -m "create deleted at column to collection migration"
-git push
-git pull
-php artisan migrate
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git checkout --
-mc
-cd storage/logs
-tail -f laravel.log 
-git pull
-rm app/Http/Controllers/CollectionController.php
-rm app/Http/Controllers/CollectionController.php
-git status
-git add .
-git pull
-git commit
-git commit -a
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-git pull
-php artisan make::migrate
-export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
-php artisan make::migrate
-php artisan migrate
-php artisan create::migration
-php artisan make:migration
-git add .
-git push
-git commit -m "made migration rename_users_table"
-git push
-git pull
 php artisan migrate
 export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
 php artisan migrate
@@ -498,3 +452,49 @@ php artisan make:model
 git add .
 git commit -m "created a LikeLink model which will save data for each like"
 git push
+git pull
+rm app/Http/Controllers/Controller.php
+rm app/Http/Controllers/PoemController.php
+rm app/Models/LikeLink.php
+rm app/Models/Poem.php
+rm public_html/css/main.css
+rm public_html/js/main.js
+rm resources/views/index.blade.php
+rm resources/views/main.blade.php
+rm resources/views/menu.blade.php
+rm resources/views/poem/form.blade.php
+rm resources/views/poem/read.blade.php
+rm resources/views/song/form.blade.php
+rm resources/views/user/form.blade.php
+rm routes/web.php
+git pull
+php artisan make:migration
+export PATH=/usr/local/php/cgi/8.2/bin/:$PATH
+php artisan make:migration
+git add ,
+git add .
+git commit -m "created migration create_role_column_at_user"
+git push
+git pull
+php artisan migrate
+git pull
+php artisan migrate
+git pull
+rm app/Http/Controllers/PoemController.php
+rm app/Models/Main.php
+rm app/Models/Poem.php
+rm app/Models/User.php
+rm resources/views/poem/read.blade.php
+git pull
+git pull
+rm app/Http/Controllers/PoemController.php
+rm lang/en/common.php
+rm lang/ru/common.php
+rm resources/views/album/form.blade.php
+rm resources/views/collection/form.blade.php
+rm resources/views/poem/form.blade.php
+rm resources/views/song/form.blade.php
+rm resources/views/song/read.blade.php
+rm resources/views/user/form.blade.php
+rm routes/web.php
+git pull

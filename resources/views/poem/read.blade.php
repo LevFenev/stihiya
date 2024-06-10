@@ -11,6 +11,11 @@
             <p>Публикатор: <i>{{$poem->publisher_name()}}</i></p>
             <p>{!!str_replace("\n",'<br>',($poem->content))!!}</p>
             <p>Год выпуска: <i>{{($poem->release_year)}}</i></p>
+            @auth
+                <script>getLikesJSON('poem', {{$poem->id}})</script>
+            @endauth
+            @include('likes')
+
             <div class="buttons">
                 <a href="/poems/post/{{$poem->id}}">Редактировать стих</a><br>
                 <a href="/poem/{{$poem->id}}/comments/post/">Добавить комментарий</a>
@@ -19,10 +24,6 @@
                 <div class="like" data-rid="1">{{$reaction->name}}</div>
                 <div class="dislike" data-rid="2">{{$reaction->name}}</div>
             </div>--}}
-            @auth
-                <script>getLikesJSON('poem', {{$poem->id}})</script>
-            @endauth
-            @include('likes')
 
             @foreach($poem->comments as $comment)
                 @include('comments')
